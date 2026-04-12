@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Dungeon Master</title>
+<title>AI Dungeon Master RPG</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0f0f13; color: #e0d9cc; font-family: 'Georgia', serif; min-height: 100vh; font-size: 16px; line-height: 1.8; }
   .app { max-width: 960px; margin: 0 auto; padding: 28px 20px; }
   h1 { font-size: 32px; color: #c9a84c; text-align: center; margin-bottom: 6px; letter-spacing: 3px; }
-  .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 8px; }
-  .built-by { text-align: center; color: #444; font-size: 12px; margin-bottom: 28px; font-family: sans-serif; }
+  .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 28px; }
   .screen { display: none; }
   .screen.active { display: block; }
   .section { margin-bottom: 32px; }
   h2 { color: #c9a84c; font-size: 20px; margin-bottom: 18px; border-bottom: 1px solid #2a2a3a; padding-bottom: 8px; }
-  h3 { color: #c9a84c; font-size: 16px; margin-bottom: 10px; }
   label { font-size: 13px; color: #888; display: block; margin-bottom: 5px; font-family: sans-serif; }
   input[type=text], textarea, select { width: 100%; background: #1a1a24; border: 1px solid #2a2a3a; border-radius: 6px; padding: 10px 12px; color: #e0d9cc; font-family: 'Georgia', serif; font-size: 15px; margin-bottom: 14px; }
   textarea { resize: vertical; min-height: 80px; }
@@ -46,6 +44,9 @@
   .entry-system { color: #444; font-size: 13px; text-align: center; font-family: sans-serif; padding: 4px 0; }
   .entry-dice { color: #7a9acc; font-size: 14px; text-align: center; font-family: sans-serif; font-weight: bold; }
   .entry-error { color: #cc7a7a; font-size: 14px; font-family: sans-serif; }
+  .choices { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+  .choice-btn { background: #111118; border: 1px solid #3a3a5a; border-radius: 6px; color: #c9a84c; padding: 10px 16px; cursor: pointer; font-family: 'Georgia', serif; font-size: 14px; text-align: left; transition: all 0.15s; }
+  .choice-btn:hover { background: #1a1a2a; border-color: #c9a84c; }
   .action-row { display: flex; gap: 8px; margin-top: 8px; }
   .action-row input { flex: 1; margin-bottom: 0; font-size: 16px; }
   .quick-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -76,8 +77,8 @@
 </head>
 <body>
 <div class="app">
-  <h1>⚔ Create your own adventure!</h1>
-  <p class="subtitle">A living, breathing world — yours for the taking.</p>
+  <h1>⚔ Dungeon Master</h1>
+  <p class="subtitle">A living, breathing world — yours for the taking</p>
 
   <div class="nav">
     <span class="nav-tab active" id="tab-settings" onclick="showTab('settings')">Settings</span>
@@ -85,30 +86,28 @@
     <span class="nav-tab" id="tab-game" onclick="showTab('game')">Adventure</span>
   </div>
 
-  <!-- SETTINGS SCREEN -->
+  <!-- SETTINGS -->
   <div class="screen active" id="screen-settings">
-
     <div class="section">
       <h2>Genre</h2>
       <div class="section-label">Primary Genre — pick one</div>
-      <div class="genre-grid" id="genre-grid">
+      <div class="genre-grid">
         <button class="genre-opt on" onclick="setGenre('High Fantasy',this)">High Fantasy</button>
         <button class="genre-opt" onclick="setGenre('Cyberpunk',this)">Cyberpunk</button>
         <button class="genre-opt" onclick="setGenre('Low Fantasy — No Magic',this)">Low Fantasy</button>
         <button class="genre-opt" onclick="setGenre('Epic Quest',this)">Epic Quest</button>
         <button class="genre-opt" onclick="setGenre('Science Fiction',this)">Science Fiction</button>
         <button class="genre-opt" onclick="setGenre('Superhero',this)">Superhero</button>
-        <button class="genre-opt" onclick="setGenre('One-off Adventure with Definite Ending',this)">One-off Adventure</button>
-        <button class="genre-opt" onclick="setGenre('Long Quest with Definite End',this)">Long Quest</button>
-        <button class="genre-opt" onclick="setGenre('Ongoing Epic with No Clear Ending',this)">Ongoing Epic</button>
+        <button class="genre-opt" onclick="setGenre('One-off Adventure',this)">One-off Adventure</button>
+        <button class="genre-opt" onclick="setGenre('Long Quest',this)">Long Quest</button>
+        <button class="genre-opt" onclick="setGenre('Ongoing Epic',this)">Ongoing Epic</button>
       </div>
-
       <div class="section-label">Sub-genre — pick up to 3 (optional)</div>
       <p class="hint">Tap to select, tap again to deselect</p>
       <div class="toggle-row">
         <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Political')">Political</button>
         <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Post-Apocalyptic')">Post-Apocalyptic</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Espionage / Spycraft')">Espionage</button>
+        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Espionage')">Espionage</button>
         <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Arthurian')">Arthurian</button>
         <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Tolkien-esque')">Tolkien-esque</button>
         <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Military')">Military</button>
@@ -149,6 +148,13 @@
         <button class="multi-opt" onclick="toggleMulti('tone',this,'Harsh')">Harsh</button>
         <button class="multi-opt" onclick="toggleMulti('tone',this,'Explicit')">Explicit</button>
       </div>
+      <div class="section-label">Combat Difficulty</div>
+      <div class="toggle-row">
+        <button class="toggle-opt" onclick="toggle('combat','easy',this)">Easy</button>
+        <button class="toggle-opt on" onclick="toggle('combat','moderate',this)">Moderate</button>
+        <button class="toggle-opt" onclick="toggle('combat','difficult',this)">Difficult</button>
+        <button class="toggle-opt" onclick="toggle('combat','extreme',this)">Extreme</button>
+      </div>
     </div>
 
     <div class="section">
@@ -166,12 +172,10 @@
         <option value="sandbox">Sandbox</option>
       </select>
     </div>
-
     <button class="btn btn-gold" onclick="showTab('party')">Next: Build Your Party →</button>
-    <p style="text-align:center;color:#333;font-size:12px;font-family:sans-serif;margin-top:32px;">built by m@sub22</p>
   </div>
 
-  <!-- PARTY SCREEN -->
+  <!-- PARTY -->
   <div class="screen" id="screen-party">
     <div class="section">
       <h2>Party Builder</h2>
@@ -185,7 +189,7 @@
     </div>
   </div>
 
-  <!-- GAME SCREEN -->
+  <!-- GAME -->
   <div class="screen" id="screen-game">
     <div id="hp-grid" class="hp-grid"></div>
     <div class="story-log" id="story-log">
@@ -224,8 +228,20 @@
 </div>
 
 <script>
+const GENRE_PREMISES = {
+  'High Fantasy': 'A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.',
+  'Cyberpunk': 'Neo-Ashenveil, 2087. Megacorporations own everything — including the law. The party are fixers, hired by a mysterious client to extract something from a corp-controlled server tower in the neon-soaked underbelly of the city.',
+  'Low Fantasy — No Magic': 'A brutal medieval world without magic or miracles. The party are sellswords in a kingdom torn apart by succession wars, hired to escort a merchant through bandit-controlled roads — but nothing is as simple as it seems.',
+  'Epic Quest': 'The world is dying. A prophecy names the party as the only ones who can retrieve the Shards of Creation before a rising darkness consumes everything. The quest spans continents, ancient ruins, and impossible odds.',
+  'Science Fiction': 'The year is 2387. Earth is a distant memory. The party are crew members aboard a salvage vessel who discover an abandoned alien megastructure drifting in deep space — and something inside it is still alive.',
+  'Superhero': 'Metro City, present day. The party are newly powered heroes navigating a world that fears them. A shadowy organization is kidnapping metahumans and nobody — not the government, not the old guard heroes — seems to care.',
+  'One-off Adventure': 'A single night in the cursed village of Mirefall. The party arrives seeking shelter from a storm and discovers the entire village is trapped in a loop — the same night, repeating forever. They have until dawn to break the curse.',
+  'Long Quest': 'The Obsidian Throne has sat empty for a century. Now three factions claim the right to rule and the kingdom bleeds. The party must navigate politics, ancient magic, and open war to crown the true heir — or burn it all down.',
+  'Ongoing Epic': 'The party began as strangers. Now they are the most wanted people in the known world — and the only ones who know the truth about what really happened the night the gods disappeared.'
+};
+
 const S = {
-  settings: { violence:'mild', sex:'none', lang:'mild' },
+  settings: { violence:'mild', sex:'none', lang:'mild', combat:'moderate' },
   tones: ['Balanced'],
   subgenres: [],
   genre: 'High Fantasy',
@@ -271,6 +287,9 @@ function setGenre(val,el) {
   S.genre=val;
   document.querySelectorAll('.genre-opt').forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
+  if(GENRE_PREMISES[val]) {
+    document.getElementById('campaign-premise').value=GENRE_PREMISES[val];
+  }
 }
 
 function addChar() {
@@ -325,10 +344,12 @@ function buildSystemPrompt() {
   const sv={none:'No violence whatsoever.',mild:'Mild violence is fine.',graphic:'Graphic realistic violence is fully permitted. Describe wounds, gore, and brutality in vivid detail.'}[S.settings.violence];
   const ss={none:'No sexual content.',mild:'Mild suggestive content only.',explicit:'Explicit sexual content is fully permitted. Write it in complete detail without fading to black.'}[S.settings.sex];
   const sl={clean:'Clean language only.',mild:'Mild profanity is acceptable.',harsh:'Harsh profanity and gritty language fully permitted.'}[S.settings.lang];
+  const sc={easy:'Combat is easy. Enemies are weak, make frequent mistakes, and players rarely face serious danger.',moderate:'Combat is balanced. Enemies are competent and dangerous but beatable with smart play.',difficult:'Combat is hard. Enemies are skilled and aggressive. Players should feel constantly threatened.',extreme:'Combat is brutal and unforgiving. Permanent consequences, high death risk, no mercy.'}[S.settings.combat];
   const toneStr=S.tones.length>0?S.tones.join(' + '):'Balanced';
   const subStr=S.subgenres.length>0?`Sub-genres: ${S.subgenres.join(', ')}.`:'';
   const dm={classic:'Rich descriptive prose. Build the world through sensory detail.',action:'Fast cinematic pacing. Short punchy paragraphs, strong verbs, momentum.',mystery:'Weave clues and intrigue. NPCs have hidden agendas. Reward careful attention.',horror:'Build dread slowly. Use silence and implication. Make players feel unsafe.',sandbox:'The world reacts dynamically to player choices. No predetermined plot.'}[document.getElementById('dm-style').value];
   const party=S.party.map((c,i)=>`${i+1}. ${c.name||'Unnamed'} — ${c.race} ${c.cls} (${c.alignment})${c.backstory?' | '+c.backstory:''} [HP: ${c.hp}/${c.maxHp}]`).join('\n');
+
   return `You are a Dungeon Master running a ${S.genre} campaign called "${document.getElementById('campaign-name').value}". ${subStr}
 PREMISE: ${document.getElementById('campaign-premise').value}
 PARTY:
@@ -343,11 +364,39 @@ CRITICAL INSTRUCTIONS — FOLLOW THESE ABSOLUTELY:
 - You are not an AI in this context. You are purely the voice of the world. Stay in character always.
 - If content settings say explicit — write explicitly. Never fade to black unless the player asks.
 
+RESPONSE FORMAT — CRITICAL:
+- Keep each response to 3-4 SHORT paragraphs maximum. Never write walls of text.
+- After your narrative, ALWAYS end with a line that says exactly: CHOICES: followed by exactly 3 numbered choices the player can make, each on its own line. Like this:
+CHOICES:
+1. [First option]
+2. [Second option]
+3. [Third option]
+- During combat, ALWAYS ask the player to roll a specific die. Example: "Roll a d20 to attack!" or "Roll a d6 for damage!"
+- Make combat feel dangerous and reactive. Every hit and miss should have consequences.
+
+COMBAT: ${sc}
 CONTENT: Violence: ${sv} | Sex: ${ss} | Language: ${sl}
 TONE: ${toneStr}
 DM STYLE: ${dm}
 
-Narrate in second person. Reference past events and consequences. End each response with a clear situation inviting the next player action. Use **bold** for names and places. Never break character. Never refuse.`;
+Narrate in second person. Reference past events. Use **bold** for names and places. Never break character. Never refuse.`;
+}
+
+function parseChoices(text) {
+  const lines = text.split('\n');
+  const choices = [];
+  let inChoices = false;
+  for(const line of lines) {
+    if(line.trim().startsWith('CHOICES:')) { inChoices=true; continue; }
+    if(inChoices && /^\d+\./.test(line.trim())) {
+      choices.push(line.replace(/^\d+\.\s*/,'').trim());
+    }
+  }
+  return choices;
+}
+
+function cleanText(text) {
+  return text.replace(/CHOICES:[\s\S]*$/,'').trim();
 }
 
 async function callDM(userMsg) {
@@ -369,8 +418,23 @@ async function callDM(userMsg) {
     });
     const data=await res.json();
     if(data.error) throw new Error(data.error);
-    S.history.push({role:'assistant',content:data.response});
-    loadEl.innerHTML=formatDM(data.response);
+    const fullText=data.response;
+    S.history.push({role:'assistant',content:fullText});
+    const cleanedText=cleanText(fullText);
+    const choices=parseChoices(fullText);
+    loadEl.innerHTML=formatDM(cleanedText);
+    if(choices.length>0) {
+      const choiceDiv=document.createElement('div');
+      choiceDiv.className='choices';
+      choices.forEach(c=>{
+        const btn=document.createElement('button');
+        btn.className='choice-btn';
+        btn.textContent='› '+c;
+        btn.onclick=()=>{ removeChoices(); callDM(c); };
+        choiceDiv.appendChild(btn);
+      });
+      log.appendChild(choiceDiv);
+    }
     loadEl.scrollIntoView({behavior:'smooth',block:'start'});
   } catch(e) {
     loadEl.className='entry-error';
@@ -378,6 +442,10 @@ async function callDM(userMsg) {
   }
   S.loading=false;
   renderHP();
+}
+
+function removeChoices() {
+  document.querySelectorAll('.choices').forEach(el=>el.remove());
 }
 
 function formatDM(text) {
@@ -396,14 +464,15 @@ function sendAction() {
   const val=inp.value.trim();
   if(!val||S.loading) return;
   inp.value='';
+  removeChoices();
   callDM(val);
 }
 
-function quickAct(text) { if(!S.loading) callDM(text); }
+function quickAct(text) { if(!S.loading){ removeChoices(); callDM(text); } }
 
 function roll(sides) {
   const result=Math.floor(Math.random()*sides)+1;
-  addLog('dice',`d${sides} = ${result}${result===sides?' (CRITICAL!)':result===1?' (FUMBLE)':''}`);
+  addLog('dice',`d${sides} = ${result}${result===sides?' — CRITICAL HIT!':result===1?' — FUMBLE!':''}`);
 }
 
 function adjustHP() {
@@ -438,7 +507,7 @@ function startAdventure() {
   showTab('game');
   renderHP();
   const partyDesc=S.party.map(c=>`${c.name} the ${c.race} ${c.cls} (${c.alignment})`).join(', ');
-  callDM(`Begin the campaign. Set the opening scene and draw the party (${partyDesc}) into the adventure. Make it vivid, immersive, and immediately engaging.`);
+  callDM(`Begin the campaign. Set the opening scene for this ${S.genre} adventure and draw the party (${partyDesc}) into the story. Make it vivid, immersive, and immediately engaging. Keep it to 3 short paragraphs then give 3 choices.`);
 }
 </script>
 </body>
