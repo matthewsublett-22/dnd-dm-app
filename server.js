@@ -7,13 +7,20 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const TOGETHER_API_KEY = 'tgp_v1_FYDRswdoKZnrqDlvufyObVI_X29cAFfBS53ny4p4OC4';
+const TOGETHER_API_KEY = 'tgp_v1_ogDvjjjDx6b3Bn2quAFLkOWMEmv63Z323b7tGgvxjIQ';
 const MODEL = 'mistralai/Mixtral-8x7B-Instruct-v0.1';
 
 app.post('/api/chat', async (req, res) => {
   const { messages, systemPrompt } = req.body;
+
   try {
     const fetch = (await import('node-fetch')).default;
+
+    const cleanMessages = messages.map(m => ({
+      role: m.role,
+      content: String(m.content || '').slice(0, 4000)
+    }));
+
     const response = await fetch('https://api.together.xyz/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -22,21 +29,27 @@ app.post('/api/chat', async (req, res) => {
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 1024,
+        max_tokens: 800,
         temperature: 0.85,
         messages: [
           { role: 'system', content: systemPrompt },
-          ...messages
+          ...cleanMessages
         ]
       })
     });
+
     const data = await response.json();
+
     if (data.error) {
+      console.error('Together API error:', data.error);
       return res.status(500).json({ error: data.error.message });
     }
+
     const text = data.choices?.[0]?.message?.content || '';
     res.json({ response: text });
+
   } catch (err) {
+    console.error('Server error:', err);
     res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });
@@ -47,5 +60,5 @@ app.get('/{*path}', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`DnD DM server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
