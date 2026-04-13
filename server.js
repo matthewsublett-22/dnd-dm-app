@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const TOGETHER_API_KEY = 'tgp_v1_ogDvjjjDx6b3Bn2quAFLkOWMEmv63Z323b7tGgvxjIQ';
-const MODEL = 'mistralai/Mixtral-8x7B-Instruct-v0.1';
+const MODEL = 'meta-llama/Llama-3.3-70B-Instruct-Turbo';
 
 app.post('/api/chat', async (req, res) => {
   const { messages, systemPrompt } = req.body;
