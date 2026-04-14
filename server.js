@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const TOGETHER_API_KEY = 'tgp_v1_1CdKvHFgKxbydZwAEUVG_5uzK-2Ah1C5qCBqOITqPgg';
+const TOGETHER_API_KEY = process.env.TOGETHER_API_KEY;
 const MODEL = 'meta-llama/Llama-3.3-70B-Instruct-Turbo';
 
 app.post('/api/chat', async (req, res) => {
@@ -29,8 +29,8 @@ app.post('/api/chat', async (req, res) => {
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 450,
-        temperature: 0.7,
+        max_tokens: 500,
+        temperature: 0.82,
         messages: [
           { role: 'system', content: systemPrompt },
           ...cleanMessages
