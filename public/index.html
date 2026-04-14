@@ -805,6 +805,39 @@ function formatDM(text){
   return '<p>'+text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>')+'</p>';
 }
 
+async function callDMSilent(msg){
+  S.loading=true;
+  S.history.push({role:'user',content:msg});
+  const hist=S.history.length>20?S.history.slice(-20):S.history;
+  const loadWrap=document.createElement('div');
+  loadWrap.className='msg-dm';
+  const loadBubble=document.createElement('div');
+  loadBubble.className='bubble-dm';
+  loadBubble.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  loadWrap.appendChild(loadBubble);
+  document.getElementById('chat-log').appendChild(loadWrap);
+  loadWrap.scrollIntoView({behavior:'smooth',block:'end'});
+  try{
+    const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist,systemPrompt:buildSystemPrompt()})});
+    const data=await res.json();
+    if(data.error)throw new Error(data.error);
+    const full=data.response;
+    S.history.push({role:'assistant',content:full});
+    const clean=cleanText(full);
+    const choices=parseChoices(full);
+    loadBubble.innerHTML=formatDM(clean);
+    const diceSides=detectDiceRequest(clean);
+    if(diceSides){const match=clean.match(/roll\s+a?\s*d\d+[^.!]*/i);showDicePanel(diceSides,match?match[0].trim():'Roll the dice!');}
+    else{hideDicePanel();}
+    if(choices.length>0){
+      const cw=document.createElement('div');cw.className='choices-row';
+      choices.forEach(c=>{const btn=document.createElement('button');btn.className='choice-pill';btn.textContent=c;btn.onclick=()=>{removeChoices();callDM(c);};cw.appendChild(btn);});
+      loadWrap.appendChild(cw);
+    }
+    loadWrap.scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(e){loadBubble.innerHTML=`<span style="color:var(--red-text);font-size:13px;">Error: ${e.message} — Try again.</span>`;}
+  S.loading=false;renderHP();
+}
 async function callDM(userMsg,retrying=false){
   if(S.loading)return;
   S.loading=true;
@@ -961,7 +994,7 @@ function startAdventure(){
   const isSolo=S.party.length===1;
   const desc=isSolo?`${S.party[0].name} — a Level ${S.party[0].level||1} ${S.party[0].race} ${S.party[0].cls}`:S.party.map(c=>`${c.name} the ${c.race} ${c.cls}`).join(', ');
   const solo=isSolo?`Solo adventure. Always call the character ${S.party[0].name}, never "the party".`:'';
-  callDM(`Begin. ${solo} Open with ONE vivid sentence setting the scene for this ${S.genre} ${S.adventureType}. Introduce ${desc}. Max 60 words. Give 3 specific opening choices.`);
+  callDMSilent(`Begin. ${solo} Open with ONE vivid sentence setting the scene for this ${S.genre} ${S.adventureType}. Introduce ${desc}. Max 60 words. Give 3 specific opening choices.`);
 }
 </script>
 </body>
