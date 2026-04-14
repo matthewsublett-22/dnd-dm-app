@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const TOGETHER_API_KEY = process.env.TOGETHER_API_KEY;
+const TOGETHER_API_KEY = 'tgp_v1_1CdKvHFgKxbydZwAEUVG_5uzK-2Ah1C5qCBqOITqPgg';
 const MODEL = 'meta-llama/Llama-3.3-70B-Instruct-Turbo';
 
 app.post('/api/chat', async (req, res) => {
