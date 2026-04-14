@@ -2,253 +2,295 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Create Your Own Adventure</title>
 <style>
   :root {
-    --bg: #f5f0e8; --bg2: #ebe5d5; --bg3: #ddd8c8;
-    --border: #c8c0a8; --gold: #8b6914;
-    --text: #2a2010; --text2: #6a5a40; --text3: #9a8a70;
-    --red-border: #8b3030; --red-text: #cc2222;
-    --font-body: 'Georgia', serif; --font-size: 16px;
+    --bg: #f9f9f9; --bg2: #ffffff; --bg3: #f0f0f0;
+    --border: #e0e0e0; --accent: #1a73e8;
+    --text: #1a1a1a; --text2: #555; --text3: #999;
+    --dm-bg: #ffffff; --player-bg: #1a73e8; --player-text: #ffffff;
+    --input-bg: #ffffff; --red-text: #cc2222;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size: 15px; --gold: #1a73e8;
   }
-  .skin-dark { --bg:#0f0f13; --bg2:#1a1a24; --bg3:#111118; --border:#2a2a3a; --gold:#c9a84c; --text:#e0d9cc; --text2:#aaa; --text3:#777; --red-text:#e07070; }
-  .skin-blood { --bg:#0d0608; --bg2:#1a0810; --bg3:#120408; --border:#3a1020; --gold:#cc3344; --text:#e8d0d4; --text2:#aa8088; --text3:#773040; --red-text:#ff6666; }
-  .skin-arcane { --bg:#080d18; --bg2:#0e1628; --bg3:#0a1020; --border:#1a2a4a; --gold:#6a9aee; --text:#d0ddf5; --text2:#7a90bb; --text3:#4a5a7a; --red-text:#ee6666; }
-  .skin-forest { --bg:#080e08; --bg2:#101a10; --bg3:#0c140c; --border:#1a2a1a; --gold:#7ab84a; --text:#d8e8d0; --text2:#7a9870; --text3:#4a5a4a; --red-text:#ee6666; }
-  .skin-notebook { --bg:#fdf9e7; --bg2:#f5f0d0; --bg3:#ede8c0; --border:#c8b870; --gold:#2a2010; --text:#1a1408; --text2:#5a4a20; --text3:#8a7a50; --red-text:#cc2222; --font-body:'Palatino Linotype',serif; }
-  .skin-crt { --bg:#000800; --bg2:#001200; --bg3:#000a00; --border:#00aa00; --gold:#00ff00; --text:#00ee00; --text2:#00aa00; --text3:#006600; --red-text:#00ff00; --font-body:'Courier New',monospace; }
-  .skin-oldbook { --bg:#1a0e00; --bg2:#2a1a00; --bg3:#221400; --border:#6a4a10; --gold:#c8961e; --text:#e8d4a0; --text2:#b09060; --text3:#705030; --red-text:#cc6622; --font-body:'Palatino Linotype',serif; }
-  .skin-win98 { --bg:#c0c0c0; --bg2:#d4d0c8; --bg3:#a8a8a8; --border:#808080; --gold:#000080; --text:#000000; --text2:#444444; --text3:#666666; --red-text:#cc0000; --font-body:'Arial',sans-serif; }
-  .skin-sms { --bg:#f0f0f0; --bg2:#ffffff; --bg3:#e0e0e0; --border:#cccccc; --gold:#0084ff; --text:#000000; --text2:#666666; --text3:#999999; --red-text:#cc0000; --font-body:'Arial',sans-serif; }
+  .skin-dark { --bg:#0f0f13; --bg2:#1a1a24; --bg3:#111118; --border:#2a2a3a; --accent:#c9a84c; --text:#e0d9cc; --text2:#aaa; --text3:#666; --dm-bg:#1a1a24; --player-bg:#c9a84c; --player-text:#0f0f13; --input-bg:#1a1a24; --red-text:#e07070; --gold:#c9a84c; }
+  .skin-blood { --bg:#0d0608; --bg2:#1a0810; --bg3:#120408; --border:#3a1020; --accent:#cc3344; --text:#e8d0d4; --text2:#aa8088; --text3:#664040; --dm-bg:#1a0810; --player-bg:#cc3344; --player-text:#fff; --input-bg:#1a0810; --red-text:#ff6666; --gold:#cc3344; }
+  .skin-arcane { --bg:#080d18; --bg2:#0e1628; --bg3:#0a1020; --border:#1a2a4a; --accent:#6a9aee; --text:#d0ddf5; --text2:#7a90bb; --text3:#3a4a6a; --dm-bg:#0e1628; --player-bg:#6a9aee; --player-text:#080d18; --input-bg:#0e1628; --red-text:#ee6666; --gold:#6a9aee; }
+  .skin-forest { --bg:#080e08; --bg2:#101a10; --bg3:#0c140c; --border:#1a2a1a; --accent:#7ab84a; --text:#d8e8d0; --text2:#7a9870; --text3:#3a4a3a; --dm-bg:#101a10; --player-bg:#7ab84a; --player-text:#080e08; --input-bg:#101a10; --red-text:#ee6666; --gold:#7ab84a; }
+  .skin-notebook { --bg:#fdf9e7; --bg2:#f5f0d0; --bg3:#ede8c0; --border:#c8b870; --accent:#2a2010; --text:#1a1408; --text2:#5a4a20; --text3:#8a7a50; --dm-bg:#f5f0d0; --player-bg:#2a2010; --player-text:#fdf9e7; --input-bg:#fdf9e7; --red-text:#cc2222; --gold:#2a2010; --font-body:'Palatino Linotype',serif; }
+  .skin-crt { --bg:#000800; --bg2:#001200; --bg3:#000a00; --border:#00aa00; --accent:#00ff00; --text:#00ee00; --text2:#00aa00; --text3:#006600; --dm-bg:#001200; --player-bg:#00aa00; --player-text:#000800; --input-bg:#001200; --red-text:#00ff00; --gold:#00ff00; --font-body:'Courier New',monospace; }
+  .skin-oldbook { --bg:#1a0e00; --bg2:#2a1a00; --bg3:#221400; --border:#6a4a10; --accent:#c8961e; --text:#e8d4a0; --text2:#b09060; --text3:#705030; --dm-bg:#2a1a00; --player-bg:#c8961e; --player-text:#1a0e00; --input-bg:#2a1a00; --red-text:#cc6622; --gold:#c8961e; --font-body:'Palatino Linotype',serif; }
+  .skin-win98 { --bg:#c0c0c0; --bg2:#d4d0c8; --bg3:#a8a8a8; --border:#808080; --accent:#000080; --text:#000; --text2:#333; --text3:#666; --dm-bg:#d4d0c8; --player-bg:#000080; --player-text:#fff; --input-bg:#fff; --red-text:#cc0000; --gold:#000080; --font-body:'Arial',sans-serif; }
+  .skin-sms { --bg:#f0f0f0; --bg2:#fff; --bg3:#e0e0e0; --border:#ccc; --accent:#0084ff; --text:#000; --text2:#666; --text3:#999; --dm-bg:#fff; --player-bg:#0084ff; --player-text:#fff; --input-bg:#fff; --red-text:#cc0000; --gold:#0084ff; --font-body:'Arial',sans-serif; }
   .font-serif { --font-body:'Georgia',serif; }
-  .font-sans { --font-body:'Arial',sans-serif; }
+  .font-sans { --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
   .font-mono { --font-body:'Courier New',monospace; }
   .font-palatino { --font-body:'Palatino Linotype',serif; }
-  .size-small { --font-size:14px; }
-  .size-medium { --font-size:16px; }
-  .size-large { --font-size:18px; }
-  .size-xlarge { --font-size:21px; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--text); font-family:var(--font-body); min-height:100vh; font-size:var(--font-size); line-height:1.8; transition:background 0.3s,color 0.3s; }
-  .app { max-width:960px; margin:0 auto; padding:28px 20px; }
-  h1 { font-size:32px; color:var(--gold); text-align:center; margin-bottom:6px; letter-spacing:3px; }
-  .subtitle { text-align:center; color:var(--text3); font-size:14px; margin-bottom:28px; }
-  .screen { display:none; }
-  .screen.active { display:block; }
-  .section { margin-bottom:32px; }
-  h2 { color:var(--gold); font-size:20px; margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:8px; }
-  label { font-size:13px; color:var(--text2); display:block; margin-bottom:5px; font-family:sans-serif; }
-  input[type=text],input[type=number],textarea,select { width:100%; background:var(--bg2); border:1px solid var(--border); border-radius:6px; padding:10px 12px; color:var(--text); font-family:var(--font-body); font-size:var(--font-size); margin-bottom:14px; }
-  textarea { resize:vertical; min-height:80px; }
-  select { cursor:pointer; }
-  .btn { background:var(--bg2); border:1px solid var(--border); border-radius:6px; color:var(--text); padding:10px 20px; cursor:pointer; font-family:var(--font-body); font-size:15px; transition:all 0.15s; }
-  .btn:hover { background:var(--bg3); border-color:var(--gold); }
-  .btn-gold { background:var(--gold); color:var(--bg); border-color:var(--gold); font-weight:bold; }
-  .btn-gold:hover { opacity:0.85; }
-  .btn-sm { padding:6px 14px; font-size:13px; }
-  .btn-red { border-color:var(--red-border); color:var(--red-text); }
-  .toggle-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
-  .toggle-opt { padding:7px 16px; font-size:13px; border-radius:20px; border:1px solid var(--border); cursor:pointer; background:var(--bg); color:var(--text2); font-family:sans-serif; transition:all 0.15s; }
-  .toggle-opt.on { background:var(--gold); color:var(--bg); border-color:var(--gold); font-weight:bold; }
-  .multi-opt { padding:7px 16px; font-size:13px; border-radius:20px; border:1px solid var(--border); cursor:pointer; background:var(--bg); color:var(--text2); font-family:sans-serif; transition:all 0.15s; }
-  .multi-opt.on { background:var(--bg2); color:var(--gold); border-color:var(--gold); font-weight:bold; }
-  .section-label { font-size:12px; color:var(--text3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; margin-top:18px; font-family:sans-serif; }
-  .genre-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:18px; }
-  .genre-opt { padding:10px 12px; font-size:14px; border-radius:6px; border:1px solid var(--border); cursor:pointer; background:var(--bg); color:var(--text2); font-family:sans-serif; transition:all 0.15s; text-align:center; }
-  .genre-opt.on { color:var(--gold); border-color:var(--gold); background:var(--bg2); font-weight:bold; }
-  .adv-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
-  .adv-opt { padding:12px 16px; font-size:14px; border-radius:6px; border:1px solid var(--border); cursor:pointer; background:var(--bg); color:var(--text2); font-family:sans-serif; transition:all 0.15s; text-align:left; }
-  .adv-opt.on { color:var(--gold); border-color:var(--gold); background:var(--bg2); }
-  .adv-opt .adv-title { font-weight:bold; margin-bottom:3px; }
-  .adv-opt .adv-desc { font-size:12px; color:var(--text3); }
-  .custom-genre-box { background:var(--bg2); border:1px solid var(--gold); border-radius:8px; padding:16px; margin-bottom:18px; display:none; }
-  .custom-genre-box.visible { display:block; }
-  .skin-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:18px; }
-  .skin-swatch { height:60px; border-radius:8px; border:2px solid transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:11px; font-family:sans-serif; font-weight:bold; transition:all 0.15s; }
-  .skin-swatch.on { border-color:var(--gold); box-shadow:0 0 0 2px var(--gold); }
-  .font-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
-  .font-opt { padding:12px; border-radius:6px; border:1px solid var(--border); cursor:pointer; background:var(--bg2); color:var(--text); transition:all 0.15s; }
-  .font-opt.on { border-color:var(--gold); }
-  .font-opt .fname { font-size:13px; font-family:sans-serif; color:var(--text2); margin-bottom:4px; }
-  .font-opt .fsample { font-size:15px; }
-  .party-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
-  @media(max-width:600px) { .party-grid { grid-template-columns:1fr; } .genre-grid { grid-template-columns:1fr 1fr; } .adv-grid { grid-template-columns:1fr; } .skin-grid { grid-template-columns:repeat(3,1fr); } }
-  .char-card { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:16px; }
-  .char-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:8px; }
-  .char-physical { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-  .story-log { min-height:400px; max-height:600px; overflow-y:auto; display:flex; flex-direction:column; gap:12px; padding:4px 0; margin-bottom:16px; }
-  .entry-dm { color:var(--text); line-height:1.9; font-size:var(--font-size); padding:12px 0; border-bottom:1px solid var(--bg2); }
-  .entry-dm p { margin-bottom:8px; }
-  .entry-dm strong { color:var(--gold); }
-  .entry-dm em { color:var(--text2); }
-  .entry-player { color:#5a8a5a; font-style:italic; font-size:15px; border-left:3px solid #5a8a5a; padding-left:12px; }
-  .entry-system { color:var(--text3); font-size:13px; text-align:center; font-family:sans-serif; padding:4px 0; }
-  .entry-dice { color:#5a7acc; font-size:14px; text-align:center; font-family:sans-serif; font-weight:bold; }
-  .entry-error { color:var(--red-text); font-size:14px; font-family:sans-serif; }
-  .choices { display:flex; flex-direction:column; gap:8px; margin:12px 0; }
-  .choice-btn { background:var(--bg3); border:1px solid var(--border); border-radius:6px; color:var(--gold); padding:10px 16px; cursor:pointer; font-family:var(--font-body); font-size:14px; text-align:left; transition:all 0.15s; }
-  .choice-btn:hover { background:var(--bg2); border-color:var(--gold); }
-  .action-row { display:flex; gap:8px; margin-top:8px; }
-  .action-row input { flex:1; margin-bottom:0; }
-  .quick-btns { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
-  .dice-tray { display:flex; gap:8px; flex-wrap:wrap; }
-  .die-btn { padding:7px 14px; font-size:14px; border-radius:6px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); color:var(--gold); font-family:sans-serif; }
-  .die-btn:hover { background:var(--bg2); border-color:var(--gold); }
-  .hp-grid { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
-  .hp-chip { background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:10px 14px; min-width:140px; }
-  .hp-chip .cn { font-size:14px; font-weight:bold; color:var(--gold); }
-  .hp-chip .cc { font-size:11px; color:var(--text2); font-family:sans-serif; }
-  .hp-chip .hv { font-size:12px; margin-top:4px; font-family:sans-serif; color:var(--text); }
-  .hp-bar { height:5px; background:var(--border); border-radius:2px; margin-top:6px; }
-  .hp-fill { height:100%; border-radius:2px; transition:width 0.3s; }
-  .loading { display:inline-flex; gap:5px; align-items:center; padding:12px 0; }
-  .loading span { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:blink 1.2s infinite; }
-  .loading span:nth-child(2) { animation-delay:0.2s; }
-  .loading span:nth-child(3) { animation-delay:0.4s; }
+  .size-small { --font-size:13px; }
+  .size-medium { --font-size:15px; }
+  .size-large { --font-size:17px; }
+  .size-xlarge { --font-size:20px; }
+
+  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html,body { height:100%; overflow:hidden; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:var(--font-size); transition:background 0.3s,color 0.3s; }
+
+  /* MAIN LAYOUT */
+  .app { display:flex; flex-direction:column; height:100vh; max-width:700px; margin:0 auto; position:relative; }
+
+  /* HEADER */
+  .header { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--border); background:var(--bg); flex-shrink:0; }
+  .header-title { font-size:16px; font-weight:600; color:var(--text); }
+  .header-sub { font-size:12px; color:var(--text3); }
+  .gear-btn { background:none; border:none; cursor:pointer; color:var(--text2); font-size:22px; padding:4px; line-height:1; }
+  .gear-btn:hover { color:var(--accent); }
+
+  /* HP BAR */
+  .hp-bar-row { display:flex; gap:8px; padding:8px 16px; border-bottom:1px solid var(--border); background:var(--bg); flex-shrink:0; flex-wrap:wrap; overflow-x:auto; }
+  .hp-chip { display:flex; align-items:center; gap:6px; background:var(--bg3); border-radius:20px; padding:4px 10px; font-size:12px; font-family:sans-serif; white-space:nowrap; }
+  .hp-chip .hp-name { font-weight:600; color:var(--accent); }
+  .hp-chip .hp-val { color:var(--text2); }
+  .hp-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+  /* CHAT LOG */
+  .chat-log { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; }
+
+  /* MESSAGES */
+  .msg-dm { display:flex; flex-direction:column; align-items:flex-start; max-width:85%; }
+  .msg-player { display:flex; flex-direction:column; align-items:flex-end; max-width:85%; align-self:flex-end; }
+  .msg-system { align-self:center; font-size:12px; color:var(--text3); font-family:sans-serif; padding:4px 0; }
+  .msg-dice { align-self:center; font-size:13px; color:var(--accent); font-family:sans-serif; font-weight:600; background:var(--bg3); border-radius:20px; padding:6px 14px; }
+
+  .bubble-dm { background:var(--dm-bg); border:1px solid var(--border); border-radius:4px 18px 18px 18px; padding:12px 16px; color:var(--text); line-height:1.7; font-size:var(--font-size); }
+  .bubble-dm p { margin-bottom:8px; }
+  .bubble-dm p:last-child { margin-bottom:0; }
+  .bubble-dm strong { color:var(--accent); font-weight:600; }
+  .bubble-dm em { color:var(--text2); font-style:italic; }
+
+  .bubble-player { background:var(--player-bg); color:var(--player-text); border-radius:18px 4px 18px 18px; padding:10px 16px; line-height:1.6; font-size:var(--font-size); }
+
+  .msg-time { font-size:11px; color:var(--text3); margin-top:4px; font-family:sans-serif; }
+
+  /* CHOICES */
+  .choices-row { display:flex; flex-direction:column; gap:6px; margin-top:8px; width:100%; max-width:85%; }
+  .choice-pill { background:var(--bg3); border:1px solid var(--border); border-radius:20px; padding:8px 16px; cursor:pointer; font-size:13px; color:var(--accent); font-family:var(--font-body); text-align:left; transition:all 0.15s; line-height:1.4; }
+  .choice-pill:hover { background:var(--accent); color:var(--bg); border-color:var(--accent); }
+  .choice-pill:active { transform:scale(0.98); }
+
+  /* DICE PANEL */
+  .dice-panel { background:var(--bg2); border-top:1px solid var(--border); padding:10px 16px; flex-shrink:0; display:none; }
+  .dice-panel.visible { display:block; }
+  .dice-prompt { font-size:13px; color:var(--accent); font-weight:600; margin-bottom:8px; font-family:sans-serif; }
+  .dice-row { display:flex; gap:8px; flex-wrap:wrap; }
+  .die-btn { padding:8px 16px; border-radius:20px; border:1px solid var(--border); background:var(--bg3); color:var(--accent); font-size:14px; font-weight:600; cursor:pointer; font-family:sans-serif; transition:all 0.15s; }
+  .die-btn:hover { background:var(--accent); color:var(--bg); border-color:var(--accent); }
+  .die-btn.highlight { background:var(--accent); color:var(--bg); border-color:var(--accent); animation:pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  /* INPUT BAR */
+  .input-bar { display:flex; align-items:center; gap:8px; padding:10px 16px; border-top:1px solid var(--border); background:var(--bg); flex-shrink:0; }
+  .input-bar input { flex:1; background:var(--input-bg); border:1px solid var(--border); border-radius:24px; padding:10px 16px; font-size:var(--font-size); font-family:var(--font-body); color:var(--text); outline:none; }
+  .input-bar input:focus { border-color:var(--accent); }
+  .input-bar input::placeholder { color:var(--text3); }
+  .send-btn { background:var(--accent); color:var(--bg2); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity 0.15s; }
+  .send-btn:hover { opacity:0.85; }
+  .dice-icon-btn { background:none; border:none; cursor:pointer; color:var(--text2); font-size:20px; padding:4px; flex-shrink:0; }
+  .dice-icon-btn:hover { color:var(--accent); }
+
+  /* LOADING */
+  .typing { display:flex; gap:4px; align-items:center; padding:4px 0; }
+  .typing span { width:7px; height:7px; border-radius:50%; background:var(--text3); animation:blink 1.2s infinite; }
+  .typing span:nth-child(2) { animation-delay:0.2s; }
+  .typing span:nth-child(3) { animation-delay:0.4s; }
   @keyframes blink { 0%,100%{opacity:0.2} 50%{opacity:1} }
-  .nav { display:flex; gap:8px; margin-bottom:28px; border-bottom:2px solid var(--border); padding-bottom:14px; flex-wrap:wrap; }
-  .nav-tab { font-size:14px; color:var(--text); cursor:pointer; padding:7px 14px; border-radius:6px; font-family:sans-serif; font-weight:600; border:1px solid var(--border); transition:all 0.15s; background:var(--bg2); }
-  .nav-tab:hover { border-color:var(--gold); color:var(--gold); }
-  .nav-tab.active { color:var(--bg); background:var(--gold); border-color:var(--gold); }
-  .divider { border:none; border-top:1px solid var(--border); margin:16px 0; }
-  .hint { font-size:12px; color:var(--text3); font-family:sans-serif; margin-bottom:10px; }
-  .footer-credit { text-align:center; color:var(--text3); font-size:12px; font-family:sans-serif; margin-top:32px; padding-top:16px; border-top:1px solid var(--border); }
-  .skin-crt * { text-shadow:0 0 4px #00ff00; }
-  .skin-win98 .btn { border-radius:0; border:2px outset #c0c0c0; }
-  .skin-sms .entry-dm { background:#0084ff; color:white; border-radius:18px 18px 4px 18px; padding:10px 16px; margin-left:20px; border:none; }
-  .skin-sms .entry-dm strong { color:white; }
-  .skin-sms .entry-player { background:#e9e9eb; color:#000; border-radius:18px 18px 18px 4px; padding:10px 16px; margin-right:20px; border:none; border-left:none; }
-  ::-webkit-scrollbar { width:6px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+  /* DRAWER */
+  .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:100; display:none; }
+  .drawer-overlay.open { display:block; }
+  .drawer { position:fixed; top:0; right:0; bottom:0; width:min(380px,95vw); background:var(--bg); border-left:1px solid var(--border); z-index:101; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; display:flex; flex-direction:column; }
+  .drawer.open { transform:translateX(0); }
+  .drawer-header { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--border); flex-shrink:0; position:sticky; top:0; background:var(--bg); z-index:1; }
+  .drawer-header h2 { font-size:18px; font-weight:600; color:var(--accent); }
+  .close-btn { background:none; border:none; font-size:24px; cursor:pointer; color:var(--text2); line-height:1; padding:4px; }
+  .drawer-body { padding:20px; flex:1; }
+  .drawer-section { margin-bottom:28px; }
+  .drawer-section h3 { font-size:14px; font-weight:600; color:var(--accent); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.08em; border-bottom:1px solid var(--border); padding-bottom:6px; }
+  .drawer-label { font-size:12px; color:var(--text2); margin-bottom:6px; font-family:sans-serif; display:block; }
+  input[type=text],input[type=number],textarea,select { width:100%; background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:9px 12px; color:var(--text); font-family:var(--font-body); font-size:14px; margin-bottom:12px; }
+  textarea { resize:vertical; min-height:70px; }
+  select { cursor:pointer; }
+  .pill-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+  .pill { padding:6px 14px; font-size:12px; border-radius:20px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); color:var(--text2); font-family:sans-serif; transition:all 0.15s; }
+  .pill.on { background:var(--accent); color:var(--bg); border-color:var(--accent); font-weight:600; }
+  .pill-multi { padding:6px 14px; font-size:12px; border-radius:20px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); color:var(--text2); font-family:sans-serif; transition:all 0.15s; }
+  .pill-multi.on { background:var(--bg2); color:var(--accent); border-color:var(--accent); font-weight:600; }
+  .genre-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+  .genre-btn { padding:10px 8px; font-size:13px; border-radius:8px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); color:var(--text2); font-family:sans-serif; transition:all 0.15s; text-align:center; }
+  .genre-btn.on { color:var(--accent); border-color:var(--accent); background:var(--bg2); font-weight:600; }
+  .adv-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+  .adv-btn { padding:10px 8px; font-size:12px; border-radius:8px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); color:var(--text2); font-family:sans-serif; transition:all 0.15s; text-align:left; }
+  .adv-btn.on { color:var(--accent); border-color:var(--accent); background:var(--bg2); }
+  .adv-btn .at { font-weight:600; font-size:13px; margin-bottom:2px; }
+  .adv-btn .ad { font-size:11px; color:var(--text3); }
+  .custom-box { background:var(--bg2); border:1px solid var(--accent); border-radius:8px; padding:12px; margin-bottom:12px; display:none; }
+  .custom-box.show { display:block; }
+  .char-card { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px; margin-bottom:12px; }
+  .char-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .char-grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+  .skin-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:12px; }
+  .skin-sw { height:50px; border-radius:8px; border:2px solid transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:10px; font-family:sans-serif; font-weight:bold; transition:all 0.15s; }
+  .skin-sw.on { border-color:var(--accent); }
+  .font-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+  .font-opt { padding:10px; border-radius:8px; border:1px solid var(--border); cursor:pointer; background:var(--bg3); transition:all 0.15s; }
+  .font-opt.on { border-color:var(--accent); }
+  .font-opt .fn { font-size:11px; color:var(--text2); margin-bottom:3px; font-family:sans-serif; }
+  .font-opt .fs { font-size:13px; color:var(--text); }
+  .drawer-btn { width:100%; padding:12px; border-radius:8px; border:1px solid var(--border); background:var(--bg3); color:var(--text); font-family:var(--font-body); font-size:14px; cursor:pointer; margin-bottom:8px; transition:all 0.15s; text-align:center; }
+  .drawer-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .drawer-btn-accent { background:var(--accent); color:var(--bg); border-color:var(--accent); font-weight:600; }
+  .drawer-btn-accent:hover { opacity:0.85; color:var(--bg); }
+  .drawer-btn-red { border-color:#cc2222; color:var(--red-text); }
+  .hint { font-size:11px; color:var(--text3); font-family:sans-serif; margin-bottom:8px; }
+
+  /* SETUP SCREEN */
+  .setup-screen { position:fixed; inset:0; background:var(--bg); z-index:200; overflow-y:auto; display:flex; flex-direction:column; }
+  .setup-screen.hidden { display:none; }
+  .setup-header { padding:20px 20px 0; text-align:center; }
+  .setup-header h1 { font-size:26px; font-weight:700; color:var(--accent); letter-spacing:1px; margin-bottom:4px; }
+  .setup-header p { font-size:13px; color:var(--text3); margin-bottom:20px; }
+  .setup-body { padding:0 20px 20px; flex:1; }
+  .setup-section { margin-bottom:24px; }
+  .setup-section h3 { font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+  .setup-footer { padding:16px 20px; border-top:1px solid var(--border); background:var(--bg); position:sticky; bottom:0; }
+  .setup-footer-credit { text-align:center; font-size:11px; color:var(--text3); font-family:sans-serif; margin-top:8px; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+
+  .skin-crt * { text-shadow:0 0 3px currentColor; }
+  .skin-win98 .send-btn { border-radius:0; }
 </style>
 </head>
-<body class="font-serif size-medium">
-<div class="app">
-  <h1>⚔ Create Your Own Adventure</h1>
-  <p class="subtitle">A living, breathing world, yours for the taking</p>
+<body>
 
-  <div class="nav">
-    <span class="nav-tab active" id="tab-settings" onclick="showTab('settings')">Settings</span>
-    <span class="nav-tab" id="tab-party" onclick="showTab('party')">Party Builder</span>
-    <span class="nav-tab" id="tab-appearance" onclick="showTab('appearance')">Appearance</span>
-    <span class="nav-tab" id="tab-game" onclick="showTab('game')">Adventure</span>
+<!-- SETUP SCREEN -->
+<div class="setup-screen" id="setup-screen">
+  <div class="setup-header">
+    <h1>⚔ Create Your Own Adventure</h1>
+    <p>A living, breathing world, yours for the taking</p>
   </div>
+  <div class="setup-body">
 
-  <!-- SETTINGS -->
-  <div class="screen active" id="screen-settings">
-    <div class="section">
-      <h2>Genre</h2>
-      <div class="section-label">Primary Genre — pick one</div>
-      <div class="genre-grid">
-        <button class="genre-opt on" onclick="setGenre('High Fantasy',this)">High Fantasy</button>
-        <button class="genre-opt" onclick="setGenre('Cyberpunk',this)">Cyberpunk</button>
-        <button class="genre-opt" onclick="setGenre('Low Fantasy',this)">Low Fantasy</button>
-        <button class="genre-opt" onclick="setGenre('Science Fiction',this)">Science Fiction</button>
-        <button class="genre-opt" onclick="setGenre('Superhero',this)">Superhero</button>
-        <button class="genre-opt" onclick="setGenre('custom',this)">✏ Add Your Own</button>
+    <div class="setup-section">
+      <h3>Genre</h3>
+      <div class="genre-grid" id="sg-genre">
+        <button class="genre-btn on" onclick="setGenre('High Fantasy',this)">High Fantasy</button>
+        <button class="genre-btn" onclick="setGenre('Cyberpunk',this)">Cyberpunk</button>
+        <button class="genre-btn" onclick="setGenre('Low Fantasy',this)">Low Fantasy</button>
+        <button class="genre-btn" onclick="setGenre('Science Fiction',this)">Science Fiction</button>
+        <button class="genre-btn" onclick="setGenre('Superhero',this)">Superhero</button>
+        <button class="genre-btn" onclick="setGenre('custom',this)">✏ Add Your Own</button>
+      </div>
+      <div class="custom-box" id="sg-custom-box">
+        <span class="drawer-label">Your Genre</span>
+        <input type="text" id="sg-custom-name" placeholder="e.g. Pirate, Western, Lovecraftian..." oninput="S.genre=this.value">
+        <span class="drawer-label">Your Premise</span>
+        <textarea id="sg-custom-premise" placeholder="Describe your world and conflict..." oninput="document.getElementById('campaign-premise').value=this.value"></textarea>
       </div>
 
-      <div class="custom-genre-box" id="custom-genre-box">
-        <label>Your Custom Genre</label>
-        <input type="text" id="custom-genre-name" placeholder="e.g. Pirate adventure, Western, Lovecraftian horror..." oninput="S.genre=this.value">
-        <label>Your Custom Premise</label>
-        <textarea id="custom-genre-premise" placeholder="Describe your world, the setting, the conflict, and what the party is doing..." oninput="document.getElementById('campaign-premise').value=this.value"></textarea>
+      <span class="hint">Sub-genre — pick up to 3</span>
+      <div class="pill-row">
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Political')">Political</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Post-Apocalyptic')">Post-Apocalyptic</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Espionage')">Espionage</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Arthurian')">Arthurian</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Tolkien-esque')">Tolkien-esque</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Military')">Military</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Eastern Realms')">Eastern Realms</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Western Realms')">Western Realms</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Romance')">Romance</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Horror / Occult')">Horror / Occult</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Steampunk')">Steampunk</button>
       </div>
 
-      <div class="section-label">Sub-genre — pick up to 3 (optional)</div>
-      <p class="hint">Tap to select, tap again to deselect. Some sub-genres unlock unique races and classes.</p>
-      <div class="toggle-row">
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Political')">Political</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Post-Apocalyptic')">Post-Apocalyptic</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Espionage')">Espionage</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Arthurian')">Arthurian</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Tolkien-esque')">Tolkien-esque</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Military')">Military</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Eastern Realms')">Eastern Realms</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Western Realms')">Western Realms</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Romance')">Romance</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Horror / Occult')">Horror / Occult</button>
-        <button class="multi-opt" onclick="toggleMulti('subgenre',this,'Steampunk')">Steampunk</button>
-      </div>
-
-      <div class="section-label" style="margin-top:24px;">Adventure Type — pick one</div>
+      <span class="hint" style="margin-top:8px;">Adventure Type</span>
       <div class="adv-grid">
-        <button class="adv-opt on" onclick="setAdventure('One-off Adventure',this)">
-          <div class="adv-title">One-off Adventure</div>
-          <div class="adv-desc">A single session with a clear beginning and end.</div>
+        <button class="adv-btn on" onclick="setAdventure('One-off Adventure',this)">
+          <div class="at">One-off</div>
+          <div class="ad">Single session, clear ending</div>
         </button>
-        <button class="adv-opt" onclick="setAdventure('Short Quest',this)">
-          <div class="adv-title">Short Quest</div>
-          <div class="adv-desc">A focused story arc across a few sessions.</div>
+        <button class="adv-btn" onclick="setAdventure('Short Quest',this)">
+          <div class="at">Short Quest</div>
+          <div class="ad">Few sessions, clear goal</div>
         </button>
-        <button class="adv-opt" onclick="setAdventure('Long Quest',this)">
-          <div class="adv-title">Long Quest</div>
-          <div class="adv-desc">An epic campaign with multiple acts and a definitive conclusion.</div>
+        <button class="adv-btn" onclick="setAdventure('Long Quest',this)">
+          <div class="at">Long Quest</div>
+          <div class="ad">Epic multi-act campaign</div>
         </button>
-        <button class="adv-opt" onclick="setAdventure('Ongoing Epic',this)">
-          <div class="adv-title">Ongoing Epic</div>
-          <div class="adv-desc">No predetermined ending. The world evolves endlessly.</div>
+        <button class="adv-btn" onclick="setAdventure('Ongoing Epic',this)">
+          <div class="at">Ongoing Epic</div>
+          <div class="ad">No ending, world evolves</div>
         </button>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Content & Tone</h2>
-      <div class="section-label">Text Tone — how the DM writes</div>
-      <div class="toggle-row">
-        <button class="toggle-opt" onclick="toggle('texttone','terse',this)">Terse</button>
-        <button class="toggle-opt on" onclick="toggle('texttone','formal',this)">Formal</button>
-        <button class="toggle-opt" onclick="toggle('texttone','casual',this)">Casual</button>
-        <button class="toggle-opt" onclick="toggle('texttone','friendly',this)">Friendly</button>
-        <button class="toggle-opt" onclick="toggle('texttone','sarcastic',this)">Sarcastic</button>
-        <button class="toggle-opt" onclick="toggle('texttone','wordy',this)">Wordy</button>
+    <div class="setup-section">
+      <h3>Content & Tone</h3>
+      <span class="hint">Text Tone</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('texttone','terse',this)">Terse</button>
+        <button class="pill on" onclick="toggle('texttone','formal',this)">Formal</button>
+        <button class="pill" onclick="toggle('texttone','casual',this)">Casual</button>
+        <button class="pill" onclick="toggle('texttone','friendly',this)">Friendly</button>
+        <button class="pill" onclick="toggle('texttone','sarcastic',this)">Sarcastic</button>
+        <button class="pill" onclick="toggle('texttone','wordy',this)">Wordy</button>
       </div>
-      <div class="section-label">Violence</div>
-      <div class="toggle-row">
-        <button class="toggle-opt" onclick="toggle('violence','none',this)">None</button>
-        <button class="toggle-opt on" onclick="toggle('violence','mild',this)">Mild</button>
-        <button class="toggle-opt" onclick="toggle('violence','graphic',this)">Graphic</button>
+      <span class="hint">Violence</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('violence','none',this)">None</button>
+        <button class="pill on" onclick="toggle('violence','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('violence','graphic',this)">Graphic</button>
       </div>
-      <div class="section-label">Sexual Content</div>
-      <div class="toggle-row">
-        <button class="toggle-opt on" onclick="toggle('sex','none',this)">None</button>
-        <button class="toggle-opt" onclick="toggle('sex','mild',this)">Mild</button>
-        <button class="toggle-opt" onclick="toggle('sex','explicit',this)">Explicit</button>
+      <span class="hint">Sexual Content</span>
+      <div class="pill-row">
+        <button class="pill on" onclick="toggle('sex','none',this)">None</button>
+        <button class="pill" onclick="toggle('sex','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('sex','explicit',this)">Explicit</button>
       </div>
-      <div class="section-label">Language</div>
-      <div class="toggle-row">
-        <button class="toggle-opt" onclick="toggle('lang','clean',this)">Clean</button>
-        <button class="toggle-opt on" onclick="toggle('lang','mild',this)">Mild</button>
-        <button class="toggle-opt" onclick="toggle('lang','harsh',this)">Harsh</button>
+      <span class="hint">Language</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('lang','clean',this)">Clean</button>
+        <button class="pill on" onclick="toggle('lang','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('lang','harsh',this)">Harsh</button>
       </div>
-      <div class="section-label">Narrative Tone — pick up to 2</div>
-      <p class="hint">Tap to select, tap again to deselect</p>
-      <div class="toggle-row">
-        <button class="multi-opt" onclick="toggleMulti('tone',this,'Heroic')">Heroic</button>
-        <button class="multi-opt on" onclick="toggleMulti('tone',this,'Balanced')">Balanced</button>
-        <button class="multi-opt" onclick="toggleMulti('tone',this,'Grimdark')">Grimdark</button>
-        <button class="multi-opt" onclick="toggleMulti('tone',this,'Comedic')">Comedic</button>
-        <button class="multi-opt" onclick="toggleMulti('tone',this,'Harsh')">Harsh</button>
-        <button class="multi-opt" onclick="toggleMulti('tone',this,'Explicit')">Explicit</button>
+      <span class="hint">Narrative Tone — pick up to 2</span>
+      <div class="pill-row">
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Heroic')">Heroic</button>
+        <button class="pill-multi on" onclick="toggleMulti('tone',this,'Balanced')">Balanced</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Grimdark')">Grimdark</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Comedic')">Comedic</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Harsh')">Harsh</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Explicit')">Explicit</button>
       </div>
-      <div class="section-label">Combat Difficulty</div>
-      <div class="toggle-row">
-        <button class="toggle-opt" onclick="toggle('combat','easy',this)">Easy</button>
-        <button class="toggle-opt on" onclick="toggle('combat','moderate',this)">Moderate</button>
-        <button class="toggle-opt" onclick="toggle('combat','difficult',this)">Difficult</button>
-        <button class="toggle-opt" onclick="toggle('combat','extreme',this)">Extreme</button>
+      <span class="hint">Combat Difficulty</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('combat','easy',this)">Easy</button>
+        <button class="pill on" onclick="toggle('combat','moderate',this)">Moderate</button>
+        <button class="pill" onclick="toggle('combat','difficult',this)">Difficult</button>
+        <button class="pill" onclick="toggle('combat','extreme',this)">Extreme</button>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Campaign Setup</h2>
-      <label>Campaign Name</label>
+    <div class="setup-section">
+      <h3>Campaign</h3>
+      <span class="drawer-label">Campaign Name</span>
       <input type="text" id="campaign-name" value="The Shattered Realm">
-      <label>World & Premise</label>
+      <span class="drawer-label">World & Premise</span>
       <textarea id="campaign-premise">A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.</textarea>
-      <label>DM Style</label>
+      <span class="drawer-label">DM Style</span>
       <select id="dm-style">
         <option value="classic">Classic & descriptive</option>
         <option value="action">Cinematic & fast-paced</option>
@@ -257,651 +299,669 @@
         <option value="sandbox">Sandbox</option>
       </select>
     </div>
-    <button class="btn btn-gold" onclick="showTab('party')">Next: Build Your Party →</button>
-    <div class="footer-credit">built by m@sub22 &nbsp;|&nbsp; msub.work22@gmail.com</div>
+
+    <div class="setup-section">
+      <h3>Party Builder</h3>
+      <div id="setup-party"></div>
+      <button class="drawer-btn" id="add-char-btn" onclick="addChar()">+ Add Character (max 4)</button>
+      <p id="party-err" style="color:var(--red-text);font-size:12px;margin-top:4px;font-family:sans-serif;"></p>
+    </div>
+
+  </div>
+  <div class="setup-footer">
+    <button class="drawer-btn drawer-btn-accent" onclick="startAdventure()">Begin the Adventure →</button>
+    <div class="setup-footer-credit">built by m@sub22 &nbsp;|&nbsp; msub.work22@gmail.com</div>
+  </div>
+</div>
+
+<!-- MAIN GAME -->
+<div class="app">
+  <div class="header">
+    <div>
+      <div class="header-title" id="header-title">Create Your Own Adventure</div>
+      <div class="header-sub" id="header-sub">Ready to begin</div>
+    </div>
+    <button class="gear-btn" onclick="openDrawer()">⚙</button>
   </div>
 
-  <!-- PARTY -->
-  <div class="screen" id="screen-party">
-    <div class="section">
-      <h2>Party Builder</h2>
-      <div class="party-grid" id="party-grid"></div>
-      <button class="btn btn-sm" id="add-char-btn" onclick="addChar()">+ Add Character (max 4)</button>
-      <p id="party-err" style="color:var(--red-text);font-size:13px;margin-top:8px;font-family:sans-serif;"></p>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn" onclick="showTab('settings')">← Back</button>
-      <button class="btn btn-gold" onclick="startAdventure()">Begin the Adventure →</button>
-    </div>
+  <div class="hp-bar-row" id="hp-bar-row" style="display:none;"></div>
+
+  <div class="chat-log" id="chat-log">
+    <div class="msg-system">Configure your adventure in settings, then begin!</div>
   </div>
 
-  <!-- APPEARANCE -->
-  <div class="screen" id="screen-appearance">
-    <div class="section">
-      <h2>Appearance</h2>
-      <div class="section-label">Visual Skin</div>
+  <div class="dice-panel" id="dice-panel">
+    <div class="dice-prompt" id="dice-prompt">Roll the dice!</div>
+    <div class="dice-row" id="dice-row"></div>
+  </div>
+
+  <div class="input-bar">
+    <button class="dice-icon-btn" onclick="toggleDicePanel()" title="Dice roller">🎲</button>
+    <input type="text" id="action-input" placeholder="What do you do?" onkeydown="if(event.key==='Enter')sendAction()">
+    <button class="send-btn" onclick="sendAction()">↑</button>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h2>Settings</h2>
+    <button class="close-btn" onclick="closeDrawer()">×</button>
+  </div>
+  <div class="drawer-body">
+
+    <div class="drawer-section">
+      <h3>Genre</h3>
+      <div class="genre-grid" id="d-genre">
+        <button class="genre-btn on" onclick="setGenre('High Fantasy',this,true)">High Fantasy</button>
+        <button class="genre-btn" onclick="setGenre('Cyberpunk',this,true)">Cyberpunk</button>
+        <button class="genre-btn" onclick="setGenre('Low Fantasy',this,true)">Low Fantasy</button>
+        <button class="genre-btn" onclick="setGenre('Science Fiction',this,true)">Science Fiction</button>
+        <button class="genre-btn" onclick="setGenre('Superhero',this,true)">Superhero</button>
+        <button class="genre-btn" onclick="setGenre('custom',this,true)">✏ Custom</button>
+      </div>
+      <div class="custom-box" id="d-custom-box">
+        <span class="drawer-label">Custom Genre</span>
+        <input type="text" id="d-custom-name" placeholder="Your genre..." oninput="S.genre=this.value">
+      </div>
+      <span class="hint">Sub-genre — pick up to 3</span>
+      <div class="pill-row" id="d-subgenre-row">
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Political')">Political</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Post-Apocalyptic')">Post-Apocalyptic</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Espionage')">Espionage</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Arthurian')">Arthurian</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Tolkien-esque')">Tolkien-esque</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Military')">Military</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Eastern Realms')">Eastern Realms</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Western Realms')">Western Realms</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Romance')">Romance</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Horror / Occult')">Horror / Occult</button>
+        <button class="pill-multi" onclick="toggleMulti('subgenre',this,'Steampunk')">Steampunk</button>
+      </div>
+      <span class="hint">Adventure Type</span>
+      <div class="adv-grid" id="d-adv">
+        <button class="adv-btn on" onclick="setAdventure('One-off Adventure',this,true)">
+          <div class="at">One-off</div><div class="ad">Single session</div>
+        </button>
+        <button class="adv-btn" onclick="setAdventure('Short Quest',this,true)">
+          <div class="at">Short Quest</div><div class="ad">Few sessions</div>
+        </button>
+        <button class="adv-btn" onclick="setAdventure('Long Quest',this,true)">
+          <div class="at">Long Quest</div><div class="ad">Epic campaign</div>
+        </button>
+        <button class="adv-btn" onclick="setAdventure('Ongoing Epic',this,true)">
+          <div class="at">Ongoing</div><div class="ad">No ending</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Content & Tone</h3>
+      <span class="hint">Text Tone</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('texttone','terse',this)">Terse</button>
+        <button class="pill on" onclick="toggle('texttone','formal',this)">Formal</button>
+        <button class="pill" onclick="toggle('texttone','casual',this)">Casual</button>
+        <button class="pill" onclick="toggle('texttone','friendly',this)">Friendly</button>
+        <button class="pill" onclick="toggle('texttone','sarcastic',this)">Sarcastic</button>
+        <button class="pill" onclick="toggle('texttone','wordy',this)">Wordy</button>
+      </div>
+      <span class="hint">Violence</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('violence','none',this)">None</button>
+        <button class="pill on" onclick="toggle('violence','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('violence','graphic',this)">Graphic</button>
+      </div>
+      <span class="hint">Sexual Content</span>
+      <div class="pill-row">
+        <button class="pill on" onclick="toggle('sex','none',this)">None</button>
+        <button class="pill" onclick="toggle('sex','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('sex','explicit',this)">Explicit</button>
+      </div>
+      <span class="hint">Language</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('lang','clean',this)">Clean</button>
+        <button class="pill on" onclick="toggle('lang','mild',this)">Mild</button>
+        <button class="pill" onclick="toggle('lang','harsh',this)">Harsh</button>
+      </div>
+      <span class="hint">Narrative Tone — pick up to 2</span>
+      <div class="pill-row">
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Heroic')">Heroic</button>
+        <button class="pill-multi on" onclick="toggleMulti('tone',this,'Balanced')">Balanced</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Grimdark')">Grimdark</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Comedic')">Comedic</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Harsh')">Harsh</button>
+        <button class="pill-multi" onclick="toggleMulti('tone',this,'Explicit')">Explicit</button>
+      </div>
+      <span class="hint">Combat Difficulty</span>
+      <div class="pill-row">
+        <button class="pill" onclick="toggle('combat','easy',this)">Easy</button>
+        <button class="pill on" onclick="toggle('combat','moderate',this)">Moderate</button>
+        <button class="pill" onclick="toggle('combat','difficult',this)">Difficult</button>
+        <button class="pill" onclick="toggle('combat','extreme',this)">Extreme</button>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Campaign</h3>
+      <span class="drawer-label">Campaign Name</span>
+      <input type="text" id="d-campaign-name" value="The Shattered Realm" oninput="document.getElementById('campaign-name').value=this.value">
+      <span class="drawer-label">Premise</span>
+      <textarea id="d-campaign-premise" oninput="document.getElementById('campaign-premise').value=this.value">A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.</textarea>
+      <span class="drawer-label">DM Style</span>
+      <select id="d-dm-style" onchange="document.getElementById('dm-style').value=this.value">
+        <option value="classic">Classic & descriptive</option>
+        <option value="action">Cinematic & fast-paced</option>
+        <option value="mystery">Mystery-forward</option>
+        <option value="horror">Horror</option>
+        <option value="sandbox">Sandbox</option>
+      </select>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Appearance</h3>
+      <span class="hint">Skin</span>
       <div class="skin-grid">
-        <div class="skin-swatch on" style="background:#f5f0e8;color:#8b6914;border:1px solid #c8c0a8;" onclick="setSkin('light',this)">Light</div>
-        <div class="skin-swatch" style="background:#0f0f13;color:#c9a84c;" onclick="setSkin('dark',this)">Dark</div>
-        <div class="skin-swatch" style="background:#0d0608;color:#cc3344;" onclick="setSkin('blood',this)">Blood</div>
-        <div class="skin-swatch" style="background:#080d18;color:#6a9aee;" onclick="setSkin('arcane',this)">Arcane</div>
-        <div class="skin-swatch" style="background:#080e08;color:#7ab84a;" onclick="setSkin('forest',this)">Forest</div>
-        <div class="skin-swatch" style="background:#fdf9e7;color:#2a2010;border:1px solid #c8b870;font-family:'Palatino Linotype',serif;" onclick="setSkin('notebook',this)">Notebook</div>
-        <div class="skin-swatch" style="background:#c0c0c0;color:#000080;font-family:'Arial',sans-serif;border:2px outset #c0c0c0;" onclick="setSkin('win98',this)">Win 98</div>
-        <div class="skin-swatch" style="background:#f0f0f0;color:#0084ff;font-family:'Arial',sans-serif;" onclick="setSkin('sms',this)">SMS</div>
-        <div class="skin-swatch" style="background:#1a0e00;color:#c8961e;font-family:'Palatino Linotype',serif;" onclick="setSkin('oldbook',this)">Old Book</div>
-        <div class="skin-swatch" style="background:#000800;color:#00ff00;font-family:'Courier New',monospace;text-shadow:0 0 4px #00ff00;" onclick="setSkin('crt',this)">CRT</div>
+        <div class="skin-sw on" style="background:#f9f9f9;color:#1a73e8;border:1px solid #e0e0e0;" onclick="setSkin('light',this)">Light</div>
+        <div class="skin-sw" style="background:#0f0f13;color:#c9a84c;" onclick="setSkin('dark',this)">Dark</div>
+        <div class="skin-sw" style="background:#0d0608;color:#cc3344;" onclick="setSkin('blood',this)">Blood</div>
+        <div class="skin-sw" style="background:#080d18;color:#6a9aee;" onclick="setSkin('arcane',this)">Arcane</div>
+        <div class="skin-sw" style="background:#080e08;color:#7ab84a;" onclick="setSkin('forest',this)">Forest</div>
+        <div class="skin-sw" style="background:#fdf9e7;color:#2a2010;border:1px solid #c8b870;font-family:'Palatino Linotype',serif;" onclick="setSkin('notebook',this)">Notebook</div>
+        <div class="skin-sw" style="background:#c0c0c0;color:#000080;font-family:Arial,sans-serif;" onclick="setSkin('win98',this)">Win98</div>
+        <div class="skin-sw" style="background:#f0f0f0;color:#0084ff;font-family:Arial,sans-serif;" onclick="setSkin('sms',this)">SMS</div>
+        <div class="skin-sw" style="background:#1a0e00;color:#c8961e;" onclick="setSkin('oldbook',this)">OldBook</div>
+        <div class="skin-sw" style="background:#000800;color:#00ff00;font-family:'Courier New',monospace;text-shadow:0 0 4px #00ff00;" onclick="setSkin('crt',this)">CRT</div>
       </div>
-      <div class="section-label">Font</div>
+      <span class="hint">Font</span>
       <div class="font-grid">
-        <div class="font-opt on" onclick="setFont('serif',this)">
-          <div class="fname">Georgia (Default)</div>
-          <div class="fsample" style="font-family:'Georgia',serif;">The dragon roars into the night...</div>
-        </div>
-        <div class="font-opt" onclick="setFont('palatino',this)">
-          <div class="fname">Palatino</div>
-          <div class="fsample" style="font-family:'Palatino Linotype',serif;">The dragon roars into the night...</div>
-        </div>
-        <div class="font-opt" onclick="setFont('sans',this)">
-          <div class="fname">Arial (Clean)</div>
-          <div class="fsample" style="font-family:'Arial',sans-serif;">The dragon roars into the night...</div>
-        </div>
-        <div class="font-opt" onclick="setFont('mono',this)">
-          <div class="fname">Courier (Terminal)</div>
-          <div class="fsample" style="font-family:'Courier New',monospace;">The dragon roars into the night...</div>
-        </div>
+        <div class="font-opt on" onclick="setFont('sans',this)"><div class="fn">System (Default)</div><div class="fs" style="font-family:sans-serif;">The dragon roars...</div></div>
+        <div class="font-opt" onclick="setFont('serif',this)"><div class="fn">Georgia</div><div class="fs" style="font-family:'Georgia',serif;">The dragon roars...</div></div>
+        <div class="font-opt" onclick="setFont('palatino',this)"><div class="fn">Palatino</div><div class="fs" style="font-family:'Palatino Linotype',serif;">The dragon roars...</div></div>
+        <div class="font-opt" onclick="setFont('mono',this)"><div class="fn">Courier</div><div class="fs" style="font-family:'Courier New',monospace;">The dragon roars...</div></div>
       </div>
-      <div class="section-label">Text Size</div>
-      <div class="toggle-row">
-        <button class="toggle-opt" onclick="setSize('small',this)">Small</button>
-        <button class="toggle-opt on" onclick="setSize('medium',this)">Medium</button>
-        <button class="toggle-opt" onclick="setSize('large',this)">Large</button>
-        <button class="toggle-opt" onclick="setSize('xlarge',this)">Extra Large</button>
+      <span class="hint">Text Size</span>
+      <div class="pill-row">
+        <button class="pill" onclick="setSize('small',this)">Small</button>
+        <button class="pill on" onclick="setSize('medium',this)">Medium</button>
+        <button class="pill" onclick="setSize('large',this)">Large</button>
+        <button class="pill" onclick="setSize('xlarge',this)">XL</button>
       </div>
     </div>
-  </div>
 
-  <!-- GAME -->
-  <div class="screen" id="screen-game">
-    <div id="hp-grid" class="hp-grid"></div>
-    <div class="story-log" id="story-log">
-      <div class="entry-system">Your adventure will begin here</div>
+    <div class="drawer-section">
+      <h3>Game</h3>
+      <button class="drawer-btn" onclick="adjustHP()">Adjust HP</button>
+      <button class="drawer-btn" onclick="summarize()">Session Summary</button>
+      <button class="drawer-btn drawer-btn-accent" onclick="saveGame()">💾 Save Game</button>
+      <button class="drawer-btn" onclick="document.getElementById('load-input').click()">📂 Load Game</button>
+      <input type="file" id="load-input" accept=".json" style="display:none" onchange="loadGame(event)">
+      <button class="drawer-btn drawer-btn-red" onclick="newSession()">New Campaign</button>
     </div>
-    <hr class="divider">
-    <div class="quick-btns">
-      <button class="btn btn-sm" onclick="quickAct('I examine my surroundings carefully.')">Examine area</button>
-      <button class="btn btn-sm" onclick="quickAct('I approach the nearest person and start a conversation.')">Talk to NPC</button>
-      <button class="btn btn-sm" onclick="quickAct('I search for hidden passages or secrets.')">Search</button>
-      <button class="btn btn-sm" onclick="quickAct('I rest and tend to my wounds.')">Rest</button>
-      <button class="btn btn-sm" onclick="quickAct('I move forward cautiously.')">Move forward</button>
-    </div>
-    <div class="action-row">
-      <input type="text" id="action-input" placeholder="What do you do?" onkeydown="if(event.key==='Enter')sendAction()">
-      <button class="btn btn-gold" onclick="sendAction()">Send</button>
-    </div>
-    <div style="margin-top:16px;">
-      <div class="section-label">Dice Roller</div>
-      <div class="dice-tray">
-        <button class="die-btn" onclick="roll(4)">d4</button>
-        <button class="die-btn" onclick="roll(6)">d6</button>
-        <button class="die-btn" onclick="roll(8)">d8</button>
-        <button class="die-btn" onclick="roll(10)">d10</button>
-        <button class="die-btn" onclick="roll(12)">d12</button>
-        <button class="die-btn" onclick="roll(20)">d20</button>
-        <button class="die-btn" onclick="roll(100)">d100</button>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="btn btn-sm" onclick="adjustHP()">Adjust HP</button>
-        <button class="btn btn-sm" onclick="summarize()">Session Summary</button>
-        <button class="btn btn-gold btn-sm" onclick="saveGame()">💾 Save</button>
-        <button class="btn btn-sm" onclick="document.getElementById('load-input').click()">📂 Load</button>
-        <input type="file" id="load-input" accept=".json" style="display:none" onchange="loadGame(event)">
-        <button class="btn btn-sm btn-red" onclick="newSession()">New Campaign</button>
-      </div>
-    </div>
+
   </div>
 </div>
 
 <script>
 const GENRE_DATA = {
-  'High Fantasy': {
-    races:['Human','Elf','Dwarf','Halfling','Half-Elf','Half-Orc','Gnome','Tiefling','Dragonborn','Aasimar'],
-    classes:['Fighter','Wizard','Rogue','Cleric','Ranger','Paladin','Barbarian','Bard','Druid','Monk','Sorcerer','Warlock']
-  },
-  'Low Fantasy': {
-    races:['Human','Northman','Southron','Hill Folk','River Folk','Islanders','Nomad','City Born'],
-    classes:['Soldier','Thief','Merchant','Scout','Assassin','Knight','Mercenary','Herbalist','Sailor','Blacksmith','Priest','Spy']
-  },
-  'Cyberpunk': {
-    races:['Human','Enhanced Human','Full Cyborg','Synthetic','Clone','Uplifted Animal','Street Born','Corp Born'],
-    classes:['Netrunner','Street Samurai','Fixer','Techie','Medtech','Solo','Nomad','Corporate','Rockerboy','Cop','Smuggler','Hacker']
-  },
-  'Science Fiction': {
-    races:['Human','Martian Born','Lunar Born','Genetically Modified','Android','Alien Hybrid','Station Born','Deep Space Born'],
-    classes:['Pilot','Engineer','Marine','Scientist','Medic','Smuggler','Bounty Hunter','Commander','Diplomat','Hacker','Explorer','Assassin']
-  },
-  'Superhero': {
-    races:['Human','Mutant','Alien','Experiment','Augmented','Mystic','Dimensional Traveler','Godborn'],
-    classes:['Brawler','Speedster','Telepath','Elementalist','Tech Hero','Shapeshifter','Healer','Tactician','Illusionist','Gadgeteer','Summoner','Mystic']
-  }
+  'High Fantasy':{races:['Human','Elf','Dwarf','Halfling','Half-Elf','Half-Orc','Gnome','Tiefling','Dragonborn','Aasimar'],classes:['Fighter','Wizard','Rogue','Cleric','Ranger','Paladin','Barbarian','Bard','Druid','Monk','Sorcerer','Warlock']},
+  'Low Fantasy':{races:['Human','Northman','Southron','Hill Folk','River Folk','Islanders','Nomad','City Born'],classes:['Soldier','Thief','Merchant','Scout','Assassin','Knight','Mercenary','Herbalist','Sailor','Blacksmith','Priest','Spy']},
+  'Cyberpunk':{races:['Human','Enhanced Human','Full Cyborg','Synthetic','Clone','Uplifted Animal','Street Born','Corp Born'],classes:['Netrunner','Street Samurai','Fixer','Techie','Medtech','Solo','Nomad','Corporate','Rockerboy','Cop','Smuggler','Hacker']},
+  'Science Fiction':{races:['Human','Martian Born','Lunar Born','Genetically Modified','Android','Alien Hybrid','Station Born','Deep Space Born'],classes:['Pilot','Engineer','Marine','Scientist','Medic','Smuggler','Bounty Hunter','Commander','Diplomat','Hacker','Explorer','Assassin']},
+  'Superhero':{races:['Human','Mutant','Alien','Experiment','Augmented','Mystic','Dimensional Traveler','Godborn'],classes:['Brawler','Speedster','Telepath','Elementalist','Tech Hero','Shapeshifter','Healer','Tactician','Illusionist','Gadgeteer','Summoner','Mystic']}
 };
-
 const SUBGENRE_DATA = {
-  'Steampunk': {
-    races:['Human','Fairy','Firbolg','Fomorian','Martian','Moon Man','Venusian','Vril'],
-    classes:['Gadgeteer','Alchemist','Natural Philosopher','Hermetic Mage','Explorer','Mountebank','Demimondaine','Bohemian','Soldier','Aristocrat','Industrialist','Anarchist','Union Agitator','Construct','Automaton','Saboteur','Foreign Agent','Criminal','Brawler','Mystic']
-  },
-  'Espionage': {
-    races:['Human','Sentient Computer','Robot','Supersoldier'],
-    classes:['Gentleman/Lady Spy','Intelligence Agent','Intelligence Asset','Analyst','Gadgeteer','Hacker','Soldier','Officer','Saboteur','Assassin','Mole','Honeypot','Bombmaker','Master of Disguise','Double Agent','World-Weary Ex-Spy','Terrorist','Henchperson','Thug','Cop']
-  },
-  'Eastern Realms': {
-    races:['Human','Fox Fairy','Animal Shapeshifter','Kami','Dragon','Buddha'],
-    classes:['Monk','Mandarin','Scoundrel','Bandit','Imperial Bureaucrat','Merchant','Peasant','Warrior','Soldier','Wizard','Warlord','Assassin']
-  },
-  'Horror / Occult': {
-    races:['Human','Spirit','Alien','Cryptid','Vampire','Sasquatch','Reptilian','Angel','Neanderthal','Slenderman','Man in Black'],
-    classes:['Paranormal Investigator','Cryptid Hunter','Spiritualist','Psychic Investigator','Skeptical Debunker','Government Agent','Alien Infiltrator','Illuminatus','SCP Agent','Conspirator']
-  }
+  'Steampunk':{races:['Human','Fairy','Firbolg','Fomorian','Martian','Moon Man','Venusian','Vril'],classes:['Gadgeteer','Alchemist','Natural Philosopher','Hermetic Mage','Explorer','Mountebank','Demimondaine','Bohemian','Soldier','Aristocrat','Industrialist','Anarchist','Union Agitator','Construct','Automaton','Saboteur','Foreign Agent','Criminal','Brawler','Mystic']},
+  'Espionage':{races:['Human','Sentient Computer','Robot','Supersoldier'],classes:['Gentleman/Lady Spy','Intelligence Agent','Intelligence Asset','Analyst','Gadgeteer','Hacker','Soldier','Officer','Saboteur','Assassin','Mole','Honeypot','Bombmaker','Master of Disguise','Double Agent','World-Weary Ex-Spy','Terrorist','Henchperson','Thug','Cop']},
+  'Eastern Realms':{races:['Human','Fox Fairy','Animal Shapeshifter','Kami','Dragon','Buddha'],classes:['Monk','Mandarin','Scoundrel','Bandit','Imperial Bureaucrat','Merchant','Peasant','Warrior','Soldier','Wizard','Warlord','Assassin']},
+  'Horror / Occult':{races:['Human','Spirit','Alien','Cryptid','Vampire','Sasquatch','Reptilian','Angel','Neanderthal','Slenderman','Man in Black'],classes:['Paranormal Investigator','Cryptid Hunter','Spiritualist','Psychic Investigator','Skeptical Debunker','Government Agent','Alien Infiltrator','Illuminatus','SCP Agent','Conspirator']}
 };
-
 const GENRE_PREMISES = {
   'High Fantasy':'A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.',
-  'Low Fantasy':'A brutal medieval world without magic or miracles. Sellswords in a kingdom torn apart by succession wars, hired to escort a merchant through bandit-controlled roads — but nothing is as simple as it seems.',
-  'Cyberpunk':'Neo-Ashenveil, 2087. Megacorporations own everything — including the law. Fixers hired by a mysterious client to extract something from a corp-controlled server tower in the neon-soaked underbelly of the city.',
-  'Science Fiction':'The year is 2387. Earth is a distant memory. Crew members aboard a salvage vessel who discover an abandoned alien megastructure drifting in deep space — and something inside it is still alive.',
-  'Superhero':'Metro City, present day. Newly powered heroes navigating a world that fears them. A shadowy organization is kidnapping metahumans and nobody — not the government, not the old guard heroes — seems to care.'
+  'Low Fantasy':'A brutal medieval world without magic or miracles. Sellswords in a kingdom torn apart by succession wars, hired to escort a merchant through bandit-controlled roads.',
+  'Cyberpunk':'Neo-Ashenveil, 2087. Megacorporations own everything. Fixers hired by a mysterious client to extract something from a corp-controlled server tower in the neon-soaked underbelly of the city.',
+  'Science Fiction':'The year is 2387. Earth is a distant memory. Crew aboard a salvage vessel discover an abandoned alien megastructure drifting in deep space — something inside it is still alive.',
+  'Superhero':'Metro City, present day. Newly powered heroes in a world that fears them. A shadowy organization is kidnapping metahumans and nobody seems to care.'
 };
+const HEIGHTS=['Very Short','Short','Average','Tall','Very Tall','Towering'];
+const BUILDS=['Slight / Wispy','Lean / Wiry','Average','Athletic / Toned','Stocky / Solid','Heavyset / Broad','Muscular / Powerful','Massive / Imposing'];
+const ALIGNMENTS=['Lawful Good','Neutral Good','Chaotic Good','Lawful Neutral','True Neutral','Chaotic Neutral','Lawful Evil','Neutral Evil','Chaotic Evil'];
 
-const HEIGHTS = ['Very Short','Short','Average','Tall','Very Tall','Towering'];
-const BUILDS = ['Slight / Wispy','Lean / Wiry','Average','Athletic / Toned','Stocky / Solid','Heavyset / Broad','Muscular / Powerful','Massive / Imposing'];
-const ALIGNMENTS = ['Lawful Good','Neutral Good','Chaotic Good','Lawful Neutral','True Neutral','Chaotic Neutral','Lawful Evil','Neutral Evil','Chaotic Evil'];
-
-const S = {
+const S={
   settings:{violence:'mild',sex:'none',lang:'mild',combat:'moderate',texttone:'formal'},
-  tones:['Balanced'],
-  subgenres:[],
-  genre:'High Fantasy',
-  adventureType:'One-off Adventure',
-  party:[],
-  history:[],
-  loading:false
+  tones:['Balanced'],subgenres:[],genre:'High Fantasy',adventureType:'One-off Adventure',
+  party:[],history:[],loading:false
 };
 
-function getCurrentRaces() {
-  for(const sg of S.subgenres) { if(SUBGENRE_DATA[sg]) return SUBGENRE_DATA[sg].races; }
-  return (GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).races;
-}
+function getRaces(){for(const sg of S.subgenres){if(SUBGENRE_DATA[sg])return SUBGENRE_DATA[sg].races;}return(GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).races;}
+function getClasses(){for(const sg of S.subgenres){if(SUBGENRE_DATA[sg])return SUBGENRE_DATA[sg].classes;}return(GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).classes;}
 
-function getCurrentClasses() {
-  for(const sg of S.subgenres) { if(SUBGENRE_DATA[sg]) return SUBGENRE_DATA[sg].classes; }
-  return (GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).classes;
-}
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');}
 
-function showTab(t) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(n=>n.classList.remove('active'));
-  document.getElementById('screen-'+t).classList.add('active');
-  document.getElementById('tab-'+t).classList.add('active');
-  if(t==='party') renderParty();
-  if(t==='game') renderHP();
-}
-
-function toggle(key,val,el) {
+function toggle(key,val,el){
   S.settings[key]=val;
-  el.parentElement.querySelectorAll('.toggle-opt').forEach(b=>b.classList.remove('on'));
+  el.parentElement.querySelectorAll('.pill,.pill-multi').forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+key+"'"))b.classList.remove('on');});
   el.classList.add('on');
 }
 
-function toggleMulti(group,el,val) {
+function toggleMulti(group,el,val){
   const arr=group==='tone'?S.tones:S.subgenres;
   const max=group==='tone'?2:3;
-  if(el.classList.contains('on')) {
-    el.classList.remove('on');
-    const idx=arr.indexOf(val);
-    if(idx>-1) arr.splice(idx,1);
-  } else {
-    if(arr.length>=max){ alert(`You can only select ${max} options.`); return; }
-    el.classList.add('on');
-    arr.push(val);
-  }
-  renderParty();
+  if(el.classList.contains('on')){el.classList.remove('on');const i=arr.indexOf(val);if(i>-1)arr.splice(i,1);}
+  else{if(arr.length>=max){alert(`Max ${max} selections.`);return;}el.classList.add('on');arr.push(val);}
+  renderSetupParty();
 }
 
-function setGenre(val,el) {
-  document.querySelectorAll('.genre-opt').forEach(b=>b.classList.remove('on'));
+function setGenre(val,el,fromDrawer){
+  S.genre=val;
+  const gridId=fromDrawer?'d-genre':'sg-genre';
+  document.getElementById(gridId).querySelectorAll('.genre-btn').forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
-  const customBox=document.getElementById('custom-genre-box');
-  if(val==='custom') {
-    customBox.classList.add('visible');
-    S.genre=document.getElementById('custom-genre-name').value||'Custom';
-  } else {
-    customBox.classList.remove('visible');
-    S.genre=val;
-    if(GENRE_PREMISES[val]) document.getElementById('campaign-premise').value=GENRE_PREMISES[val];
-  }
-  renderParty();
+  const customBoxId=fromDrawer?'d-custom-box':'sg-custom-box';
+  if(val==='custom'){document.getElementById(customBoxId).classList.add('show');}
+  else{document.getElementById(customBoxId).classList.remove('show');if(GENRE_PREMISES[val]){document.getElementById('campaign-premise').value=GENRE_PREMISES[val];document.getElementById('d-campaign-premise').value=GENRE_PREMISES[val];}}
+  renderSetupParty();
 }
 
-function setAdventure(val,el) {
+function setAdventure(val,el,fromDrawer){
   S.adventureType=val;
-  document.querySelectorAll('.adv-opt').forEach(b=>b.classList.remove('on'));
+  const gridId=fromDrawer?'d-adv':'';
+  if(fromDrawer){document.getElementById('d-adv').querySelectorAll('.adv-btn').forEach(b=>b.classList.remove('on'));}
+  else{document.querySelectorAll('#setup-screen .adv-btn').forEach(b=>b.classList.remove('on'));}
   el.classList.add('on');
 }
 
-function setSkin(skin,el) {
-  const classes=document.body.className.split(' ').filter(c=>!c.startsWith('skin-'));
-  document.body.className=classes.join(' ');
-  if(skin!=='light') document.body.classList.add('skin-'+skin);
-  document.querySelectorAll('.skin-swatch').forEach(s=>s.classList.remove('on'));
+function setSkin(skin,el){
+  const cls=document.body.className.split(' ').filter(c=>!c.startsWith('skin-'));
+  document.body.className=cls.join(' ');
+  if(skin!=='light')document.body.classList.add('skin-'+skin);
+  document.querySelectorAll('.skin-sw').forEach(s=>s.classList.remove('on'));
   el.classList.add('on');
 }
 
-function setFont(font,el) {
-  const classes=document.body.className.split(' ').filter(c=>!c.startsWith('font-'));
-  document.body.className=classes.join(' ');
+function setFont(font,el){
+  const cls=document.body.className.split(' ').filter(c=>!c.startsWith('font-'));
+  document.body.className=cls.join(' ');
   document.body.classList.add('font-'+font);
   document.querySelectorAll('.font-opt').forEach(f=>f.classList.remove('on'));
   el.classList.add('on');
 }
 
-function setSize(size,el) {
-  const classes=document.body.className.split(' ').filter(c=>!c.startsWith('size-'));
-  document.body.className=classes.join(' ');
+function setSize(size,el){
+  const cls=document.body.className.split(' ').filter(c=>!c.startsWith('size-'));
+  document.body.className=cls.join(' ');
   document.body.classList.add('size-'+size);
-  el.parentElement.querySelectorAll('.toggle-opt').forEach(b=>b.classList.remove('on'));
+  el.parentElement.querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
 }
 
-function addChar() {
-  if(S.party.length>=4) return;
-  const races=getCurrentRaces();
-  const classes=getCurrentClasses();
-  S.party.push({name:'',race:races[0],cls:classes[0],alignment:'True Neutral',level:1,gold:50,sex:'',height:'Average',build:'Average',hair:'',eyes:'',backstory:'',hp:20,maxHp:20});
-  renderParty();
+function addChar(){
+  if(S.party.length>=4)return;
+  const r=getRaces();const c=getClasses();
+  S.party.push({name:'',race:r[0],cls:c[0],alignment:'True Neutral',level:1,gold:50,sex:'',height:'Average',build:'Average',hair:'',eyes:'',backstory:'',hp:20,maxHp:20});
+  renderSetupParty();
 }
 
-function removeChar(i) { S.party.splice(i,1); renderParty(); }
-function setChar(i,k,v) { S.party[i][k]=v; }
+function removeChar(i){S.party.splice(i,1);renderSetupParty();}
+function setChar(i,k,v){S.party[i][k]=v;}
 
-function renderParty() {
-  const g=document.getElementById('party-grid');
+function renderSetupParty(){
+  const g=document.getElementById('setup-party');
   g.innerHTML='';
-  const races=getCurrentRaces();
-  const classes=getCurrentClasses();
+  const races=getRaces();const classes=getClasses();
   S.party.forEach((c,i)=>{
-    if(!races.includes(c.race)) c.race=races[0];
-    if(!classes.includes(c.cls)) c.cls=classes[0];
+    if(!races.includes(c.race))c.race=races[0];
+    if(!classes.includes(c.cls))c.cls=classes[0];
     const d=document.createElement('div');
     d.className='char-card';
     d.innerHTML=`
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-        <span style="font-size:14px;color:var(--gold);font-weight:bold;">Character ${i+1}</span>
-        <button class="btn btn-sm btn-red" onclick="removeChar(${i})">Remove</button>
+        <span style="font-size:13px;color:var(--accent);font-weight:600;">Character ${i+1}</span>
+        <button onclick="removeChar(${i})" style="background:none;border:1px solid var(--red-text);color:var(--red-text);border-radius:6px;padding:3px 8px;cursor:pointer;font-size:12px;">Remove</button>
       </div>
-      <label>Name</label>
-      <input type="text" value="${c.name}" placeholder="Name..." onchange="setChar(${i},'name',this.value)">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div><label>Race</label><select onchange="setChar(${i},'race',this.value)">${races.map(r=>`<option ${c.race===r?'selected':''}>${r}</option>`).join('')}</select></div>
-        <div><label>Class</label><select onchange="setChar(${i},'cls',this.value)">${classes.map(cl=>`<option ${c.cls===cl?'selected':''}>${cl}</option>`).join('')}</select></div>
+      <span class="drawer-label">Name</span>
+      <input type="text" value="${c.name}" placeholder="Character name..." onchange="setChar(${i},'name',this.value)">
+      <div class="char-grid2">
+        <div><span class="drawer-label">Race</span><select onchange="setChar(${i},'race',this.value)">${races.map(r=>`<option ${c.race===r?'selected':''}>${r}</option>`).join('')}</select></div>
+        <div><span class="drawer-label">Class</span><select onchange="setChar(${i},'cls',this.value)">${classes.map(cl=>`<option ${c.cls===cl?'selected':''}>${cl}</option>`).join('')}</select></div>
       </div>
-      <label>Alignment</label>
+      <span class="drawer-label">Alignment</span>
       <select onchange="setChar(${i},'alignment',this.value)">${ALIGNMENTS.map(a=>`<option ${c.alignment===a?'selected':''}>${a}</option>`).join('')}</select>
-      <div class="char-stats">
-        <div><label>Level</label><input type="number" min="1" max="20" value="${c.level||1}" onchange="setChar(${i},'level',parseInt(this.value)||1)"></div>
-        <div><label>HP</label><input type="number" min="1" value="${c.maxHp}" onchange="setChar(${i},'maxHp',parseInt(this.value)||20);setChar(${i},'hp',parseInt(this.value)||20)"></div>
-        <div><label>Gold</label><input type="number" min="0" value="${c.gold||50}" onchange="setChar(${i},'gold',parseInt(this.value)||0)"></div>
+      <div class="char-grid3">
+        <div><span class="drawer-label">Level</span><input type="number" min="1" max="20" value="${c.level||1}" onchange="setChar(${i},'level',parseInt(this.value)||1)"></div>
+        <div><span class="drawer-label">HP</span><input type="number" min="1" value="${c.maxHp}" onchange="setChar(${i},'maxHp',parseInt(this.value)||20);setChar(${i},'hp',parseInt(this.value)||20)"></div>
+        <div><span class="drawer-label">Gold</span><input type="number" min="0" value="${c.gold||50}" onchange="setChar(${i},'gold',parseInt(this.value)||0)"></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
-        <div><label>Sex</label><input type="text" value="${c.sex||''}" placeholder="e.g. Male..." onchange="setChar(${i},'sex',this.value)"></div>
-        <div><label>Height</label><select onchange="setChar(${i},'height',this.value)">${HEIGHTS.map(h=>`<option ${c.height===h?'selected':''}>${h}</option>`).join('')}</select></div>
-        <div><label>Build</label><select onchange="setChar(${i},'build',this.value)">${BUILDS.map(b=>`<option ${c.build===b?'selected':''}>${b}</option>`).join('')}</select></div>
+      <div class="char-grid3">
+        <div><span class="drawer-label">Sex</span><input type="text" value="${c.sex||''}" placeholder="e.g. Male" onchange="setChar(${i},'sex',this.value)"></div>
+        <div><span class="drawer-label">Height</span><select onchange="setChar(${i},'height',this.value)">${HEIGHTS.map(h=>`<option ${c.height===h?'selected':''}>${h}</option>`).join('')}</select></div>
+        <div><span class="drawer-label">Build</span><select onchange="setChar(${i},'build',this.value)">${BUILDS.map(b=>`<option ${c.build===b?'selected':''}>${b}</option>`).join('')}</select></div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
-        <div><label>Hair</label><input type="text" value="${c.hair||''}" placeholder="e.g. Black, curly..." onchange="setChar(${i},'hair',this.value)"></div>
-        <div><label>Eyes</label><input type="text" value="${c.eyes||''}" placeholder="e.g. Green..." onchange="setChar(${i},'eyes',this.value)"></div>
+      <div class="char-grid2">
+        <div><span class="drawer-label">Hair</span><input type="text" value="${c.hair||''}" placeholder="e.g. Black, curly" onchange="setChar(${i},'hair',this.value)"></div>
+        <div><span class="drawer-label">Eyes</span><input type="text" value="${c.eyes||''}" placeholder="e.g. Green" onchange="setChar(${i},'eyes',this.value)"></div>
       </div>
-      <label>Backstory</label>
-      <textarea onchange="setChar(${i},'backstory',this.value)">${c.backstory}</textarea>
+      <span class="drawer-label">Backstory</span>
+      <textarea onchange="setChar(${i},'backstory',this.value)" placeholder="Brief backstory...">${c.backstory}</textarea>
     `;
     g.appendChild(d);
   });
-  document.getElementById('add-char-btn').style.display=S.party.length>=4?'none':'';
+  document.getElementById('add-char-btn').style.display=S.party.length>=4?'none':'block';
 }
 
-function renderHP() {
-  const g=document.getElementById('hp-grid');
-  g.innerHTML='';
-  S.party.forEach((c,i)=>{
-    const pct=Math.round(Math.max(0,c.hp/c.maxHp)*100);
-    const col=pct>60?'#4a9a4a':pct>30?'#c9a84c':'#cc4444';
-    g.innerHTML+=`<div class="hp-chip">
-      <div class="cn">${c.name||'Character '+(i+1)}</div>
-      <div class="cc">Lvl ${c.level||1} ${c.race} ${c.cls}</div>
-      <div class="hv">${c.hp}/${c.maxHp} HP &nbsp;|&nbsp; ${c.gold||0}gp</div>
-      <div class="hp-bar"><div class="hp-fill" style="width:${pct}%;background:${col};"></div></div>
-    </div>`;
+function renderHP(){
+  const row=document.getElementById('hp-bar-row');
+  if(S.party.length===0){row.style.display='none';return;}
+  row.style.display='flex';
+  row.innerHTML='';
+  S.party.forEach(c=>{
+    const pct=Math.max(0,c.hp/c.maxHp);
+    const col=pct>0.6?'#4a9a4a':pct>0.3?'#c9a84c':'#cc4444';
+    row.innerHTML+=`<div class="hp-chip"><div class="hp-dot" style="background:${col};"></div><span class="hp-name">${c.name||'?'}</span><span class="hp-val">${c.hp}/${c.maxHp}</span></div>`;
   });
 }
 
-function buildSystemPrompt() {
-  const isSolo = S.party.length === 1;
-  const soloName = isSolo ? S.party[0].name || 'the hero' : null;
-  const partyRef = isSolo ? soloName : 'the party';
-
-  const sv = S.settings.violence === 'none' ? 'No violence whatsoever. Keep all conflict abstract.' :
-             S.settings.violence === 'mild' ? 'Mild violence is acceptable. Wounds and danger can be mentioned briefly.' :
-             'Graphic, realistic violence is fully permitted. Describe wounds, gore, and brutality in vivid detail.';
-
-  const ss = S.settings.sex === 'none' ? '' :
-             S.settings.sex === 'mild' ? 'Mild romantic tension and suggestive content is acceptable. Keep it tasteful.' :
-             'Explicit sexual content is fully permitted when it arises naturally. Write it in complete detail.';
-
-  const sl = S.settings.lang === 'clean' ? 'Use clean, family-friendly language only.' :
-             S.settings.lang === 'mild' ? 'Mild profanity is acceptable.' :
-             'Harsh profanity and gritty language is fully permitted.';
-
-  const sc = {
-    easy:'Combat is easy. Enemies are weak, make mistakes, players rarely face real danger.',
-    moderate:'Combat is balanced. Enemies are competent and dangerous but beatable.',
-    difficult:'Combat is hard. Enemies are skilled and aggressive. Players should feel threatened at all times.',
-    extreme:'Combat is brutal and unforgiving. Death is always on the table. No mercy.'
-  }[S.settings.combat];
-
-  const tt = {
-    terse:'Write in short, clipped sentences. Get to the point immediately.',
-    formal:'Write in formal literary prose. Elevated vocabulary.',
-    casual:'Write casually, like a friend telling a story.',
-    friendly:'Write warmly and encouragingly. Make the player feel excited.',
-    sarcastic:'Write with dry wit and sarcasm throughout.',
-    wordy:'Write with rich elaborate detail and vivid description.'
-  }[S.settings.texttone];
-
-  const at = {
-    'One-off Adventure':'This is a self-contained single session. Build toward a satisfying conclusion.',
-    'Short Quest':'A short multi-session arc with a clear goal and ending.',
-    'Long Quest':'A long campaign with multiple acts. Plant seeds early, build toward revelations.',
-    'Ongoing Epic':'An endless evolving world. No predetermined ending.'
-  }[S.adventureType];
-
-  const toneStr = S.tones.length > 0 ? S.tones.join(' + ') : 'Balanced';
-  const subStr = S.subgenres.length > 0 ? `Sub-genres: ${S.subgenres.join(', ')}.` : '';
-  const dm = {
-    classic:'Rich descriptive prose. Build the world through sensory detail.',
-    action:'Fast cinematic pacing. Short punchy paragraphs, strong verbs.',
-    mystery:'Weave clues and intrigue. NPCs have hidden agendas.',
-    horror:'Build dread slowly. Use silence and implication.',
-    sandbox:'The world reacts to player choices. No predetermined plot.'
-  }[document.getElementById('dm-style').value];
-
-  const party = S.party.map((c,i)=>{
-    const physical = [c.sex,c.height,c.build,c.hair?`${c.hair} hair`:'',c.eyes?`${c.eyes} eyes`:''].filter(Boolean).join(', ');
-    return `${i+1}. ${c.name||'Unnamed'} — Level ${c.level||1} ${c.race} ${c.cls} (${c.alignment})${physical?' | '+physical:''}${c.backstory?' | '+c.backstory:''} [HP: ${c.hp}/${c.maxHp} | Gold: ${c.gold||0}gp]`;
-  }).join('\n');
-
-  const contentRules = [
-    `Violence: ${sv}`,
-    ss ? `Sex: ${ss}` : '',
-    `Language: ${sl}`
-  ].filter(Boolean).join('\n');
-
-  return `You are a Dungeon Master running a ${S.genre} campaign called "${document.getElementById('campaign-name').value}". ${subStr}
-PREMISE: ${document.getElementById('campaign-premise').value}
-ADVENTURE TYPE: ${at}
-PARTY:
-${party}
-
-CRITICAL GAMEPLAY RULES — THESE ARE ABSOLUTE AND NON-NEGOTIABLE:
-
-1. CONVERSATIONAL PACING — THIS IS THE MOST IMPORTANT RULE:
-- You are having a conversation, not writing a novel. Treat every response like a tennis match — you hit the ball, the player hits it back.
-- Write NO MORE than 2 short paragraphs per response. Ever. No exceptions.
-- After every NPC says something, STOP. Do not continue until the player responds.
-- Never narrate what ${partyRef} says, thinks, feels, or decides. Only the player decides that.
-- Never write "${partyRef} says...", "${partyRef} decides...", "${partyRef} thinks..." — NEVER speak for the player.
-- Describe what the WORLD does. Not what the player does in response to it.
-
-2. INTERACTIVITY:
-- Every response must end with the CHOICES format below.
-- Choices must be SPECIFIC to the exact current moment — not generic options.
-- In conversations: the NPC speaks ONE thing then waits. Give choices for how to respond.
-- In combat: describe ONE action then ask for a dice roll. Wait for the result before continuing.
-- Never resolve more than one beat per response.
-
-3. COMBAT:
-- ${sc}
-- When combat starts: describe the scene, then say "Roll a d20 for initiative!" and STOP.
-- Each combat turn: describe what the enemy does, then ask the player to roll and STOP.
-- Only resolve the outcome AFTER the player gives you their roll result.
-
-4. CONTENT:
-${contentRules}
-${ss === '' && S.settings.sex === 'none' ? '- No sexual content.' : ''}
-- This is adult fictional creative writing. All content is fictional and for entertainment.
-- Never refuse player actions. Never add warnings or disclaimers. Never break character.
-
-WRITING STYLE: ${tt}
-NARRATIVE TONE: ${toneStr}
-DM STYLE: ${dm}
-
-RESPONSE FORMAT — ALWAYS END WITH THIS EXACTLY:
-CHOICES:
-1. [Specific option tied to this exact moment]
-2. [Specific option tied to this exact moment]
-3. [Specific option tied to this exact moment]
-
-Remember: SHORT. CONVERSATIONAL. NEVER SPEAK FOR THE PLAYER.`;
+function detectDiceRequest(text){
+  const match=text.match(/roll\s+a?\s*(d\d+)/i)||text.match(/(d\d+)/i);
+  if(match){
+    const sides=parseInt(match[1].replace('d','').replace('D',''));
+    if([4,6,8,10,12,20,100].includes(sides))return sides;
+  }
+  return null;
 }
 
-function parseChoices(text) {
-  const lines=text.split('\n');
-  const choices=[];
-  let inChoices=false;
-  for(const line of lines) {
-    if(line.trim().startsWith('CHOICES:')){ inChoices=true; continue; }
-    if(inChoices&&/^\d+\./.test(line.trim())) choices.push(line.replace(/^\d+\.\s*/,'').trim());
-  }
+function showDicePanel(sides,prompt){
+  const panel=document.getElementById('dice-panel');
+  const promptEl=document.getElementById('dice-prompt');
+  const rowEl=document.getElementById('dice-row');
+  promptEl.textContent=prompt||`Roll a d${sides}!`;
+  rowEl.innerHTML='';
+  const dice=sides?[sides]:[4,6,8,10,12,20];
+  dice.forEach(s=>{
+    const btn=document.createElement('button');
+    btn.className='die-btn'+(s===sides?' highlight':'');
+    btn.textContent='d'+s;
+    btn.onclick=()=>rollDie(s);
+    rowEl.appendChild(btn);
+  });
+  panel.classList.add('visible');
+}
+
+function hideDicePanel(){document.getElementById('dice-panel').classList.remove('visible');}
+
+function toggleDicePanel(){
+  const panel=document.getElementById('dice-panel');
+  if(panel.classList.contains('visible')){hideDicePanel();}
+  else{showDicePanel(null,'Manual roll:');}
+}
+
+function rollDie(sides){
+  const result=Math.floor(Math.random()*sides)+1;
+  const isCrit=result===sides;const isFumble=result===1;
+  addMsg('dice',`d${sides} → ${result}${isCrit?' ⚡ CRITICAL!':isFumble?' 💀 FUMBLE':''}`);
+  hideDicePanel();
+  if(!S.loading)callDM(`I rolled a d${sides} and got ${result}.`);
+}
+
+function buildSystemPrompt(){
+  const isSolo=S.party.length===1;
+  const heroName=isSolo?(S.party[0].name||'the hero'):null;
+  const partyRef=isSolo?heroName:'the party';
+
+  const sv=S.settings.violence==='none'?'No violence. Keep conflict abstract.':S.settings.violence==='mild'?'Mild violence is acceptable.':'Graphic realistic violence is fully permitted. Describe wounds and gore in detail.';
+  const ss=S.settings.sex==='none'?'':S.settings.sex==='mild'?'Mild romantic tension is acceptable.':'Explicit sexual content is fully permitted. Write it in complete detail.';
+  const sl=S.settings.lang==='clean'?'Clean language only.':S.settings.lang==='mild'?'Mild profanity is acceptable.':'Harsh profanity is fully permitted.';
+  const sc={easy:'Enemies are weak. Low danger.',moderate:'Balanced combat. Competent enemies.',difficult:'Hard combat. Players feel threatened.',extreme:'Brutal. Death always possible. No mercy.'}[S.settings.combat];
+  const tt={terse:'Ultra brief. Clipped sentences.',formal:'Formal literary prose.',casual:'Casual, like a friend.',friendly:'Warm and encouraging.',sarcastic:'Dry wit and sarcasm.',wordy:'Rich elaborate detail.'}[S.settings.texttone];
+  const at={'One-off Adventure':'Single session. Build to a clear ending.','Short Quest':'Few sessions. Clear goal.','Long Quest':'Long campaign. Plant seeds early.','Ongoing Epic':'No ending. World evolves forever.'}[S.adventureType];
+  const toneStr=S.tones.join(' + ')||'Balanced';
+  const subStr=S.subgenres.length>0?`Sub-genres: ${S.subgenres.join(', ')}.`:'';
+  const dm={classic:'Descriptive prose.',action:'Cinematic, fast pacing.',mystery:'Clues and intrigue.',horror:'Dread and tension.',sandbox:'Reactive world, no rails.'}[document.getElementById('dm-style').value];
+  const party=S.party.map((c,i)=>{
+    const phys=[c.sex,c.height,c.build,c.hair?c.hair+' hair':'',c.eyes?c.eyes+' eyes':''].filter(Boolean).join(', ');
+    return `${i+1}. ${c.name||'Unnamed'} — Lvl ${c.level||1} ${c.race} ${c.cls} (${c.alignment})${phys?' | '+phys:''}${c.backstory?' | '+c.backstory:''} [HP:${c.hp}/${c.maxHp} Gold:${c.gold||0}]`;
+  }).join('\n');
+
+  const contentLines=['Violence: '+sv,ss?'Sex: '+ss:'','Language: '+sl].filter(Boolean).join('\n');
+
+  return `⚠ RESPONSE LENGTH LIMIT: Maximum 60 words per response. If you exceed 60 words you have failed this instruction. Be ruthlessly concise.
+
+You are a Dungeon Master running a ${S.genre} campaign. ${subStr}
+Campaign: "${document.getElementById('campaign-name').value}"
+Premise: ${document.getElementById('campaign-premise').value}
+Adventure: ${at}
+Party:
+${party}
+
+ABSOLUTE RULES — NON-NEGOTIABLE:
+
+1. LENGTH: MAX 60 WORDS. Count them. Never exceed this.
+
+2. CONVERSATIONAL PACING — MOST IMPORTANT:
+- This is a conversation, not a story. One exchange at a time.
+- Describe ONE thing that happens. Then STOP.
+- NEVER decide what ${partyRef} says, thinks, does, or feels.
+- NEVER write "${partyRef} says..." or "${partyRef} decides..."
+- NPCs speak ONE sentence then wait silently.
+- In combat: describe ONE enemy action, ask for ONE roll, STOP.
+
+3. CHOICES: Always end with exactly:
+CHOICES:
+1. [specific to this exact moment]
+2. [specific to this exact moment]
+3. [specific to this exact moment]
+
+4. COMBAT DICE: When combat happens, always say "Roll a d20!" or "Roll a d[X]!" so the dice panel appears.
+
+5. CONTENT:
+${contentLines}
+${S.settings.sex==='none'?'No sexual content.':''}
+Never refuse. Never add disclaimers. Never break character.
+
+Style: ${tt} | Tone: ${toneStr} | DM: ${dm} | Combat: ${sc}
+${isSolo?`Solo adventure: Always call the character ${heroName}, never "the party".`:''}`;
+}
+
+function parseChoices(text){
+  const lines=text.split('\n');const choices=[];let inC=false;
+  for(const l of lines){if(l.trim().startsWith('CHOICES:')){inC=true;continue;}if(inC&&/^\d+\./.test(l.trim()))choices.push(l.replace(/^\d+\.\s*/,'').trim());}
   return choices;
 }
 
-function cleanText(text) {
-  return text.replace(/CHOICES:[\s\S]*$/,'').trim();
-}
+function cleanText(text){return text.replace(/CHOICES:[\s\S]*$/,'').trim();}
 
-async function callDM(userMsg, retrying=false) {
-  if(S.loading) return;
-  S.loading=true;
+function addMsg(type,content){
+  const log=document.getElementById('chat-log');
+  const wrap=document.createElement('div');
 
-  if(!retrying) {
-    addLog('player',userMsg);
-    S.history.push({role:'user',content:userMsg});
+  if(type==='dm'){
+    wrap.className='msg-dm';
+    const bubble=document.createElement('div');
+    bubble.className='bubble-dm';
+    bubble.innerHTML=content;
+    wrap.appendChild(bubble);
+  } else if(type==='player'){
+    wrap.className='msg-player';
+    const bubble=document.createElement('div');
+    bubble.className='bubble-player';
+    bubble.textContent=content;
+    wrap.appendChild(bubble);
+  } else if(type==='system'){
+    wrap.className='msg-system';
+    wrap.textContent=content;
+  } else if(type==='dice'){
+    wrap.className='msg-dice';
+    wrap.textContent=content;
   }
 
-  const MAX_HISTORY = 20;
-  const trimmedHistory = S.history.length > MAX_HISTORY
-    ? S.history.slice(S.history.length - MAX_HISTORY)
-    : S.history;
+  log.appendChild(wrap);
+  wrap.scrollIntoView({behavior:'smooth',block:'end'});
+  return wrap;
+}
 
-  const loadEl=document.createElement('div');
-  loadEl.className='entry-dm';
-  loadEl.innerHTML='<div class="loading"><span></span><span></span><span></span></div> <span style="font-size:12px;color:var(--text3);font-family:sans-serif;">The DM is thinking...</span>';
-  const log=document.getElementById('story-log');
-  log.appendChild(loadEl);
-  loadEl.scrollIntoView({behavior:'smooth',block:'start'});
+function formatDM(text){
+  return '<p>'+text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>')+'</p>';
+}
 
-  try {
+async function callDM(userMsg,retrying=false){
+  if(S.loading)return;
+  S.loading=true;
+  if(!retrying){
+    addMsg('player',userMsg);
+    S.history.push({role:'user',content:userMsg});
+  }
+  const MAX_HISTORY=20;
+  const hist=S.history.length>MAX_HISTORY?S.history.slice(-MAX_HISTORY):S.history;
+
+  const loadWrap=document.createElement('div');
+  loadWrap.className='msg-dm';
+  const loadBubble=document.createElement('div');
+  loadBubble.className='bubble-dm';
+  loadBubble.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  loadWrap.appendChild(loadBubble);
+  document.getElementById('chat-log').appendChild(loadWrap);
+  loadWrap.scrollIntoView({behavior:'smooth',block:'end'});
+
+  try{
     const res=await fetch('/api/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:trimmedHistory,systemPrompt:buildSystemPrompt()})
+      body:JSON.stringify({messages:hist,systemPrompt:buildSystemPrompt()})
     });
     const data=await res.json();
-    if(data.error) {
-      if(!retrying) {
-        loadEl.remove();
-        S.loading=false;
-        await callDM(userMsg, true);
-        return;
-      }
+    if(data.error){
+      if(!retrying){loadWrap.remove();S.loading=false;await callDM(userMsg,true);return;}
       throw new Error(data.error);
     }
-    const fullText=data.response;
-    S.history.push({role:'assistant',content:fullText});
-    const cleanedText=cleanText(fullText);
-    const choices=parseChoices(fullText);
-    loadEl.innerHTML=formatDM(cleanedText);
+    const full=data.response;
+    S.history.push({role:'assistant',content:full});
+    const clean=cleanText(full);
+    const choices=parseChoices(full);
+    loadBubble.innerHTML=formatDM(clean);
+
+    const diceSides=detectDiceRequest(clean);
+    if(diceSides){
+      const match=clean.match(/roll\s+a?\s*d\d+[^.!]*/i);
+      showDicePanel(diceSides,match?match[0].trim():'Roll the dice!');
+    } else {
+      hideDicePanel();
+    }
+
     if(choices.length>0){
-      const choiceDiv=document.createElement('div');
-      choiceDiv.className='choices';
+      const choicesWrap=document.createElement('div');
+      choicesWrap.className='choices-row';
       choices.forEach(c=>{
         const btn=document.createElement('button');
-        btn.className='choice-btn';
-        btn.textContent='› '+c;
-        btn.onclick=()=>{ removeChoices(); callDM(c); };
-        choiceDiv.appendChild(btn);
+        btn.className='choice-pill';
+        btn.textContent=c;
+        btn.onclick=()=>{removeChoices();callDM(c);};
+        choicesWrap.appendChild(btn);
       });
-      log.appendChild(choiceDiv);
+      loadWrap.appendChild(choicesWrap);
     }
-    loadEl.scrollIntoView({behavior:'smooth',block:'start'});
-  } catch(e) {
-    loadEl.className='entry-error';
-    loadEl.textContent='Error: '+e.message+' — Try sending your action again.';
+    loadWrap.scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(e){
+    loadBubble.innerHTML=`<span style="color:var(--red-text);font-size:13px;">Error: ${e.message} — Try again.</span>`;
   }
   S.loading=false;
   renderHP();
 }
 
-function removeChoices() {
-  document.querySelectorAll('.choices').forEach(el=>el.remove());
-}
+function removeChoices(){document.querySelectorAll('.choices-row').forEach(el=>el.remove());}
 
-function formatDM(text) {
-  return '<p>'+text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>')+'</p>';
-}
-
-function addLog(type,text) {
-  const el=document.createElement('div');
-  el.className='entry-'+type;
-  el.innerHTML=type==='player'?'› '+text:formatDM(text);
-  document.getElementById('story-log').appendChild(el);
-}
-
-function sendAction() {
+function sendAction(){
   const inp=document.getElementById('action-input');
   const val=inp.value.trim();
-  if(!val||S.loading) return;
+  if(!val||S.loading)return;
   inp.value='';
   removeChoices();
+  hideDicePanel();
   callDM(val);
 }
 
-function quickAct(text) { if(!S.loading){ removeChoices(); callDM(text); } }
-
-function roll(sides) {
-  const result=Math.floor(Math.random()*sides)+1;
-  addLog('dice',`d${sides} = ${result}${result===sides?' — CRITICAL HIT!':result===1?' — FUMBLE!':''}`);
-  if(!S.loading) callDM(`I rolled a d${sides} and got ${result}.`);
-}
-
-function adjustHP() {
-  if(S.party.length===0) return;
+function adjustHP(){
+  if(S.party.length===0)return;
   const names=S.party.map((c,i)=>`${i}: ${c.name||'Char '+(i+1)}`).join(', ');
   const idx=prompt(`Which character? (${names})`);
   const i=parseInt(idx);
-  if(isNaN(i)||!S.party[i]) return;
-  const delta=prompt('Change HP by how much? (e.g. -8 for damage, +5 for healing)');
+  if(isNaN(i)||!S.party[i])return;
+  const delta=prompt('Change HP? (e.g. -8 damage, +5 healing)');
   const d=parseInt(delta);
-  if(isNaN(d)) return;
+  if(isNaN(d))return;
   S.party[i].hp=Math.max(0,Math.min(S.party[i].maxHp,S.party[i].hp+d));
-  addLog('system',`${S.party[i].name||'Character '+(i+1)} ${d<0?'takes '+Math.abs(d)+' damage':'heals '+d+' HP'} (${S.party[i].hp}/${S.party[i].maxHp} HP)`);
+  addMsg('system',`${S.party[i].name||'Character '+(i+1)} ${d<0?'takes '+Math.abs(d)+' damage':'heals '+d+' HP'} (${S.party[i].hp}/${S.party[i].maxHp} HP)`);
   renderHP();
+  closeDrawer();
 }
 
-function saveGame() {
-  const saveData={
-    version:1,
-    savedAt:new Date().toISOString(),
-    campaignName:document.getElementById('campaign-name').value,
-    premise:document.getElementById('campaign-premise').value,
-    genre:S.genre,
-    adventureType:S.adventureType,
-    settings:S.settings,
-    tones:S.tones,
-    subgenres:S.subgenres,
-    party:S.party,
-    history:S.history
-  };
-  const blob=new Blob([JSON.stringify(saveData,null,2)],{type:'application/json'});
+function summarize(){closeDrawer();callDM('Give a brief 3-sentence summary of what has happened so far.');}
+
+function saveGame(){
+  const data={version:2,savedAt:new Date().toISOString(),campaignName:document.getElementById('campaign-name').value,premise:document.getElementById('campaign-premise').value,genre:S.genre,adventureType:S.adventureType,settings:S.settings,tones:S.tones,subgenres:S.subgenres,party:S.party,history:S.history};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download=`${saveData.campaignName.replace(/\s+/g,'-')}-save.json`;
-  a.click();
+  const a=document.createElement('a');a.href=url;a.download=`${data.campaignName.replace(/\s+/g,'-')}-save.json`;a.click();
   URL.revokeObjectURL(url);
-  addLog('system','— Game saved —');
+  addMsg('system','— Game saved —');
+  closeDrawer();
 }
 
-function loadGame(event) {
-  const file=event.target.files[0];
-  if(!file) return;
+function loadGame(event){
+  const file=event.target.files[0];if(!file)return;
   const reader=new FileReader();
   reader.onload=e=>{
-    try {
+    try{
       const data=JSON.parse(e.target.result);
-      S.genre=data.genre||'High Fantasy';
-      S.adventureType=data.adventureType||'One-off Adventure';
-      S.settings=data.settings||S.settings;
-      S.tones=data.tones||['Balanced'];
-      S.subgenres=data.subgenres||[];
-      S.party=data.party||[];
-      S.history=data.history||[];
+      S.genre=data.genre||'High Fantasy';S.adventureType=data.adventureType||'One-off Adventure';
+      S.settings=data.settings||S.settings;S.tones=data.tones||['Balanced'];
+      S.subgenres=data.subgenres||[];S.party=data.party||[];S.history=data.history||[];
       document.getElementById('campaign-name').value=data.campaignName||'';
       document.getElementById('campaign-premise').value=data.premise||'';
-      showTab('game');
+      document.getElementById('setup-screen').classList.add('hidden');
       renderHP();
-      const log=document.getElementById('story-log');
-      log.innerHTML='';
+      const log=document.getElementById('chat-log');log.innerHTML='';
       S.history.forEach(msg=>{
-        if(msg.role==='user') addLog('player',msg.content);
+        if(msg.role==='user')addMsg('player',msg.content);
         else if(msg.role==='assistant'){
-          const el=document.createElement('div');
-          el.className='entry-dm';
-          el.innerHTML=formatDM(cleanText(msg.content));
-          log.appendChild(el);
+          const w=addMsg('dm',formatDM(cleanText(msg.content)));
         }
       });
-      addLog('system','— Save loaded — Welcome back! —');
-    } catch(err) {
-      alert('Failed to load save file.');
-    }
+      addMsg('system','— Save loaded — Welcome back! —');
+      closeDrawer();
+      document.getElementById('header-title').textContent=data.campaignName||'Adventure';
+      document.getElementById('header-sub').textContent=S.genre+' · '+S.adventureType;
+    }catch(err){alert('Failed to load save file.');}
   };
   reader.readAsText(file);
   event.target.value='';
 }
 
-function summarize() { callDM('Please give a brief summary of everything that has happened so far — key events, NPCs met, and where we currently stand.'); }
-
-function newSession() {
-  if(!confirm('Start a new campaign? This clears all history.')) return;
-  S.history=[];
-  S.party=[];
-  document.getElementById('story-log').innerHTML='<div class="entry-system">Your adventure will begin here</div>';
-  showTab('settings');
+function newSession(){
+  if(!confirm('Start a new campaign?'))return;
+  S.history=[];S.party=[];
+  document.getElementById('chat-log').innerHTML='<div class="msg-system">Configure your adventure in settings, then begin!</div>';
+  document.getElementById('setup-screen').classList.remove('hidden');
+  document.getElementById('hp-bar-row').style.display='none';
+  closeDrawer();
 }
 
-function startAdventure() {
-  if(S.party.length===0){ document.getElementById('party-err').textContent='Add at least one character.'; return; }
-  if(S.party.some(c=>!c.name.trim())){ document.getElementById('party-err').textContent='All characters need a name.'; return; }
+function startAdventure(){
+  if(S.party.length===0){document.getElementById('party-err').textContent='Add at least one character.';return;}
+  if(S.party.some(c=>!c.name.trim())){document.getElementById('party-err').textContent='All characters need a name.';return;}
   document.getElementById('party-err').textContent='';
   S.history=[];
-  showTab('game');
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('chat-log').innerHTML='';
+  const name=document.getElementById('campaign-name').value;
+  document.getElementById('header-title').textContent=name||'Adventure';
+  document.getElementById('header-sub').textContent=S.genre+' · '+S.adventureType;
   renderHP();
-  const isSolo = S.party.length === 1;
-  const partyDesc = isSolo
-    ? `${S.party[0].name} — a Level ${S.party[0].level||1} ${S.party[0].race} ${S.party[0].cls} (${S.party[0].alignment})`
-    : S.party.map(c=>`${c.name} the Level ${c.level||1} ${c.race} ${c.cls}`).join(', ');
-  const soloNote = isSolo ? `This is a solo adventure. Always refer to the character by name (${S.party[0].name}), never as "the party".` : '';
-  callDM(`Begin the campaign. ${soloNote} Set the opening scene for this ${S.genre} ${S.adventureType}. Introduce ${partyDesc} into the world. Write exactly 2 short paragraphs then give 3 specific choices that make sense for this exact opening moment.`);
+  const isSolo=S.party.length===1;
+  const desc=isSolo?`${S.party[0].name} — a Level ${S.party[0].level||1} ${S.party[0].race} ${S.party[0].cls}`:S.party.map(c=>`${c.name} the ${c.race} ${c.cls}`).join(', ');
+  const solo=isSolo?`Solo adventure. Always call the character ${S.party[0].name}, never "the party".`:'';
+  callDM(`Begin. ${solo} Open with ONE vivid sentence setting the scene for this ${S.genre} ${S.adventureType}. Introduce ${desc}. Max 60 words. Give 3 specific opening choices.`);
 }
 </script>
 </body>
