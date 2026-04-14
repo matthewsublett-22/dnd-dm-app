@@ -596,9 +596,9 @@ function removeChar(i){S.party.splice(i,1);renderPartyCards();checkBeginBtn();}
 function setChar(i,k,v){S.party[i][k]=v;checkBeginBtn();}
 
 function checkBeginBtn(){
-  const hasNamed=S.party.some(c=>c.name.trim().length>0);
+  const hasChar=S.party.length>0;
   const btn=document.getElementById('begin-btn');
-  if(hasNamed)btn.classList.add('show');
+  if(hasChar)btn.classList.add('show');
   else btn.classList.remove('show');
 }
 
