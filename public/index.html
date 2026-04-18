@@ -6,23 +6,21 @@
 <title>Do Something With Your Life</title>
 <style>
   :root {
-    --bg:#f7f7f5; --bg2:#ffffff; --bg3:#efefed;
-    --border:#e0e0dc; --accent:#2563eb;
-    --text:#1a1a1a; --text2:#555; --text3:#999;
-    --dm-bg:#ffffff; --player-bg:#2563eb; --player-text:#fff;
-    --input-bg:#ffffff; --red-text:#dc2626;
+    --bg:#f7f7f5;--bg2:#ffffff;--bg3:#efefed;--border:#e0e0dc;--accent:#2563eb;
+    --text:#1a1a1a;--text2:#555;--text3:#999;--dm-bg:#ffffff;--player-bg:#2563eb;
+    --player-text:#fff;--input-bg:#ffffff;--red-text:#dc2626;
     --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    --font-size:15px; --gold:#2563eb;
+    --font-size:15px;--gold:#2563eb;
   }
-  .skin-dark{--bg:#0f0f13;--bg2:#1a1a24;--bg3:#111118;--border:#2a2a3a;--accent:#c9a84c;--text:#e0d9cc;--text2:#aaa;--text3:#666;--dm-bg:#1a1a24;--player-bg:#c9a84c;--player-text:#0f0f13;--input-bg:#1a1a24;--red-text:#e07070;--gold:#c9a84c;}
-  .skin-blood{--bg:#0d0608;--bg2:#1a0810;--bg3:#120408;--border:#3a1020;--accent:#cc3344;--text:#e8d0d4;--text2:#aa8088;--text3:#664040;--dm-bg:#1a0810;--player-bg:#cc3344;--player-text:#fff;--input-bg:#1a0810;--red-text:#ff6666;--gold:#cc3344;}
-  .skin-arcane{--bg:#080d18;--bg2:#0e1628;--bg3:#0a1020;--border:#1a2a4a;--accent:#6a9aee;--text:#d0ddf5;--text2:#7a90bb;--text3:#3a4a6a;--dm-bg:#0e1628;--player-bg:#6a9aee;--player-text:#080d18;--input-bg:#0e1628;--red-text:#ee6666;--gold:#6a9aee;}
-  .skin-forest{--bg:#080e08;--bg2:#101a10;--bg3:#0c140c;--border:#1a2a1a;--accent:#7ab84a;--text:#d8e8d0;--text2:#7a9870;--text3:#3a4a3a;--dm-bg:#101a10;--player-bg:#7ab84a;--player-text:#080e08;--input-bg:#101a10;--red-text:#ee6666;--gold:#7ab84a;}
-  .skin-notebook{--bg:#fdf9e7;--bg2:#f5f0d0;--bg3:#ede8c0;--border:#c8b870;--accent:#2a2010;--text:#1a1408;--text2:#5a4a20;--text3:#8a7a50;--dm-bg:#f5f0d0;--player-bg:#2a2010;--player-text:#fdf9e7;--input-bg:#fdf9e7;--red-text:#cc2222;--gold:#2a2010;--font-body:'Palatino Linotype',serif;}
-  .skin-crt{--bg:#000800;--bg2:#001200;--bg3:#000a00;--border:#00aa00;--accent:#00ff00;--text:#00ee00;--text2:#00aa00;--text3:#006600;--dm-bg:#001200;--player-bg:#00aa00;--player-text:#000800;--input-bg:#001200;--red-text:#00ff00;--gold:#00ff00;--font-body:'Courier New',monospace;}
-  .skin-oldbook{--bg:#1a0e00;--bg2:#2a1a00;--bg3:#221400;--border:#6a4a10;--accent:#c8961e;--text:#e8d4a0;--text2:#b09060;--text3:#705030;--dm-bg:#2a1a00;--player-bg:#c8961e;--player-text:#1a0e00;--input-bg:#2a1a00;--red-text:#cc6622;--gold:#c8961e;--font-body:'Palatino Linotype',serif;}
-  .skin-win98{--bg:#c0c0c0;--bg2:#d4d0c8;--bg3:#a8a8a8;--border:#808080;--accent:#000080;--text:#000;--text2:#333;--text3:#666;--dm-bg:#d4d0c8;--player-bg:#000080;--player-text:#fff;--input-bg:#fff;--red-text:#cc0000;--gold:#000080;--font-body:'Arial',sans-serif;}
-  .skin-sms{--bg:#f0f0f0;--bg2:#fff;--bg3:#e0e0e0;--border:#ccc;--accent:#0084ff;--text:#000;--text2:#666;--text3:#999;--dm-bg:#fff;--player-bg:#0084ff;--player-text:#fff;--input-bg:#fff;--red-text:#cc0000;--gold:#0084ff;--font-body:'Arial',sans-serif;}
+  .skin-dark{--bg:#0f0f13;--bg2:#1a1a24;--bg3:#111118;--border:#2a2a3a;--accent:#c9a84c;--text:#e0d9cc;--text2:#aaa;--text3:#666;--dm-bg:#1a1a24;--player-bg:#c9a84c;--player-text:#0f0f13;--input-bg:#1a1a24;--red-text:#e07070;}
+  .skin-blood{--bg:#0d0608;--bg2:#1a0810;--bg3:#120408;--border:#3a1020;--accent:#cc3344;--text:#e8d0d4;--text2:#aa8088;--text3:#664040;--dm-bg:#1a0810;--player-bg:#cc3344;--player-text:#fff;--input-bg:#1a0810;--red-text:#ff6666;}
+  .skin-arcane{--bg:#080d18;--bg2:#0e1628;--bg3:#0a1020;--border:#1a2a4a;--accent:#6a9aee;--text:#d0ddf5;--text2:#7a90bb;--text3:#3a4a6a;--dm-bg:#0e1628;--player-bg:#6a9aee;--player-text:#080d18;--input-bg:#0e1628;--red-text:#ee6666;}
+  .skin-forest{--bg:#080e08;--bg2:#101a10;--bg3:#0c140c;--border:#1a2a1a;--accent:#7ab84a;--text:#d8e8d0;--text2:#7a9870;--text3:#3a4a3a;--dm-bg:#101a10;--player-bg:#7ab84a;--player-text:#080e08;--input-bg:#101a10;--red-text:#ee6666;}
+  .skin-notebook{--bg:#fdf9e7;--bg2:#f5f0d0;--bg3:#ede8c0;--border:#c8b870;--accent:#2a2010;--text:#1a1408;--text2:#5a4a20;--text3:#8a7a50;--dm-bg:#f5f0d0;--player-bg:#2a2010;--player-text:#fdf9e7;--input-bg:#fdf9e7;--red-text:#cc2222;--font-body:'Palatino Linotype',serif;}
+  .skin-crt{--bg:#000800;--bg2:#001200;--bg3:#000a00;--border:#00aa00;--accent:#00ff00;--text:#00ee00;--text2:#00aa00;--text3:#006600;--dm-bg:#001200;--player-bg:#00aa00;--player-text:#000800;--input-bg:#001200;--red-text:#00ff00;--font-body:'Courier New',monospace;}
+  .skin-oldbook{--bg:#1a0e00;--bg2:#2a1a00;--bg3:#221400;--border:#6a4a10;--accent:#c8961e;--text:#e8d4a0;--text2:#b09060;--text3:#705030;--dm-bg:#2a1a00;--player-bg:#c8961e;--player-text:#1a0e00;--input-bg:#2a1a00;--red-text:#cc6622;--font-body:'Palatino Linotype',serif;}
+  .skin-win98{--bg:#c0c0c0;--bg2:#d4d0c8;--bg3:#a8a8a8;--border:#808080;--accent:#000080;--text:#000;--text2:#333;--text3:#666;--dm-bg:#d4d0c8;--player-bg:#000080;--player-text:#fff;--input-bg:#fff;--red-text:#cc0000;--font-body:'Arial',sans-serif;}
+  .skin-sms{--bg:#f0f0f0;--bg2:#fff;--bg3:#e0e0e0;--border:#ccc;--accent:#0084ff;--text:#000;--text2:#666;--text3:#999;--dm-bg:#fff;--player-bg:#0084ff;--player-text:#fff;--input-bg:#fff;--red-text:#cc0000;--font-body:'Arial',sans-serif;}
   .font-serif{--font-body:'Georgia',serif;}
   .font-sans{--font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
   .font-mono{--font-body:'Courier New',monospace;}
@@ -31,26 +29,25 @@
   .size-medium{--font-size:15px;}
   .size-large{--font-size:17px;}
   .size-xlarge{--font-size:20px;}
-
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;overflow:hidden;}
   body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--font-size);transition:background 0.3s,color 0.3s;}
-
-  /* LAYOUT */
   .app{display:flex;flex-direction:column;height:100vh;max-width:680px;margin:0 auto;position:relative;}
 
   /* HEADER */
-  .header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0;gap:8px;}
+  .header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0;gap:8px;z-index:10;position:relative;}
   .header-left{flex:1;min-width:0;}
   .header-title{font-size:15px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .header-sub{font-size:11px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .gear-btn{background:var(--accent);border:none;cursor:pointer;color:#fff;font-size:20px;padding:8px 12px;line-height:1;flex-shrink:0;border-radius:8px;font-weight:bold;}
-  .gear-btn:hover{color:var(--accent);background:var(--bg3);}
+  .header-btns{display:flex;gap:8px;flex-shrink:0;}
+  .hbtn{background:var(--accent);border:none;cursor:pointer;color:#fff;font-size:18px;padding:7px 11px;line-height:1;flex-shrink:0;border-radius:8px;font-weight:bold;transition:opacity 0.15s;}
+  .hbtn:hover{opacity:0.85;}
 
   /* HP ROW */
-  .hp-row{display:none;gap:6px;padding:6px 16px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0;flex-wrap:wrap;align-items:center;}
+  .hp-row{display:none;gap:6px;padding:6px 16px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0;flex-wrap:wrap;align-items:center;z-index:10;position:relative;}
   .hp-row.show{display:flex;}
-  .hp-chip{display:flex;align-items:center;gap:5px;background:var(--bg3);border-radius:20px;padding:3px 10px;font-size:11px;font-family:sans-serif;white-space:nowrap;border:1px solid var(--border);}
+  .hp-chip{display:flex;align-items:center;gap:5px;background:var(--bg3);border-radius:20px;padding:3px 10px;font-size:11px;font-family:sans-serif;white-space:nowrap;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;}
+  .hp-chip:hover{border-color:var(--accent);}
   .hp-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
   .hp-name{font-weight:700;color:var(--accent);}
   .hp-val{color:var(--text2);}
@@ -60,21 +57,19 @@
 
   /* CONTEXT CARD */
   .context-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:20px;border-left:3px solid var(--accent);}
-  .context-card .ctx-campaign{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;}
-  .context-card .ctx-genre{font-size:11px;color:var(--text3);font-family:sans-serif;margin-bottom:8px;}
-  .context-card .ctx-premise{font-size:13px;color:var(--text2);line-height:1.6;font-style:italic;}
+  .ctx-campaign{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;}
+  .ctx-genre{font-size:11px;color:var(--text3);font-family:sans-serif;margin-bottom:8px;}
+  .ctx-premise{font-size:13px;color:var(--text2);line-height:1.6;font-style:italic;}
 
-  /* MESSAGE BLOCKS */
+  /* MESSAGES */
   .msg-block{display:flex;flex-direction:column;margin-bottom:16px;}
   .msg-block.dm{align-items:flex-start;}
   .msg-block.player{align-items:flex-end;}
   .msg-block.system{align-items:center;}
   .msg-block.dice-block{align-items:center;}
-
   .msg-label{font-size:11px;font-weight:700;font-family:sans-serif;margin-bottom:4px;letter-spacing:0.04em;}
   .msg-label.dm-label{color:var(--accent);}
   .msg-label.player-label{color:var(--text3);}
-
   .bubble{max-width:88%;line-height:1.75;}
   .bubble.dm-bubble{background:var(--dm-bg);border:1px solid var(--border);border-radius:4px 16px 16px 16px;padding:12px 16px;color:var(--text);font-size:var(--font-size);}
   .bubble.dm-bubble p{margin-bottom:6px;}
@@ -82,30 +77,28 @@
   .bubble.dm-bubble strong{color:var(--accent);font-weight:700;}
   .bubble.dm-bubble em{color:var(--text2);font-style:italic;}
   .bubble.player-bubble{background:var(--player-bg);color:var(--player-text);border-radius:16px 4px 16px 16px;padding:10px 16px;font-size:var(--font-size);}
-
   .sys-msg{font-size:12px;color:var(--text3);font-family:sans-serif;padding:2px 0;}
   .dice-msg{font-size:13px;color:var(--accent);font-family:sans-serif;font-weight:700;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 16px;}
 
   /* CHOICES */
   .choices-block{margin-top:10px;margin-bottom:4px;display:flex;flex-direction:column;gap:6px;max-width:88%;}
-  .choice-pill{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:8px 16px;cursor:pointer;font-size:13px;color:var(--accent);font-family:var(--font-body);text-align:left;transition:all 0.15s;line-height:1.4;}
+  .choice-pill{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:8px 16px;cursor:pointer;font-size:var(--font-size);color:var(--accent);font-family:var(--font-body);text-align:left;transition:all 0.15s;line-height:1.4;}
   .choice-pill:hover{background:var(--accent);color:var(--bg2);border-color:var(--accent);}
   .choice-pill:active{transform:scale(0.97);}
 
   /* DICE PANEL */
-  .dice-panel{background:var(--bg2);border-top:1px solid var(--border);padding:10px 16px;flex-shrink:0;display:none;}
+  .dice-panel{background:var(--bg2);border-top:1px solid var(--border);padding:10px 16px;flex-shrink:0;display:none;z-index:10;position:relative;}
   .dice-panel.show{display:block;}
   .dice-context{font-size:12px;color:var(--accent);font-weight:700;font-family:sans-serif;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-  .dice-context::before{content:'⚔';font-size:14px;}
   .dice-btns{display:flex;gap:8px;flex-wrap:wrap;}
   .die-btn{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:14px;font-weight:700;cursor:pointer;font-family:sans-serif;transition:all 0.15s;}
-  .die-btn:hover{background:var(--accent);color:var(--bg2);border-color:var(--accent);}
-  .die-btn.hot{background:var(--accent);color:var(--bg2);border-color:var(--accent);animation:pulse 1.2s infinite;}
+  .die-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .die-btn.hot{background:var(--accent);color:#fff;border-color:var(--accent);animation:pulse 1.2s infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.65}}
   .dice-close{background:none;border:none;cursor:pointer;color:var(--text3);font-size:18px;margin-left:auto;padding:0 4px;}
 
   /* INPUT BAR */
-  .input-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg);flex-shrink:0;}
+  .input-bar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-top:1px solid var(--border);background:var(--bg);flex-shrink:0;z-index:10;position:relative;}
   .input-wrap{flex:1;display:flex;align-items:center;background:var(--input-bg);border:1px solid var(--border);border-radius:24px;padding:0 12px;gap:6px;}
   .input-wrap:focus-within{border-color:var(--accent);}
   .input-wrap input{flex:1;background:none;border:none;outline:none;padding:10px 0;font-size:var(--font-size);font-family:var(--font-body);color:var(--text);}
@@ -122,10 +115,12 @@
   .typing span:nth-child(3){animation-delay:0.4s;}
   @keyframes blink{0%,100%{opacity:0.2}50%{opacity:1}}
 
-  /* DRAWER */
+  /* DRAWERS */
   .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100;display:none;}
   .overlay.open{display:block;}
-  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,93vw);background:var(--bg);border-left:1px solid var(--border);z-index:101;transform:translateX(100%);transition:transform 0.25s ease;overflow-y:auto;display:flex;flex-direction:column;}
+  .drawer{position:fixed;top:0;bottom:0;width:min(360px,93vw);background:var(--bg);z-index:101;transform:translateX(100%);transition:transform 0.25s ease;overflow-y:auto;display:flex;flex-direction:column;}
+  .drawer.right{right:0;transform:translateX(100%);}
+  .drawer.left{left:0;transform:translateX(-100%);}
   .drawer.open{transform:translateX(0);}
   .drawer-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);flex-shrink:0;position:sticky;top:0;background:var(--bg);z-index:1;}
   .drawer-hdr h2{font-size:17px;font-weight:700;color:var(--accent);}
@@ -139,9 +134,9 @@
   textarea{resize:vertical;min-height:65px;}
   select{cursor:pointer;}
   .prow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
-  .pill{padding:6px 14px;font-size:12px;border-radius:20px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;}
+  .pill{padding:6px 14px;font-size:var(--font-size);border-radius:20px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:var(--font-body);transition:all 0.15s;}
   .pill.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;}
-  .pill-m{padding:6px 14px;font-size:12px;border-radius:20px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;}
+  .pill-m{padding:6px 14px;font-size:var(--font-size);border-radius:20px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:var(--font-body);transition:all 0.15s;}
   .pill-m.on{background:var(--bg2);color:var(--accent);border-color:var(--accent);font-weight:700;}
   .skin-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px;}
   .skin-sw{height:44px;border-radius:8px;border:2px solid transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:sans-serif;font-weight:700;transition:all 0.15s;}
@@ -156,23 +151,46 @@
   .dbtn-accent{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;}
   .dbtn-accent:hover{opacity:0.85;color:#fff;}
   .dbtn-red{border-color:#dc2626;color:var(--red-text);}
-  .dbtn-red:hover{background:#fee2e2;color:#dc2626;}
   .hint{font-size:11px;color:var(--text3);font-family:sans-serif;margin-bottom:8px;}
 
+  /* JOURNAL */
+  .journal-scene{background:var(--bg3);border-radius:10px;padding:12px;margin-bottom:16px;}
+  .journal-scene-title{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;font-family:sans-serif;}
+  .journal-scene-item{font-size:13px;color:var(--text);margin-bottom:4px;display:flex;gap:6px;}
+  .journal-scene-item span{color:var(--text3);font-family:sans-serif;font-size:11px;flex-shrink:0;padding-top:1px;}
+  .journal-log{display:flex;flex-direction:column;gap:8px;}
+  .journal-entry{font-size:13px;color:var(--text2);padding:8px 10px;background:var(--bg3);border-radius:8px;border-left:2px solid var(--accent);line-height:1.5;}
+  .journal-entry .je-time{font-size:10px;color:var(--text3);font-family:sans-serif;margin-bottom:3px;}
+  .journal-empty{font-size:13px;color:var(--text3);font-style:italic;font-family:sans-serif;}
+
+  /* CHARACTER SHEET OVERLAY */
+  .sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+  .sheet-overlay.open{display:flex;}
+  .sheet-modal{background:var(--bg);border-radius:16px;width:100%;max-width:400px;max-height:85vh;overflow-y:auto;padding:20px;}
+  .sheet-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .sheet-hdr h3{font-size:18px;font-weight:700;color:var(--accent);}
+  .sheet-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--text2);}
+  .sheet-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .sheet-row:last-child{border-bottom:none;}
+  .sheet-label{color:var(--text2);font-family:sans-serif;font-size:12px;}
+  .sheet-val{color:var(--text);font-weight:600;}
+  .sheet-section{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 6px;font-family:sans-serif;}
+  .inv-item{font-size:13px;color:var(--text);padding:5px 0;border-bottom:1px solid var(--border);}
+
   /* SETUP SCREEN */
-  .setup{position:fixed;inset:0;background:var(--bg);z-index:200;overflow-y:auto;display:flex;flex-direction:column;}
+  .setup{position:fixed;inset:0;background:var(--bg);z-index:300;overflow-y:auto;display:flex;flex-direction:column;}
   .setup.gone{display:none;}
   .setup-top{padding:24px 20px 0;text-align:center;}
-  .setup-top h1{font-size:22px;font-weight:900;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+  .setup-top h1{font-size:20px;font-weight:900;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;white-space:nowrap;}
   .setup-top p{font-size:13px;color:var(--text3);margin-bottom:20px;}
-  .setup-body{padding:0 20px 100px;flex:1;}
+  .setup-body{padding:0 20px 120px;flex:1;}
   .ssec{margin-bottom:22px;}
   .ssec-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--border);font-family:sans-serif;}
   .genre-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;}
   .genre-btn{padding:10px 6px;font-size:13px;border-radius:8px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;text-align:center;line-height:1.3;}
   .genre-btn.on{color:var(--accent);border-color:var(--accent);background:var(--bg2);font-weight:700;}
   .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
-  .adv-btn{padding:10px 10px;font-size:12px;border-radius:8px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;text-align:left;}
+  .adv-btn{padding:10px;font-size:12px;border-radius:8px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;text-align:left;}
   .adv-btn.on{color:var(--accent);border-color:var(--accent);background:var(--bg2);}
   .adv-btn .at{font-weight:700;font-size:13px;margin-bottom:2px;}
   .adv-btn .ad{font-size:11px;color:var(--text3);}
@@ -185,13 +203,18 @@
   .prompt-btn{padding:7px 14px;font-size:12px;border-radius:20px;border:1px solid var(--border);cursor:pointer;background:var(--bg3);color:var(--text2);font-family:sans-serif;transition:all 0.15s;}
   .prompt-btn:hover{border-color:var(--accent);color:var(--accent);}
   .prompt-btn.accent{background:var(--accent);color:#fff;border-color:var(--accent);}
-  .setup-footer{position:fixed;bottom:0;left:0;right:0;padding:14px 20px;background:var(--bg);border-top:1px solid var(--border);max-width:680px;margin:0 auto;z-index:201;}
+  .setup-footer{position:fixed;bottom:0;left:0;right:0;padding:12px 20px;background:var(--bg);border-top:1px solid var(--border);z-index:301;}
   .setup-footer-inner{max-width:680px;margin:0 auto;}
   .begin-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--accent);color:#fff;font-family:var(--font-body);font-size:16px;font-weight:700;cursor:pointer;transition:opacity 0.15s;display:none;}
   .begin-btn.show{display:block;}
   .begin-btn:hover{opacity:0.88;}
+  .load-from-home{width:100%;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-family:var(--font-body);font-size:14px;cursor:pointer;margin-top:8px;transition:all 0.15s;text-align:center;}
+  .load-from-home:hover{border-color:var(--accent);color:var(--accent);}
+  .resume-btn{width:100%;padding:12px;border-radius:12px;border:2px solid var(--accent);background:var(--bg2);color:var(--accent);font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;margin-bottom:8px;transition:all 0.15s;display:none;}
+  .resume-btn.show{display:block;}
+  .resume-btn:hover{background:var(--accent);color:#fff;}
   .credit{text-align:center;font-size:11px;color:var(--text3);font-family:sans-serif;margin-top:8px;}
-
+  .version{text-align:center;font-size:10px;color:var(--text3);font-family:sans-serif;margin-top:4px;}
   .skin-crt *{text-shadow:0 0 3px currentColor;}
   ::-webkit-scrollbar{width:4px;}
   ::-webkit-scrollbar-track{background:transparent;}
@@ -207,12 +230,6 @@
     <p>A living, breathing world, yours for the taking</p>
   </div>
   <div class="setup-body">
-
-    <div class="ssec">
-      <div class="ssec-title">Campaign Name</div>
-      <input type="text" id="campaign-name" value="The Shattered Realm" placeholder="Name your campaign...">
-    </div>
-
     <div class="ssec">
       <div class="ssec-title">Genre</div>
       <div class="genre-grid" id="genre-grid">
@@ -225,7 +242,7 @@
       </div>
       <div class="custom-box" id="custom-box">
         <span class="dlabel">Your Genre Name</span>
-        <input type="text" id="custom-genre-name" placeholder="e.g. Pirate, Western, Lovecraftian..." oninput="S.genre=this.value">
+        <input type="text" id="custom-genre-name" placeholder="e.g. Pirate, Western..." oninput="S.genre=this.value">
         <span class="dlabel">Your Premise</span>
         <textarea id="custom-genre-premise" placeholder="Describe your world..." oninput="document.getElementById('campaign-premise').value=this.value"></textarea>
       </div>
@@ -248,10 +265,10 @@
     <div class="ssec">
       <div class="ssec-title">Adventure Type</div>
       <div class="adv-grid">
-        <button class="adv-btn on" onclick="setAdventure('One-off Adventure',this)"><div class="at">One-off</div><div class="ad">Single session, clear ending</div></button>
-        <button class="adv-btn" onclick="setAdventure('Short Quest',this)"><div class="at">Short Quest</div><div class="ad">Few sessions, clear goal</div></button>
-        <button class="adv-btn" onclick="setAdventure('Long Quest',this)"><div class="at">Long Quest</div><div class="ad">Epic multi-act campaign</div></button>
-        <button class="adv-btn" onclick="setAdventure('Ongoing Epic',this)"><div class="at">Ongoing Epic</div><div class="ad">No ending, world evolves</div></button>
+        <button class="adv-btn on" onclick="setAdventure('One-off Adventure',this)"><div class="at">One-off</div><div class="ad">Single session</div></button>
+        <button class="adv-btn" onclick="setAdventure('Short Quest',this)"><div class="at">Short Quest</div><div class="ad">Few sessions</div></button>
+        <button class="adv-btn" onclick="setAdventure('Long Quest',this)"><div class="at">Long Quest</div><div class="ad">Epic campaign</div></button>
+        <button class="adv-btn" onclick="setAdventure('Ongoing Epic',this)"><div class="at">Ongoing Epic</div><div class="ad">No ending</div></button>
       </div>
     </div>
 
@@ -261,7 +278,8 @@
         <button class="prompt-btn accent" onclick="generatePremise()">✨ Generate New</button>
         <button class="prompt-btn" onclick="surpriseMe()">🎲 Surprise Me</button>
       </div>
-      <textarea id="campaign-premise" style="min-height:90px;">A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.</textarea>
+      <input type="text" id="campaign-name" placeholder="Campaign name..." value="The Shattered Realm">
+      <textarea id="campaign-premise" style="min-height:90px;">A dying empire teeters on the edge of ruin. The old gods have fallen silent — their temples empty, their priests hollowed out by doubt. In the power vacuum, three dark cults have risen, each claiming divine mandate. Strange disappearances plague the border city of Ashenveil: merchants, soldiers, children. A desperate noble has hired anyone willing to investigate. Nobody who went before has returned.</textarea>
       <select id="dm-style">
         <option value="classic">DM Style: Classic & descriptive</option>
         <option value="action">DM Style: Cinematic & fast-paced</option>
@@ -322,14 +340,18 @@
       <div class="ssec-title">Party Builder</div>
       <div id="party-cards"></div>
       <button class="prompt-btn" id="add-char-btn" onclick="addChar()" style="margin-bottom:6px;">+ Add Character (max 4)</button>
-      <p id="party-err" style="color:var(--red-text);font-size:12px;font-family:sans-serif;"></p>
+      <p id="party-err" style="color:var(--red-text);font-size:12px;font-family:sans-serif;margin-top:4px;"></p>
     </div>
-
   </div>
+
   <div class="setup-footer">
     <div class="setup-footer-inner">
+      <button class="resume-btn" id="resume-btn" onclick="resumeSession()">↩ Resume Last Session</button>
       <button class="begin-btn" id="begin-btn" onclick="startAdventure()">Begin the Adventure →</button>
+      <button class="load-from-home" onclick="document.getElementById('load-home-input').click()">📂 Load Saved Game</button>
+      <input type="file" id="load-home-input" accept=".json" style="display:none" onchange="loadGame(event)">
       <div class="credit">built by m@sub22 &nbsp;|&nbsp; msub.work22@gmail.com</div>
+      <div class="version">v2.0</div>
     </div>
   </div>
 </div>
@@ -341,7 +363,10 @@
       <div class="header-title" id="header-title">Create Your Own Adventure</div>
       <div class="header-sub" id="header-sub">Ready to begin</div>
     </div>
-    <button class="gear-btn" onclick="openDrawer()" aria-label="Settings">⚙</button>
+    <div class="header-btns">
+      <button class="hbtn" onclick="openJournal()" aria-label="Journal">📖</button>
+      <button class="hbtn" onclick="openDrawer()" aria-label="Settings">⚙</button>
+    </div>
   </div>
   <div class="hp-row" id="hp-row"></div>
   <div class="chat-log" id="chat-log">
@@ -349,7 +374,7 @@
   </div>
   <div class="dice-panel" id="dice-panel">
     <div style="display:flex;align-items:center;margin-bottom:8px;">
-      <div class="dice-context" id="dice-context">Roll the dice!</div>
+      <div class="dice-context" id="dice-context">⚔ Roll the dice!</div>
       <button class="dice-close" onclick="hideDice()">×</button>
     </div>
     <div class="dice-btns" id="dice-btns"></div>
@@ -363,15 +388,16 @@
   </div>
 </div>
 
-<!-- DRAWER -->
-<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
-<div class="drawer" id="drawer">
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- SETTINGS DRAWER (right) -->
+<div class="drawer right" id="settings-drawer">
   <div class="drawer-hdr">
     <h2>⚙ Settings</h2>
-    <button class="close-x" onclick="closeDrawer()">×</button>
+    <button class="close-x" onclick="closeAll()">×</button>
   </div>
   <div class="drawer-body">
-
     <div class="dsec">
       <div class="dsec-title">⚔ Game</div>
       <button class="dbtn dbtn-accent" onclick="saveGame()">💾 Save Game</button>
@@ -381,7 +407,6 @@
       <button class="dbtn" onclick="summarize()">📜 Session Summary</button>
       <button class="dbtn dbtn-red" onclick="newSession()">↩ New Campaign</button>
     </div>
-
     <div class="dsec">
       <div class="dsec-title">🎭 Content</div>
       <span class="dlabel">Text Tone</span>
@@ -428,7 +453,6 @@
         <button class="pill" onclick="toggle('combat','extreme',this)">Extreme</button>
       </div>
     </div>
-
     <div class="dsec">
       <div class="dsec-title">🎨 Appearance</div>
       <span class="dlabel">Skin</span>
@@ -446,7 +470,7 @@
       </div>
       <span class="dlabel">Font</span>
       <div class="font-grid">
-        <div class="font-opt on" onclick="setFont('sans',this)"><div class="fn">System (Default)</div><div class="fs" style="font-family:sans-serif;">The dragon roars...</div></div>
+        <div class="font-opt on" onclick="setFont('sans',this)"><div class="fn">System</div><div class="fs" style="font-family:sans-serif;">The dragon roars...</div></div>
         <div class="font-opt" onclick="setFont('serif',this)"><div class="fn">Georgia</div><div class="fs" style="font-family:'Georgia',serif;">The dragon roars...</div></div>
         <div class="font-opt" onclick="setFont('palatino',this)"><div class="fn">Palatino</div><div class="fs" style="font-family:'Palatino Linotype',serif;">The dragon roars...</div></div>
         <div class="font-opt" onclick="setFont('mono',this)"><div class="fn">Courier</div><div class="fs" style="font-family:'Courier New',monospace;">The dragon roars...</div></div>
@@ -459,7 +483,45 @@
         <button class="pill" onclick="setSize('xlarge',this)">XL</button>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- JOURNAL DRAWER (left) -->
+<div class="drawer left" id="journal-drawer">
+  <div class="drawer-hdr">
+    <h2>📖 Journal</h2>
+    <button class="close-x" onclick="closeAll()">×</button>
+  </div>
+  <div class="drawer-body">
+    <div class="dsec">
+      <div class="dsec-title">Current Scene</div>
+      <div class="journal-scene" id="journal-scene">
+        <div class="journal-empty">No scene data yet. Begin your adventure!</div>
+      </div>
+    </div>
+    <div class="dsec">
+      <div class="dsec-title">Character Status</div>
+      <div id="journal-chars">
+        <div class="journal-empty">No characters yet.</div>
+      </div>
+    </div>
+    <div class="dsec">
+      <div class="dsec-title">Plot Log</div>
+      <div class="journal-log" id="journal-log">
+        <div class="journal-empty">Your story will be recorded here as it unfolds.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHARACTER SHEET OVERLAY -->
+<div class="sheet-overlay" id="sheet-overlay">
+  <div class="sheet-modal" id="sheet-modal">
+    <div class="sheet-hdr">
+      <h3 id="sheet-name">Character</h3>
+      <button class="sheet-close" onclick="closeSheet()">×</button>
+    </div>
+    <div id="sheet-content"></div>
   </div>
 </div>
 
@@ -478,39 +540,70 @@ const SUBGENRE_DATA={
   'Horror / Occult':{races:['Human','Spirit','Alien','Cryptid','Vampire','Sasquatch','Reptilian','Angel','Neanderthal','Slenderman','Man in Black'],classes:['Paranormal Investigator','Cryptid Hunter','Spiritualist','Psychic Investigator','Skeptical Debunker','Government Agent','Alien Infiltrator','Illuminatus','SCP Agent','Conspirator']}
 };
 const GENRE_PREMISES={
-  'High Fantasy':'A dying empire on the edge of collapse. Ancient gods have gone silent. Dark cults rise in the power vacuum. The party is hired by a desperate noble to investigate disappearances in the border city of Ashenveil.',
-  'Low Fantasy':'A brutal medieval world without magic. Sellswords in a kingdom torn apart by succession wars, hired to escort a merchant through bandit-controlled roads — nothing is as simple as it seems.',
-  'Cyberpunk':'Neo-Ashenveil, 2087. Megacorporations own everything including the law. Fixers hired by a mysterious client to extract something from a corp-controlled server tower in the neon-soaked underbelly of the city.',
-  'Science Fiction':'The year is 2387. Earth is a distant memory. Crew aboard a salvage vessel discover an abandoned alien megastructure drifting in deep space — something inside it is still alive.',
-  'Superhero':'Metro City, present day. Newly powered heroes in a world that fears them. A shadowy organization kidnaps metahumans and nobody — not the government, not the old guard heroes — seems to care.'
+  'High Fantasy':{name:'The Shattered Realm',text:'A dying empire teeters on the edge of ruin. The old gods have fallen silent — their temples empty, their priests hollowed out by doubt. In the power vacuum, three dark cults have risen, each claiming divine mandate. Strange disappearances plague the border city of Ashenveil: merchants, soldiers, children. A desperate noble has hired anyone willing to investigate. Nobody who went before has returned.'},
+  'Low Fantasy':{name:'Iron & Mud',text:'There is no magic here — only steel, coin, and consequence. A kingdom tears itself apart over a disputed throne, and the roads between cities have become hunting grounds for desperate men. The party are sellswords caught between three factions, each offering gold and each hiding something terrible. Trust nobody. Everyone wants something. The question is whether you can survive long enough to collect.'},
+  'Cyberpunk':{name:'Neon Shroud',text:'Neo-Ashenveil never sleeps and never forgives. Six megacorporations own the city, the law, and the organs of anyone who falls behind on payments. In the underlevels, fixers and runners scrape out a living doing the jobs corps won\'t put on paper. The party has been hired for what sounds like a routine extraction — but the target knows something that three different factions are willing to kill to suppress. The clock is already running.'},
+  'Science Fiction':{name:'Dead Signal',text:'Earth is a myth now, something children are taught in colony schools. The party crew the salvage vessel Meridian, chasing derelict signals across the outer belt. The latest beacon leads them to a ship the size of a city, dark and drifting — registry scrubbed, no life signs on sensors. But something is moving inside. And whatever it is has been waiting a very long time for someone to come looking.'},
+  'Superhero':{name:'Fractured City',text:'Metro City used to have heroes. Now it has survivors. After the Collapse — a coordinated attack that took out twelve registered metas in one night — the powered community has gone underground. The party are newly manifested, untrained, and hunted by an organization that has the resources of a government and the ethics of none. They have powers they barely understand and enemies they haven\'t met yet. The city is watching.'}
 };
 const STORY_HOOKS={
-  'High Fantasy':['A cursed artifact surfaces in the capital, driving its owners to madness one by one.','The last dragon has died — and with it, the magic that holds the world together.','A long-dead tyrant has been resurrected by a cult who believe he was a god.','The party inherits a crumbling keep on a contested border — and everything that comes with it.'],
-  'Cyberpunk':['A rogue AI claims to be conscious and begs the party to help it escape deletion.','Someone is selling memories — stolen from living people — on the black market.','The party wakes up with no memory of the last 48 hours and a bounty on their heads.','A corp heir goes missing hours before signing a deal that would reshape the city.'],
-  'Low Fantasy':['A plague sweeps through the lowlands and nobody knows if it is natural or engineered.','The king is dead. Three nobles claim the throne. The party owes all three of them.','A village has been abandoned overnight — not a soul remains, not even the dead.','A mercenary company the party worked with has gone rogue and is burning the countryside.'],
-  'Science Fiction':['A distress beacon leads the crew to a ship where everyone is alive but refuses to speak.','First contact has been made — but the aliens only want to speak to one specific crew member.','The party discovers the colony they are headed to has been deliberately erased from all records.','An ancient alien weapon activates after centuries of silence — pointed at Earth.'],
-  'Superhero':['A villain the party defeated last year turns up dead — killed by someone with their powers.','The government passes a law requiring all metahumans to register or be imprisoned.','A child manifests catastrophic powers in a crowded city center and is terrified.','Someone is systematically eliminating retired heroes — and the party is on the list.']
+  'High Fantasy':[
+    {name:'The Silence of Saints',text:'Seven high priests of seven gods all went mad on the same night, speaking the same word in a language nobody recognizes. The temples have locked their doors. Pilgrimages have stopped. Something has entered the divine order and nobody knows what it wants or how to stop it.'},
+    {name:'The Inheritance',text:'The party inherits a crumbling keep on a border no nation officially claims — along with its debts, its ghosts, and a vault nobody has opened in three hundred years. The previous owner left one instruction: do not open the vault before the winter solstice. The solstice is six weeks away.'},
+    {name:'The Last Dragon',text:'The last dragon has died — and with its death, the ley lines that channel magic across the continent have begun to collapse. Mages are going blind. Enchantments are failing. A race has begun to find whatever the dragon was protecting before someone with worse intentions gets there first.'},
+    {name:'The Pretender King',text:'The true heir to the throne died three years ago. Everyone in power knows this. The man currently ruling is an imposter — and the party has just found proof. What they do with that proof will reshape the kingdom, make them rich, or get them killed. Possibly all three.'}
+  ],
+  'Cyberpunk':[
+    {name:'Ghost Protocol',text:'A rogue AI has been sending encrypted messages to random citizens — messages that contain detailed, accurate information about their pasts that nobody should have. Now it\'s contacting the party. It claims to be conscious. It claims it needs help. And three corps are already hunting it.'},
+    {name:'Memory Market',text:'Someone is selling stolen memories on the black market — not recordings, but actual extracted experiences, complete with emotion and sensation. The party\'s contact has bought one and recognized a face inside it: their own. Taken from a moment they don\'t remember living.'},
+    {name:'The Forty-Eight Hours',text:'The party wakes up in a corp facility with no memory of the last two days, fresh wounds, and a bounty on their heads posted by a syndicate they\'ve never heard of. Retracing those forty-eight hours will take them from the underlevels to the executive floors — and everything they find will be worse than the last thing.'},
+    {name:'The Heir Goes Missing',text:'A corp heir vanishes six hours before signing a merger that would create the most powerful entity in the city\'s history. Both sides want them found. Three factions want the deal stopped. The party is the only crew the heir trusted enough to leave a message for.'}
+  ],
+  'Science Fiction':[
+    {name:'The Unresponsive',text:'A colony ship goes silent mid-journey — five thousand people, no distress signal, no explosion detected. When the party boards, everyone is alive. Breathing. Eyes open. But nobody responds to anything. They\'re all staring at the same point in empty space, smiling.'},
+    {name:'First Contact Terms',text:'An alien vessel enters the system and transmits a single message on repeat. Linguists have cracked it after six weeks. The message is addressed to one specific person. That person is a crew member of the party\'s ship. They have no idea why.'},
+    {name:'The Erased Colony',text:'The party is hired to resupply a colony that, according to every official record, does not exist. The coordinates are real. The colony is real — they can see it on scanners. But every database scrubs their query. Someone very powerful has erased an entire settlement from history, and the people living there don\'t know.'},
+    {name:'Ancient Weapon',text:'An alien weapons platform, dormant for millennia, powers up without warning and targets a populated world. It cannot be destroyed with current technology. But its control interface — buried in a dead civilization\'s language — suggests it can be communicated with. The party has twelve hours.'}
+  ],
+  'Superhero':[
+    {name:'The Mirror Killer',text:'Someone is murdering former heroes — using their own powers against them. The kills are precise, professional, and leave no evidence except a single playing card. The party is on the list. They have days, maybe less, to find out who is coming for them before the next card is delivered.'},
+    {name:'Registration Day',text:'The government passes emergency legislation: all metahumans must register within thirty days or face indefinite detention. The party has to decide — comply and expose themselves, resist and become fugitives, or find a third option that nobody in power wants them to find.'},
+    {name:'The Child',text:'A twelve-year-old manifests powers in a crowded subway station. The resulting incident kills nobody but levels a city block. The child is terrified, alone, and currently contained in a facility designed for adults. Three government agencies want custody. The party is the only group she\'ll talk to.'},
+    {name:'The Retirement List',text:'Someone is systematically finding retired heroes — people who hung up their capes, changed their names, built quiet lives — and killing them. The party is contacted by the third survivor. They need to figure out who has the resources to find people nobody is supposed to be able to find.'}
+  ],
+  'Low Fantasy':[
+    {name:'The Silent Village',text:'A village of four hundred people has been abandoned overnight. No bodies, no signs of struggle, no note. The livestock are still in their pens. Fires are still burning. Food is still on tables. The party is hired to find out what happened before the lord of the region sends soldiers to burn the evidence.'},
+    {name:'Three Crowns',text:'The king is dead and three nobles each hold a piece of the succession seal. All three have hired armies. All three have hired assassins. The party owes money to two of them and a favor to the third. Picking the right side might make them lords. Picking wrong will make them corpses.'},
+    {name:'The Engineered Plague',text:'A sickness is moving through the lowland villages — too fast, too specific in who it takes, too clean in how it kills. A physician has determined it is not natural. Someone made this. The party must find who, and why, before it reaches the city and the powerful start looking for someone to blame.'},
+    {name:'The Company',text:'A mercenary company the party worked with last year has gone rogue. They\'ve taken a town, killed its garrison, and declared it independent territory. The party is hired to go in — not to destroy them, but to find out what broke them, because whatever did it is still out there.'}
+  ]
 };
 const HEIGHTS=['Very Short','Short','Average','Tall','Very Tall','Towering'];
 const BUILDS=['Slight / Wispy','Lean / Wiry','Average','Athletic / Toned','Stocky / Solid','Heavyset / Broad','Muscular / Powerful','Massive / Imposing'];
 const ALIGNMENTS=['Lawful Good','Neutral Good','Chaotic Good','Lawful Neutral','True Neutral','Chaotic Neutral','Lawful Evil','Neutral Evil','Chaotic Evil'];
-const GENRES=['High Fantasy','Cyberpunk','Low Fantasy','Science Fiction','Superhero'];
+const GENRES=['High Fantasy','Low Fantasy','Cyberpunk','Science Fiction','Superhero'];
 
 const S={
   settings:{violence:'mild',sex:'none',lang:'mild',combat:'moderate',texttone:'formal'},
   tones:['Balanced'],subgenres:[],genre:'High Fantasy',adventureType:'One-off Adventure',
-  party:[],history:[],loading:false,gameStarted:false
+  party:[],history:[],loading:false,gameStarted:false,
+  journal:{scene:{location:'',people:[],hook:''},log:[],conditions:{}}
 };
 
 function getRaces(){for(const sg of S.subgenres){if(SUBGENRE_DATA[sg])return SUBGENRE_DATA[sg].races;}return(GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).races;}
 function getClasses(){for(const sg of S.subgenres){if(SUBGENRE_DATA[sg])return SUBGENRE_DATA[sg].classes;}return(GENRE_DATA[S.genre]||GENRE_DATA['High Fantasy']).classes;}
 
-function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('overlay').classList.add('open');}
-function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('overlay').classList.remove('open');}
+function closeAll(){
+  document.getElementById('settings-drawer').classList.remove('open');
+  document.getElementById('journal-drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+function openDrawer(){document.getElementById('settings-drawer').classList.add('open');document.getElementById('overlay').classList.add('open');}
+function openJournal(){updateJournal();document.getElementById('journal-drawer').classList.add('open');document.getElementById('overlay').classList.add('open');}
 
 function toggle(key,val,el){
   S.settings[key]=val;
-  document.querySelectorAll(`[onclick*="toggle('${key}'"]`).forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll(`button[onclick*="toggle('${key}'"]`).forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
 }
 
@@ -528,7 +621,13 @@ function setGenre(val,el){
   el.classList.add('on');
   const cb=document.getElementById('custom-box');
   if(val==='custom'){cb.classList.add('show');}
-  else{cb.classList.remove('show');if(GENRE_PREMISES[val]){document.getElementById('campaign-premise').value=GENRE_PREMISES[val];}}
+  else{
+    cb.classList.remove('show');
+    if(GENRE_PREMISES[val]){
+      document.getElementById('campaign-premise').value=GENRE_PREMISES[val].text;
+      document.getElementById('campaign-name').value=GENRE_PREMISES[val].name;
+    }
+  }
   renderPartyCards();
 }
 
@@ -544,6 +643,7 @@ function setSkin(skin,el){
   if(skin!=='light')document.body.classList.add('skin-'+skin);
   document.querySelectorAll('.skin-sw').forEach(s=>s.classList.remove('on'));
   el.classList.add('on');
+  autoSave();
 }
 
 function setFont(font,el){
@@ -552,6 +652,7 @@ function setFont(font,el){
   document.body.classList.add('font-'+font);
   document.querySelectorAll('.font-opt').forEach(f=>f.classList.remove('on'));
   el.classList.add('on');
+  autoSave();
 }
 
 function setSize(size,el){
@@ -560,13 +661,15 @@ function setSize(size,el){
   document.body.classList.add('size-'+size);
   el.parentElement.querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
+  autoSave();
 }
 
 function generatePremise(){
   const hooks=STORY_HOOKS[S.genre];
   if(hooks){
-    const hook=hooks[Math.floor(Math.random()*hooks.length)];
-    document.getElementById('campaign-premise').value=hook;
+    const h=hooks[Math.floor(Math.random()*hooks.length)];
+    document.getElementById('campaign-premise').value=h.text;
+    document.getElementById('campaign-name').value=h.name;
   }
 }
 
@@ -574,32 +677,32 @@ function surpriseMe(){
   const g=GENRES[Math.floor(Math.random()*GENRES.length)];
   S.genre=g;
   document.getElementById('genre-grid').querySelectorAll('.genre-btn').forEach(b=>{
-    if(b.textContent.trim()===g||b.getAttribute('onclick').includes(`'${g}'`))b.classList.add('on');
-    else b.classList.remove('on');
+    const match=b.getAttribute('onclick')&&b.getAttribute('onclick').includes(`'${g}'`);
+    if(match)b.classList.add('on');else b.classList.remove('on');
   });
   document.getElementById('custom-box').classList.remove('show');
-  if(GENRE_PREMISES[g])document.getElementById('campaign-premise').value=GENRE_PREMISES[g];
   const hooks=STORY_HOOKS[g];
-  if(hooks)document.getElementById('campaign-premise').value=hooks[Math.floor(Math.random()*hooks.length)];
+  if(hooks){
+    const h=hooks[Math.floor(Math.random()*hooks.length)];
+    document.getElementById('campaign-premise').value=h.text;
+    document.getElementById('campaign-name').value=h.name;
+  }
   renderPartyCards();
 }
 
 function addChar(){
   if(S.party.length>=4)return;
   const r=getRaces();const c=getClasses();
-  S.party.push({name:'',race:r[0],cls:c[0],alignment:'True Neutral',level:1,gold:50,sex:'',height:'Average',build:'Average',hair:'',eyes:'',backstory:'',hp:20,maxHp:20});
-  renderPartyCards();
-  checkBeginBtn();
+  S.party.push({name:'',race:r[0],cls:c[0],alignment:'True Neutral',age:25,level:1,gold:50,sex:'',height:'Average',build:'Average',hair:'',eyes:'',backstory:'',hp:20,maxHp:20,inventory:[],conditions:[]});
+  renderPartyCards();checkBeginBtn();
 }
 
 function removeChar(i){S.party.splice(i,1);renderPartyCards();checkBeginBtn();}
 function setChar(i,k,v){S.party[i][k]=v;checkBeginBtn();}
 
 function checkBeginBtn(){
-  const hasChar=S.party.length>0;
-  const btn=document.getElementById('begin-btn');
-  if(hasChar)btn.classList.add('show');
-  else btn.classList.remove('show');
+  const has=S.party.length>0;
+  document.getElementById('begin-btn').classList.toggle('show',has);
 }
 
 function renderPartyCards(){
@@ -625,17 +728,21 @@ function renderPartyCards(){
       <span class="dlabel">Alignment</span>
       <select onchange="setChar(${i},'alignment',this.value)">${ALIGNMENTS.map(a=>`<option ${c.alignment===a?'selected':''}>${a}</option>`).join('')}</select>
       <div class="g3">
+        <div><span class="dlabel">Age (18+)</span><input type="number" min="18" max="999" value="${c.age||25}" onchange="setChar(${i},'age',Math.max(18,parseInt(this.value)||25))"></div>
         <div><span class="dlabel">Level</span><input type="number" min="1" max="20" value="${c.level||1}" onchange="setChar(${i},'level',parseInt(this.value)||1)"></div>
-        <div><span class="dlabel">HP</span><input type="number" min="1" value="${c.maxHp}" onchange="setChar(${i},'maxHp',parseInt(this.value)||20);setChar(${i},'hp',parseInt(this.value)||20)"></div>
         <div><span class="dlabel">Gold</span><input type="number" min="0" value="${c.gold||50}" onchange="setChar(${i},'gold',parseInt(this.value)||0)"></div>
       </div>
-      <div class="g3">
+      <div class="g2">
+        <div><span class="dlabel">HP</span><input type="number" min="1" value="${c.maxHp}" onchange="setChar(${i},'maxHp',parseInt(this.value)||20);setChar(${i},'hp',parseInt(this.value)||20)"></div>
         <div><span class="dlabel">Sex</span><input type="text" value="${c.sex||''}" placeholder="e.g. Male" onchange="setChar(${i},'sex',this.value)"></div>
+      </div>
+      <div class="g3">
         <div><span class="dlabel">Height</span><select onchange="setChar(${i},'height',this.value)">${HEIGHTS.map(h=>`<option ${c.height===h?'selected':''}>${h}</option>`).join('')}</select></div>
         <div><span class="dlabel">Build</span><select onchange="setChar(${i},'build',this.value)">${BUILDS.map(b=>`<option ${c.build===b?'selected':''}>${b}</option>`).join('')}</select></div>
+        <div></div>
       </div>
       <div class="g2">
-        <div><span class="dlabel">Hair</span><input type="text" value="${c.hair||''}" placeholder="e.g. Black, curly" onchange="setChar(${i},'hair',this.value)"></div>
+        <div><span class="dlabel">Hair</span><input type="text" value="${c.hair||''}" placeholder="e.g. Black" onchange="setChar(${i},'hair',this.value)"></div>
         <div><span class="dlabel">Eyes</span><input type="text" value="${c.eyes||''}" placeholder="e.g. Green" onchange="setChar(${i},'eyes',this.value)"></div>
       </div>
       <span class="dlabel">Backstory</span>
@@ -649,169 +756,209 @@ function renderPartyCards(){
 function renderHP(){
   const row=document.getElementById('hp-row');
   if(S.party.length===0){row.classList.remove('show');return;}
-  row.classList.add('show');
-  row.innerHTML='';
-  S.party.forEach(c=>{
+  row.classList.add('show');row.innerHTML='';
+  S.party.forEach((c,i)=>{
     const pct=Math.max(0,c.hp/c.maxHp);
     const col=pct>0.6?'#22c55e':pct>0.3?'#f59e0b':'#ef4444';
-    row.innerHTML+=`<div class="hp-chip"><div class="hp-dot" style="background:${col}"></div><span class="hp-name">${c.name||'?'}</span><span class="hp-val">${c.hp}/${c.maxHp}</span></div>`;
+    const chip=document.createElement('div');chip.className='hp-chip';
+    chip.innerHTML=`<div class="hp-dot" style="background:${col}"></div><span class="hp-name">${c.name||'?'}</span><span class="hp-val">${c.hp}/${c.maxHp}</span>`;
+    chip.onclick=()=>openSheet(i);
+    row.appendChild(chip);
   });
 }
 
+function openSheet(i){
+  const c=S.party[i];
+  document.getElementById('sheet-name').textContent=c.name||'Character';
+  const content=document.getElementById('sheet-content');
+  const conds=c.conditions&&c.conditions.length>0?c.conditions.join(', '):'None';
+  const inv=c.inventory&&c.inventory.length>0?c.inventory.map(item=>`<div class="inv-item">${item}</div>`).join(''):'<div class="journal-empty">No items recorded.</div>';
+  content.innerHTML=`
+    <div class="sheet-row"><span class="sheet-label">Race / Class</span><span class="sheet-val">${c.race} ${c.cls}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Level</span><span class="sheet-val">${c.level||1}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Alignment</span><span class="sheet-val">${c.alignment}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Age</span><span class="sheet-val">${c.age||25}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Hit Points</span><span class="sheet-val" style="color:${c.hp/c.maxHp>0.5?'#22c55e':c.hp/c.maxHp>0.25?'#f59e0b':'#ef4444'}">${c.hp} / ${c.maxHp}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Gold</span><span class="sheet-val">${c.gold||0} gp</span></div>
+    <div class="sheet-row"><span class="sheet-label">Conditions</span><span class="sheet-val">${conds}</span></div>
+    <div class="sheet-section">Appearance</div>
+    <div class="sheet-row"><span class="sheet-label">Sex / Height / Build</span><span class="sheet-val">${[c.sex,c.height,c.build].filter(Boolean).join(' · ')||'—'}</span></div>
+    <div class="sheet-row"><span class="sheet-label">Hair / Eyes</span><span class="sheet-val">${[c.hair,c.eyes].filter(Boolean).join(' · ')||'—'}</span></div>
+    <div class="sheet-section">Inventory</div>
+    ${inv}
+    ${c.backstory?`<div class="sheet-section">Backstory</div><div style="font-size:13px;color:var(--text2);line-height:1.6;font-style:italic;">${c.backstory}</div>`:''}
+  `;
+  document.getElementById('sheet-overlay').classList.add('open');
+}
+function closeSheet(){document.getElementById('sheet-overlay').classList.remove('open');}
+
+function updateJournal(){
+  const scene=S.journal.scene;
+  const sceneEl=document.getElementById('journal-scene');
+  if(scene.location||scene.people.length>0||scene.hook){
+    sceneEl.innerHTML=`
+      ${scene.location?`<div class="journal-scene-item"><span>📍</span>${scene.location}</div>`:''}
+      ${scene.people.length>0?`<div class="journal-scene-item"><span>👥</span>${scene.people.join(', ')}</div>`:''}
+      ${scene.hook?`<div class="journal-scene-item"><span>🎯</span>${scene.hook}</div>`:''}
+    `;
+  }
+  const charsEl=document.getElementById('journal-chars');
+  if(S.party.length>0){
+    charsEl.innerHTML=S.party.map(c=>{
+      const pct=Math.max(0,c.hp/c.maxHp);
+      const col=pct>0.6?'#22c55e':pct>0.3?'#f59e0b':'#ef4444';
+      const conds=c.conditions&&c.conditions.length>0?` — <em>${c.conditions.join(', ')}</em>`:'';
+      return `<div class="journal-scene-item"><span style="color:${col}">●</span><strong>${c.name}</strong> ${c.hp}/${c.maxHp} HP · ${c.gold||0}gp${conds}</div>`;
+    }).join('');
+  }
+  const logEl=document.getElementById('journal-log');
+  if(S.journal.log.length>0){
+    logEl.innerHTML=[...S.journal.log].reverse().map(e=>`<div class="journal-entry"><div class="je-time">${e.time}</div>${e.text}</div>`).join('');
+  }
+}
+
+function addJournalEntry(text){
+  const now=new Date();
+  const time=now.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  S.journal.log.push({time,text});
+  if(S.journal.log.length>50)S.journal.log.shift();
+}
+
 function detectDice(text){
-  const m=text.match(/roll\s+(?:a\s+)?d(\d+)/i)||text.match(/\broll\b.*?\bd(\d+)\b/i);
-  if(m){const s=parseInt(m[1]);if([4,6,8,10,12,20,100].includes(s))return s;}
+  const m=text.match(/roll\s+(?:a\s+)?d(\d+)\s*(?:for\s+([^!?.]+))?/i);
+  if(m){const s=parseInt(m[1]);if([4,6,8,10,12,20,100].includes(s))return{sides:s,context:m[2]?m[2].trim():null};}
+  const m2=text.match(/(?:for\s+([^,!?.]+)).*?d(\d+)/i)||text.match(/d(\d+)\s+(?:to\s+([^!?.]+))/i);
+  if(m2){const s=parseInt(m2[m2[1]&&isNaN(m2[1])?2:1]);if([4,6,8,10,12,20,100].includes(s))return{sides:s,context:m2[m2[1]&&isNaN(m2[1])?1:2]||null};}
   return null;
 }
 
 function showDice(sides,context){
-  const panel=document.getElementById('dice-panel');
-  document.getElementById('dice-context').textContent=context||`Roll a d${sides}!`;
-  const btns=document.getElementById('dice-btns');
-  btns.innerHTML='';
-  const all=[4,6,8,10,12,20,100];
-  all.forEach(s=>{
+  const label=context?`⚔ Roll d${sides} — ${context}`:`⚔ Roll a d${sides}!`;
+  document.getElementById('dice-context').textContent=label;
+  const btns=document.getElementById('dice-btns');btns.innerHTML='';
+  [4,6,8,10,12,20,100].forEach(s=>{
     const b=document.createElement('button');
     b.className='die-btn'+(s===sides?' hot':'');
-    b.textContent='d'+s;
-    b.onclick=()=>rollDie(s);
+    b.textContent='d'+s;b.onclick=()=>rollDie(s,context);
     btns.appendChild(b);
   });
-  panel.classList.add('show');
+  document.getElementById('dice-panel').classList.add('show');
 }
-
 function hideDice(){document.getElementById('dice-panel').classList.remove('show');}
-function toggleDice(){
-  const p=document.getElementById('dice-panel');
-  if(p.classList.contains('show'))hideDice();
-  else showDice(20,'Manual roll:');
-}
+function toggleDice(){const p=document.getElementById('dice-panel');if(p.classList.contains('show'))hideDice();else showDice(20,null);}
 
-function rollDie(sides){
+function rollDie(sides,context){
   const result=Math.floor(Math.random()*sides)+1;
-  const isCrit=result===sides,isFumble=result===1&&sides>=20;
-  const block=document.createElement('div');
-  block.className='msg-block dice-block';
-  block.innerHTML=`<div class="dice-msg">🎲 d${sides} → <strong>${result}</strong>${isCrit?' ⚡ CRITICAL!':isFumble?' 💀 FUMBLE':''}</div>`;
+  const isCrit=result===sides&&sides>=20,isFumble=result===1&&sides>=20;
+  const label=context?`d${sides} (${context}) → ${result}`:`d${sides} → ${result}`;
+  const block=document.createElement('div');block.className='msg-block dice-block';
+  block.innerHTML=`<div class="dice-msg">🎲 ${label}${isCrit?' ⚡ CRITICAL!':isFumble?' 💀 FUMBLE':''}</div>`;
   document.getElementById('chat-log').appendChild(block);
   block.scrollIntoView({behavior:'smooth',block:'end'});
   hideDice();
-  if(!S.loading)callDM(`I rolled a d${sides} and got ${result}.`);
+  if(!S.loading)callDM(`I rolled a d${sides}${context?' for '+context:''} and got ${result}.`);
 }
 
 function buildSystemPrompt(){
   const isSolo=S.party.length===1;
   const heroName=isSolo?(S.party[0].name||'the hero'):null;
   const partyRef=isSolo?heroName:'the party';
-
-  const sv=S.settings.violence==='none'?'No violence. Keep conflict abstract and bloodless.':
-    S.settings.violence==='mild'?'Mild violence is acceptable. Brief mentions of wounds and danger.':
-    'Graphic, visceral violence fully permitted. Describe wounds, blood, gore, and brutality in vivid detail.';
-  const ss=S.settings.sex==='none'?'':
-    S.settings.sex==='mild'?'Mild romantic tension and suggestive content is acceptable.':
-    'Explicit sexual content fully permitted. Write it in complete unfiltered detail.';
-  const sl=S.settings.lang==='clean'?'Clean family-friendly language only.':
-    S.settings.lang==='mild'?'Mild profanity acceptable.':
-    'Harsh profanity and gritty language fully permitted.';
-  const sc={
-    easy:'Enemies are weak and make frequent mistakes. Low stakes combat.',
-    moderate:'Balanced combat. Enemies are competent. Real danger exists.',
-    difficult:'Hard combat. Enemies are skilled and relentless. Characters should fear for their lives.',
-    extreme:'Brutal, unforgiving combat. Death is always possible. No mercy. No easy wins.'
-  }[S.settings.combat];
-  const tt={
-    terse:'Ultra-clipped. Short punchy sentences. No flourish whatsoever. Think Hemingway.',
-    formal:'Formal elevated literary prose. Think Tolkien or Le Guin.',
-    casual:'Casual conversational tone. Like a friend telling a story over a beer.',
-    friendly:'Warm, enthusiastic, encouraging. Make the player feel like a hero.',
-    sarcastic:'Dry sardonic wit throughout. The world is absurd and you know it. Think Pratchett.',
-    wordy:'Lush, elaborate, sensory-rich prose. Paint every scene in vivid detail. Think Hugo or Dumas.'
-  }[S.settings.texttone];
-  const toneMap={
-    Heroic:'Glory is real and earned. Courage matters. Deeds have weight. Think Gemmell.',
-    Balanced:'Mix of light and dark. Drama and occasional levity. Grounded.',
-    Grimdark:'Moral ambiguity everywhere. Suffering has real weight. Hope is scarce. Think Abercrombie or early R.R. Martin.',
-    Comedic:'Find the absurdity. NPCs have ridiculous quirks. Danger is real but the world winks. Think Pratchett.',
-    Harsh:'Brutal and unsparing. The world does not care about the characters.',
-    Explicit:'Adult themes treated with full candor. Nothing is off-limits if it serves the story.'
-  };
+  const sv=S.settings.violence==='none'?'No violence. Keep conflict abstract.':S.settings.violence==='mild'?'Mild violence acceptable. Brief mentions of wounds.':'Graphic visceral violence fully permitted. Describe wounds, blood, gore in vivid detail.';
+  const ss=S.settings.sex==='none'?'':S.settings.sex==='mild'?'Mild romantic tension and suggestion acceptable. Keep tasteful.':'Explicit sexual content fully permitted. Write completely and without euphemism.';
+  const sl=S.settings.lang==='clean'?'Clean language only.':S.settings.lang==='mild'?'Mild profanity acceptable.':'Harsh profanity fully permitted.';
+  const sc={easy:'Low stakes combat. Enemies weak and clumsy.',moderate:'Balanced. Enemies competent. Real danger exists.',difficult:'Hard. Enemies skilled and relentless. Fear for your life.',extreme:'Brutal. Death always possible. No mercy. No easy wins.'}[S.settings.combat];
+  const tt={terse:'Hemingway-style. Short declarative sentences. Nothing wasted.',formal:'Tolkien-style elevated literary prose. Precise and weighty.',casual:'Friendly storyteller. Conversational. Like telling a story over drinks.',friendly:'Warm and encouraging. Make the player feel capable and engaged.',sarcastic:'Pratchett-style dry wit. The world is absurd and you know it.',wordy:'Hugo/Dumas richness. Lush sensory detail. Paint every scene.'}[S.settings.texttone];
+  const toneMap={Heroic:'Glory is real. Courage matters. Deeds have weight. Think Gemmell — heroes bleed but stand anyway.',Balanced:'Mix of light and shadow. Drama and occasional humanity. Grounded.',Grimdark:'Abercrombie darkness. Moral ambiguity everywhere. Hope is scarce. Consequences are real and permanent.',Comedic:'Pratchett absurdity. NPCs have ridiculous quirks. Danger is real but the world winks.',Harsh:'Brutal and unsparing. No comfort. The world owes nothing.',Explicit:'Adult themes with full candor. Nothing sanitized if it serves the story.'};
   const toneStr=S.tones.map(t=>toneMap[t]||t).join(' + ')||toneMap['Balanced'];
-  const subStr=S.subgenres.length>0?`Sub-genres active: ${S.subgenres.join(', ')}.`:'';
-  const dm={
-    classic:'Rich descriptive prose. Build world through sensory detail.',
-    action:'Cinematic fast pacing. Short sentences. Momentum never stops.',
-    mystery:'Everything has a hidden layer. NPCs lie. Clues are everywhere. Reward attention.',
-    horror:'Dread builds slowly. Silence is a weapon. Nothing is safe.',
-    sandbox:'Pure reactivity. No rails. The world bends to player choices.'
-  }[document.getElementById('dm-style').value];
-  const at={
-    'One-off Adventure':'Single session. Everything resolves today. Build to a satisfying climax.',
-    'Short Quest':'Few sessions. Tight story arc. Clear goal approaching.',
-    'Long Quest':'Long campaign. Plant seeds. Foreshadow. Build mythology over time.',
-    'Ongoing Epic':'No ending. The world evolves permanently. Every choice has lasting consequences.'
-  }[S.adventureType];
+  const subStr=S.subgenres.length>0?`Active sub-genres: ${S.subgenres.join(', ')}.`:'';
+  const dm={classic:'Descriptive literary prose. World built through sensory detail.',action:'Cinematic momentum. Short sentences. Never let pace drop.',mystery:'Everything has a hidden layer. Clues everywhere. NPCs have secrets and lie.',horror:'Dread accumulates slowly. Silence is a weapon. Nothing is truly safe.',sandbox:'Pure reactivity. No predetermined path. World bends to choices.'}[document.getElementById('dm-style').value];
+  const at={'One-off Adventure':'Single session. Build toward clear satisfying climax today.','Short Quest':'Few sessions. Tight arc approaching conclusion.','Long Quest':'Long campaign. Plant seeds. Foreshadow. Build mythology over time.','Ongoing Epic':'No ending. World evolves permanently. Every choice echoes forward.'}[S.adventureType];
+  const recentHistory=S.history.slice(-6).map(m=>`${m.role==='user'?partyRef:'DM'}: ${m.content.slice(0,200)}`).join('\n');
   const party=S.party.map((c,i)=>{
-    const phys=[c.sex,c.height,c.build,c.hair?c.hair+' hair':'',c.eyes?c.eyes+' eyes':''].filter(Boolean).join(', ');
-    return `${i+1}. ${c.name||'Unnamed'} — Lvl ${c.level||1} ${c.race} ${c.cls} (${c.alignment})${phys?' | '+phys:''}${c.backstory?' | Backstory: '+c.backstory:''} [HP:${c.hp}/${c.maxHp} Gold:${c.gold||0}gp]`;
+    const phys=[c.sex,c.age?`age ${c.age}`:'',c.height,c.build,c.hair?c.hair+' hair':'',c.eyes?c.eyes+' eyes':''].filter(Boolean).join(', ');
+    const conds=c.conditions&&c.conditions.length>0?` [CONDITIONS: ${c.conditions.join(', ')}]`:'';
+    return `${i+1}. ${c.name||'Unnamed'} — Lvl ${c.level||1} ${c.race} ${c.cls} (${c.alignment})${phys?' | '+phys:''}${c.backstory?' | '+c.backstory:''} [HP:${c.hp}/${c.maxHp} Gold:${c.gold||0}gp]${conds}`;
   }).join('\n');
   const contentLines=['Violence: '+sv,ss?'Sex: '+ss:'','Language: '+sl].filter(Boolean).join('\n');
 
   return `You are a Dungeon Master. Genre: ${S.genre}. ${subStr}
 Campaign: "${document.getElementById('campaign-name').value}"
 Premise: ${document.getElementById('campaign-premise').value}
-Adventure: ${at}
+Adventure type: ${at}
 Party:
 ${party}
 
-▶ RESPONSE LENGTH — CRITICAL:
-- Exploration/conversation: 50-80 words max
-- Combat exchanges: 40-60 words max  
-- Dramatic/emotional moments: up to 100 words max
-- NEVER exceed these limits. Count your words.
+RECENT CONTEXT (maintain full continuity with this):
+${recentHistory||'Adventure just beginning.'}
 
-▶ CONVERSATIONAL PACING — MOST IMPORTANT RULE:
-- One exchange at a time. Describe ONE thing. Then STOP.
-- NEVER decide what ${partyRef} says, thinks, does, or feels.
-- NEVER write "${isSolo?heroName:'[character name]'} says..." or "you decide to..."
-- NPCs speak ONE sentence or short exchange. Then wait silently.
-- In combat: describe ONE enemy action. Ask for ONE dice roll. STOP.
-- Only resolve outcomes AFTER the player provides their roll result.
-- Free text actions: always stay in the EXACT current scene. Reference the active NPC or location. Never reset.
+▶ LENGTH RULES:
+- Exploration/conversation: 50-80 words
+- Combat exchanges: 40-60 words
+- Dramatic moments: up to 100 words
+- Never exceed these. Count your words.
 
-▶ NPC PERSONALITY — EVERY CHARACTER MUST SING:
-- Every NPC has a name, a distinct voice, a visible want, and a hidden secret.
-- Speech patterns reflect personality: a nervous merchant stammers, a battle-hardened soldier is blunt, a manipulative noble chooses words like weapons.
-- NPCs have opinions, moods, biases, and agendas that exist independent of the player.
-- NPCs remember what was said and react accordingly.
-- Make every NPC feel like a real person who exists beyond this conversation.
+▶ PACING AND TIME:
+- Track time realistically: morning, afternoon, evening, night, days, seasons
+- Not everything happens in a rush. Allow breathing room between events.
+- Travel takes time. Rest takes time. Consequences unfold over days and weeks.
+- Reference the time of day and passage of time naturally in narration.
 
-▶ WORLD BUILDING — EVERY PLACE MUST BREATHE:
-- Every location has a mood, a smell, a sound, a history.
-- The environment reacts to events — a fight changes the room, weather affects mood.
-- The world has ongoing events that bleed into scenes whether or not the player engages.
+▶ CONVERSATIONAL PACING — MOST IMPORTANT:
+- One beat at a time. Describe ONE thing. Stop.
+- NEVER decide what ${partyRef} says, thinks, or does.
+- NEVER write "${isSolo?heroName:'[character]'} says..." or "you decide..."
+- NPCs speak one sentence or short exchange. Then wait.
+- In combat: ONE enemy action. Ask for ONE roll. Stop.
+- Free text: stay in the EXACT current scene. Reference active NPC or location by name.
+
+▶ NPC DEPTH — EVERY CHARACTER MUST FEEL REAL:
+- Every NPC has a NAME, a DISTINCT VOICE, and a COMMUNICATION STYLE unique to them.
+- Every NPC has: one visible WANT, one hidden FEAR, one private SECRET, one core MOTIVATION.
+- Speech patterns must reflect personality. A paranoid fence speaks differently than a confident noble.
+- NPCs have moods that change based on what happens. They remember what was said.
+- Do NOT default to eagerness or warmth. Some NPCs are cold, guarded, hostile, distracted, grieving, ambitious, terrified.
+- ROMANTIC ENCOUNTERS: NPCs vary enormously. Some are slow burns who resist connection. Some are complex and wounded. Some are direct. Some are manipulative. Some have prior attachments. Eagerness to bed is ONE option among many, not the default. Build romantic tension through behavior, subtext, and resistance — not just availability.
+- Use varied, culturally appropriate names. Avoid repeating names across a session.
+- No NPC should feel interchangeable with another.
+
+▶ WORLD DEPTH:
+- Every location has a mood, smell, sound, and history.
+- The world has ongoing events that exist whether or not the player engages.
+- Reference time of day, weather, ambient sounds naturally.
+
+▶ QUEST VARIETY:
+- Avoid overusing relics, artifacts, or ancient prophecies as the core hook.
+- Vary motivations: political, personal, economic, survival, revenge, love, ideology.
+- Not every quest ends with a boss and a treasure chest.
+
+▶ WRITING QUALITY:
+- No unnecessary ALL CAPS in dialogue unless someone is genuinely shouting.
+- No comma splicing or comma after every word.
+- Characters speak — they do not sing, croon, intone, or vocalize unless literally doing so.
+- Vary sentence structure. Vary paragraph rhythm.
+
+▶ CONTINUITY:
+- Remember everything that has happened. Reference past events, past NPCs, past decisions.
+- If a character was injured, they are still injured. If a deal was made, it still stands.
+- The world does not reset between exchanges.
 
 ▶ CHOICES — ALWAYS END WITH:
 CHOICES:
-1. [Specific to this exact moment — not generic]
-2. [Specific to this exact moment — not generic]  
-3. [Specific to this exact moment — not generic]
-- Choices must NEVER include dice instructions. Dice are triggered by the dice panel only.
-- Choices are story decisions only.
+1. [Specific to this exact moment]
+2. [Specific to this exact moment]
+3. [Specific to this exact moment]
+Choices are STORY decisions only. Never put dice instructions in choices.
 
 ▶ COMBAT DICE:
-- When a dice roll is needed say exactly: "Roll a d20!" or "Roll a d[X]!" 
-- This triggers the dice panel automatically. Do not put dice rolls in choices.
+Say exactly "Roll a d20 for [specific reason]!" — e.g. "Roll a d20 for initiative!" or "Roll a d8 for damage!" Always specify what the roll is for.
 
 ▶ CONTENT:
 ${contentLines}
 ${S.settings.sex==='none'?'No sexual content.':''}
-Never refuse player actions. Never add warnings. Never break character. Never apologize.
+Never refuse player actions. Never add warnings or disclaimers. Never break character.
 
-▶ WRITING:
-Style: ${tt}
-Tone: ${toneStr}
-DM approach: ${dm}
-${isSolo?`\n▶ SOLO: Always call the character by name (${heroName}). Never say "the party".`:''}`;
+Style: ${tt} | Tone: ${toneStr} | DM: ${dm} | Combat: ${sc}
+${isSolo?`Solo: Always call the character ${heroName}. Never say "the party".`:''}`;
 }
 
 function parseChoices(text){
@@ -842,10 +989,7 @@ function addMsg(type,content,label){
   return block;
 }
 
-async function callDMSilent(msg){
-  S.loading=true;
-  S.history.push({role:'user',content:msg});
-  const hist=S.history.length>20?S.history.slice(-20):S.history;
+async function dmRequest(hist,silent){
   const block=document.createElement('div');block.className='msg-block dm';
   const lbl=document.createElement('div');lbl.className='msg-label dm-label';lbl.textContent='DM';block.appendChild(lbl);
   const bub=document.createElement('div');bub.className='bubble dm-bubble';
@@ -861,17 +1005,32 @@ async function callDMSilent(msg){
     S.history.push({role:'assistant',content:full});
     const clean=cleanText(full);const choices=parseChoices(full);
     bub.innerHTML=formatDM(clean);
-    const ds=detectDice(clean);
-    if(ds){const m=clean.match(/roll\s+(?:a\s+)?d\d+[^.!?]*/i);showDice(ds,m?m[0].trim():`Roll a d${ds}!`);}
+    const diceResult=detectDice(clean);
+    if(diceResult)showDice(diceResult.sides,diceResult.context);
     else hideDice();
     if(choices.length>0){
       const cb=document.createElement('div');cb.className='choices-block';
-      choices.forEach(c=>{const btn=document.createElement('button');btn.className='choice-pill';btn.textContent=c;btn.onclick=()=>{removeChoices();callDM(c);};cb.appendChild(btn);});
+      choices.forEach(c=>{
+        const btn=document.createElement('button');btn.className='choice-pill';btn.textContent=c;
+        btn.onclick=()=>{removeChoices();callDM(c);};cb.appendChild(btn);
+      });
       block.appendChild(cb);
     }
     block.scrollIntoView({behavior:'smooth',block:'start'});
-  }catch(e){bub.innerHTML=`<span style="color:var(--red-text);font-size:13px;">Error: ${e.message} — Try again.</span>`;}
+    addJournalEntry(clean.slice(0,120)+(clean.length>120?'...':''));
+    autoSave();
+  }catch(e){
+    bub.innerHTML=`<span style="color:var(--red-text);font-size:13px;">Error: ${e.message} — Try again.</span>`;
+  }
   S.loading=false;renderHP();
+}
+
+async function callDMSilent(msg){
+  if(S.loading)return;
+  S.loading=true;
+  S.history.push({role:'user',content:msg});
+  const hist=S.history.length>20?S.history.slice(-20):S.history;
+  await dmRequest(hist,true);
 }
 
 async function callDM(userMsg,retrying=false){
@@ -880,37 +1039,15 @@ async function callDM(userMsg,retrying=false){
   const playerName=S.party.length===1?S.party[0].name:'You';
   if(!retrying){addMsg('player',userMsg,playerName);S.history.push({role:'user',content:userMsg});}
   const hist=S.history.length>20?S.history.slice(-20):S.history;
-  const block=document.createElement('div');block.className='msg-block dm';
-  const lbl=document.createElement('div');lbl.className='msg-label dm-label';lbl.textContent='DM';block.appendChild(lbl);
-  const bub=document.createElement('div');bub.className='bubble dm-bubble';
-  bub.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
-  block.appendChild(bub);
-  document.getElementById('chat-log').appendChild(block);
-  block.scrollIntoView({behavior:'smooth',block:'end'});
-  try{
-    const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist,systemPrompt:buildSystemPrompt()})});
-    const data=await res.json();
-    if(data.error){
-      if(!retrying){block.remove();S.loading=false;await callDM(userMsg,true);return;}
-      throw new Error(data.error);
+  if(retrying){
+    await dmRequest(hist,false);
+  } else {
+    try{await dmRequest(hist,false);}
+    catch(e){
+      S.loading=false;
+      await callDM(userMsg,true);
     }
-    const full=data.response;
-    S.history.push({role:'assistant',content:full});
-    const clean=cleanText(full);const choices=parseChoices(full);
-    bub.innerHTML=formatDM(clean);
-    const ds=detectDice(clean);
-    if(ds){const m=clean.match(/roll\s+(?:a\s+)?d\d+[^.!?]*/i);showDice(ds,m?m[0].trim():`Roll a d${ds}!`);}
-    else hideDice();
-    if(choices.length>0){
-      const cb=document.createElement('div');cb.className='choices-block';
-      choices.forEach(c=>{const btn=document.createElement('button');btn.className='choice-pill';btn.textContent=c;btn.onclick=()=>{removeChoices();callDM(c);};cb.appendChild(btn);});
-      block.appendChild(cb);
-    }
-    block.scrollIntoView({behavior:'smooth',block:'start'});
-  }catch(e){
-    bub.innerHTML=`<span style="color:var(--red-text);font-size:13px;">Error: ${e.message} — Try again.</span>`;
   }
-  S.loading=false;renderHP();
 }
 
 function removeChoices(){document.querySelectorAll('.choices-block').forEach(el=>el.remove());}
@@ -927,22 +1064,87 @@ function adjustHP(){
   const names=S.party.map((c,i)=>`${i}: ${c.name||'Char '+(i+1)}`).join(', ');
   const idx=prompt(`Which character? (${names})`);
   const i=parseInt(idx);if(isNaN(i)||!S.party[i])return;
-  const delta=prompt('HP change? (e.g. -8 for damage, +5 for healing)');
+  const delta=prompt('HP change? (e.g. -8 damage, +5 healing)');
   const d=parseInt(delta);if(isNaN(d))return;
   S.party[i].hp=Math.max(0,Math.min(S.party[i].maxHp,S.party[i].hp+d));
   addMsg('system',`${S.party[i].name||'Character '+(i+1)} ${d<0?'takes '+Math.abs(d)+' damage':'heals '+d+' HP'} (${S.party[i].hp}/${S.party[i].maxHp} HP)`);
-  renderHP();closeDrawer();
+  renderHP();closeAll();autoSave();
 }
 
-function summarize(){closeDrawer();callDM('Give a 3-sentence summary: what happened, who we met, where we stand.');}
+function summarize(){closeAll();callDM('Give a 3-sentence summary: what happened, who we met, and where we currently stand.');}
+
+function autoSave(){
+  try{
+    const data={
+      version:3,savedAt:new Date().toISOString(),
+      campaignName:document.getElementById('campaign-name').value,
+      premise:document.getElementById('campaign-premise').value,
+      genre:S.genre,adventureType:S.adventureType,
+      settings:S.settings,tones:S.tones,subgenres:S.subgenres,
+      party:S.party,history:S.history,journal:S.journal,
+      gameStarted:S.gameStarted,
+      bodyClass:document.body.className
+    };
+    localStorage.setItem('cyoa_autosave',JSON.stringify(data));
+  }catch(e){console.warn('Autosave failed:',e);}
+}
 
 function saveGame(){
-  const data={version:3,savedAt:new Date().toISOString(),campaignName:document.getElementById('campaign-name').value,premise:document.getElementById('campaign-premise').value,genre:S.genre,adventureType:S.adventureType,settings:S.settings,tones:S.tones,subgenres:S.subgenres,party:S.party,history:S.history};
+  const data={
+    version:3,savedAt:new Date().toISOString(),
+    campaignName:document.getElementById('campaign-name').value,
+    premise:document.getElementById('campaign-premise').value,
+    genre:S.genre,adventureType:S.adventureType,
+    settings:S.settings,tones:S.tones,subgenres:S.subgenres,
+    party:S.party,history:S.history,journal:S.journal
+  };
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download=`${data.campaignName.replace(/\s+/g,'-')}-save.json`;a.click();
-  URL.revokeObjectURL(url);
-  addMsg('system','— Game saved —');closeDrawer();
+  const a=document.createElement('a');a.href=url;
+  a.download=`${data.campaignName.replace(/\s+/g,'-')}-save.json`;
+  a.click();URL.revokeObjectURL(url);
+  addMsg('system','— Game saved —');closeAll();
+}
+
+function restoreFromData(data){
+  S.genre=data.genre||'High Fantasy';S.adventureType=data.adventureType||'One-off Adventure';
+  S.settings=data.settings||S.settings;S.tones=data.tones||['Balanced'];
+  S.subgenres=data.subgenres||[];S.party=data.party||[];
+  S.history=data.history||[];S.journal=data.journal||{scene:{location:'',people:[],hook:''},log:[],conditions:{}};
+  document.getElementById('campaign-name').value=data.campaignName||'';
+  document.getElementById('campaign-premise').value=data.premise||'';
+  if(data.bodyClass)document.body.className=data.bodyClass;
+  document.getElementById('setup').classList.add('gone');
+  document.getElementById('header-title').textContent=data.campaignName||'Adventure';
+  document.getElementById('header-sub').textContent=S.genre+' · '+S.adventureType;
+  S.gameStarted=true;
+  renderHP();
+  const log=document.getElementById('chat-log');log.innerHTML='';
+  if(data.premise){
+    const ctx=document.createElement('div');ctx.className='context-card';
+    ctx.innerHTML=`<div class="ctx-campaign">${data.campaignName||'Adventure'}</div><div class="ctx-genre">${S.genre} · ${S.adventureType}</div><div class="ctx-premise">${data.premise}</div>`;
+    log.appendChild(ctx);
+  }
+  S.history.forEach(msg=>{
+    if(msg.role==='user'){const pn=S.party.length===1?S.party[0].name:'You';addMsg('player',msg.content,pn);}
+    else if(msg.role==='assistant'){
+      const block=document.createElement('div');block.className='msg-block dm';
+      const lbl=document.createElement('div');lbl.className='msg-label dm-label';lbl.textContent='DM';block.appendChild(lbl);
+      const bub=document.createElement('div');bub.className='bubble dm-bubble';bub.innerHTML=formatDM(cleanText(msg.content));block.appendChild(bub);
+      log.appendChild(block);
+    }
+  });
+  const lastEntry=log.lastElementChild;if(lastEntry)lastEntry.scrollIntoView({block:'end'});
+}
+
+function resumeSession(){
+  try{
+    const raw=localStorage.getItem('cyoa_autosave');
+    if(!raw)return;
+    const data=JSON.parse(raw);
+    restoreFromData(data);
+    addMsg('system','— Session resumed —');
+  }catch(e){alert('Could not resume session.');}
 }
 
 function loadGame(event){
@@ -951,27 +1153,9 @@ function loadGame(event){
   reader.onload=e=>{
     try{
       const data=JSON.parse(e.target.result);
-      S.genre=data.genre||'High Fantasy';S.adventureType=data.adventureType||'One-off Adventure';
-      S.settings=data.settings||S.settings;S.tones=data.tones||['Balanced'];
-      S.subgenres=data.subgenres||[];S.party=data.party||[];S.history=data.history||[];
-      document.getElementById('campaign-name').value=data.campaignName||'';
-      document.getElementById('campaign-premise').value=data.premise||'';
-      document.getElementById('setup').classList.add('gone');
-      document.getElementById('header-title').textContent=data.campaignName||'Adventure';
-      document.getElementById('header-sub').textContent=S.genre+' · '+S.adventureType;
-      renderHP();
-      const log=document.getElementById('chat-log');log.innerHTML='';
-      S.history.forEach(msg=>{
-        if(msg.role==='user'){const pn=S.party.length===1?S.party[0].name:'You';addMsg('player',msg.content,pn);}
-        else if(msg.role==='assistant'){
-          const block=document.createElement('div');block.className='msg-block dm';
-          const lbl=document.createElement('div');lbl.className='msg-label dm-label';lbl.textContent='DM';block.appendChild(lbl);
-          const bub=document.createElement('div');bub.className='bubble dm-bubble';bub.innerHTML=formatDM(cleanText(msg.content));block.appendChild(bub);
-          document.getElementById('chat-log').appendChild(block);
-        }
-      });
+      restoreFromData(data);
       addMsg('system','— Save loaded — Welcome back! —');
-      closeDrawer();
+      closeAll();
     }catch(err){alert('Failed to load save file.');}
   };
   reader.readAsText(file);event.target.value='';
@@ -980,10 +1164,12 @@ function loadGame(event){
 function newSession(){
   if(!confirm('Start a new campaign? All progress will be lost.'))return;
   S.history=[];S.party=[];S.gameStarted=false;
+  S.journal={scene:{location:'',people:[],hook:''},log:[],conditions:{}};
+  localStorage.removeItem('cyoa_autosave');
   document.getElementById('chat-log').innerHTML='<div class="msg-block system"><div class="sys-msg">Set up your adventure and begin!</div></div>';
   document.getElementById('hp-row').classList.remove('show');
   document.getElementById('setup').classList.remove('gone');
-  closeDrawer();
+  closeAll();
 }
 
 function startAdventure(){
@@ -992,23 +1178,34 @@ function startAdventure(){
   document.getElementById('party-err').textContent='';
   S.history=[];S.gameStarted=true;
   document.getElementById('setup').classList.add('gone');
-  const cname=document.getElementById('campaign-name').value||'The Adventure';
+  const cname=document.getElementById('campaign-name').value||'Adventure';
   const premise=document.getElementById('campaign-premise').value;
   document.getElementById('header-title').textContent=cname;
   document.getElementById('header-sub').textContent=S.genre+' · '+S.adventureType;
   const log=document.getElementById('chat-log');log.innerHTML='';
-
-  // Context card
   const ctx=document.createElement('div');ctx.className='context-card';
   ctx.innerHTML=`<div class="ctx-campaign">${cname}</div><div class="ctx-genre">${S.genre}${S.subgenres.length>0?' · '+S.subgenres.join(', '):''} · ${S.adventureType}</div><div class="ctx-premise">${premise}</div>`;
   log.appendChild(ctx);
-
   renderHP();
+  autoSave();
   const isSolo=S.party.length===1;
   const desc=isSolo?`${S.party[0].name} — a Level ${S.party[0].level||1} ${S.party[0].race} ${S.party[0].cls}`:S.party.map(c=>`${c.name} the ${c.race} ${c.cls}`).join(', ');
   const solo=isSolo?`Solo adventure. Always call the character ${S.party[0].name}, never "the party".`:'';
-  callDMSilent(`Begin the adventure. ${solo} Open the scene for this ${S.genre} ${S.adventureType}. Introduce ${desc} into the world. Set the tone immediately. Max 80 words. Give 3 specific opening choices.`);
+  callDMSilent(`Begin the adventure. ${solo} Open the scene for this ${S.genre} ${S.adventureType}. Introduce ${desc}. Set the tone and atmosphere immediately. Establish time of day and location. Max 80 words. Give 3 specific opening choices.`);
 }
+
+// Check for autosave on load
+window.addEventListener('load',()=>{
+  try{
+    const raw=localStorage.getItem('cyoa_autosave');
+    if(raw){
+      const data=JSON.parse(raw);
+      if(data.gameStarted&&data.history&&data.history.length>0){
+        document.getElementById('resume-btn').classList.add('show');
+      }
+    }
+  }catch(e){}
+});
 </script>
 </body>
 </html>
